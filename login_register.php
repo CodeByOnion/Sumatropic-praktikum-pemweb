@@ -1,55 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Login</title>
+    <title>Sumatropic - Masuk & Daftar</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="login-container">
-        <h2>Masuk Sumatropic</h2>
 
-        <form action="actions/login_proses.php" method="POST">
+    <header>
+        <div class="logo">SUMATROPIC</div>
+        <nav>
+            <a href="#">Beranda</a>
+            <a href="#">Berita</a>
+            <a href="#">Flora</a>
+            <a href="#">Fauna</a>
+        </nav>
+        <div class="header-btns">
+            <button class="nav-btn ghost" id="nav-login">Masuk</button>
+            <button class="nav-btn filled" id="nav-register">Daftar</button>
+        </div>
+    </header>
 
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" required placeholder="Masukkan email...">
-            </div>
-
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" required placeholder="Masukkan password...">
-            </div>
-
-            <button type="submit" name="login_btn">Masuk</button>
-        </form>
-
-        <form action="actions/register_proses.php" method="POST">
-            <h3>Daftar Akun Baru</h3>
-
-            <div class="form-group">
+    <div class="container" id="container">
+        
+        <div class="form-container sign-up-container">
+            <form action="actions/register_proses.php" method="POST">
+                <h1>Daftar</h1>
+                <p class="subtitle">Bergabung menjadi Sobat Suma dan mulai jelajahi keindahan Flora dan Fauna Sumatra</p>
+                
                 <label>Username</label>
-                <input type="text" name="username" placeholder="Username" required>
-            </div>
-
-            <div class="form-group">
+                <input type="text" name="username" placeholder="Masukkan Username..." required />
+                
                 <label>Email</label>
-                <input type="email" name="email" placeholder="Email" required>
-            </div>
-
-            <div class="form-group">
+                <input type="email" name="email" placeholder="Masukkan Email..." required />
+                
                 <label>Password</label>
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Masukkan Password..." required />
+                
+                <label>Konfirmasi Password</label>
+                <input type="password" name="conf_password" placeholder="Konfirmasi Password..." />
+
+                <button type="submit" name="register_btn" class="orange-btn">Daftar</button>
+            </form>
+        </div>
+
+        <div class="form-container sign-in-container">
+            <form action="actions/login_proses.php" method="POST">
+                <h1>Masuk</h1>
+                <p class="subtitle">Masuk ke akunmu dan lanjutkan menjelajahi keindahan Hutan Sumatra</p>
+                
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Masukkan Email..." required />
+                
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Masukkan password..." required />
+                
+                <button type="submit" name="login_btn" class="orange-btn">Masuk</button>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Halo, Selamat Datang!</h1>
+                    <p>Jika sudah punya akun, klik tombol "Masuk" di bawah ini ya!</p>
+                    <button class="ghost" id="signIn">Masuk</button>
+                </div>
+                
+                <div class="overlay-panel overlay-right">
+                    <h1>Halo, Sobat Suma!</h1>
+                    <p>Jika belum punya akun, klik tombol "Daftar" di bawah ini ya!</p>
+                    <button class="ghost" id="signUp">Daftar</button>
+                </div>
             </div>
-
-            <button type="submit" name="register_btn">Daftar Sekarang</button>
-        </form>
-
-        <p>Belum punya akun? <a href="register.php">Daftar disini</a></p>
+        </div>
     </div>
+
+    <footer>
+        <div class="footer-left">Sumatropic</div>
+        <div class="footer-social">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-tiktok"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
+        <div class="footer-right">Sumatropic 2025. All right reserved</div>
+    </footer>
+
+    <script>
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+
+        // Tombol di panel hijau
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+
+        // (Opsional) Tombol di Navbar agar berfungsi memicu geseran
+        document.getElementById('nav-register').addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+        document.getElementById('nav-login').addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+    </script>
 </body>
 
 </html>
