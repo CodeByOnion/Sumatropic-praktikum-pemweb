@@ -26,7 +26,7 @@
         </div>
     </nav>
 
-    <header class="hero">
+    <header class="hero" style="background-image: url('assets/image/harmauberita.jpg');">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <div class="hero-text">
@@ -70,7 +70,7 @@
             
             <article class="news-card">
                 <div class="news-image">
-                    <img src="https://placehold.co/600x400/gray/white?text=Gajah+Mati" alt="Gajah Sumatera">
+                    <img src="assets/image/gajahmati.jpg" alt="Gajah Sumatera">
                 </div>
                 <div class="news-details">
                     <span class="news-date">29 November 2025</span>
@@ -83,7 +83,7 @@
 
             <article class="news-card">
                 <div class="news-image">
-                    <img src="https://placehold.co/600x400/gray/white?text=Gajah+Mati" alt="Gajah Sumatera">
+                    <img src="assets/image/gajahmati.jpg" alt="Gajah Sumatera">
                 </div>
                 <div class="news-details">
                     <span class="news-date">29 November 2025</span>
@@ -96,7 +96,7 @@
 
             <article class="news-card">
                 <div class="news-image">
-                    <img src="https://placehold.co/600x400/gray/white?text=Gajah+Mati" alt="Gajah Sumatera">
+                    <img src="assets/image/gajahmati.jpg" alt="Gajah Sumatera">
                 </div>
                 <div class="news-details">
                     <span class="news-date">29 November 2025</span>
@@ -109,7 +109,7 @@
 
              <article class="news-card">
                 <div class="news-image">
-                    <img src="https://placehold.co/600x400/gray/white?text=Gajah+Mati" alt="Gajah Sumatera">
+                    <img src="assets/image/gajahmati.jpg" alt="Gajah Sumatera">
                 </div>
                 <div class="news-details">
                     <span class="news-date">29 November 2025</span>
