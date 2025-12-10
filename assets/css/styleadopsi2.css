@@ -1,0 +1,161 @@
+/* --- CSS FINAL & FIX --- */
+
+/* 1. Global Reset */
+:root {
+    --primary-green: #2e4222;
+    --card-green: #354e26;
+    --accent-orange: #d96c16;
+    --bg-cream: #fbfbe3;
+    --text-dark: #1a1a1a;
+    --text-grey: #4a4a4a;
+    --text-light: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-cream);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    overflow-x: hidden; /* Mencegah scroll samping */
+}
+
+h1, h2, h3, .logo, .section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+/* 2. Navbar */
+.navbar {
+    background-color: var(--primary-green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: relative;
+    z-index: 100;
+}
+.logo { color: white; font-size: 1.5rem; letter-spacing: 1px; }
+.nav-links { list-style: none; display: flex; gap: 30px; }
+.nav-links a { text-decoration: none; color: white; font-weight: 500; }
+.user-icon i { color: white; font-size: 1.5rem; }
+
+/* 3. Hero Section (FOTO) */
+.hero {
+    /* Pastikan gambar ada di folder ../image/adopsi.jpg */
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../image/adopsi.jpg');
+    background-size: cover;
+    /* PENTING: Angka 20% membuat wajah orangutan terlihat pas di tengah atas */
+    background-position: center 20%; 
+    height: 90vh; /* Tinggi pas agar tidak kependekan */
+    display: flex;
+    align-items: flex-start; /* Teks mulai dari atas */
+    padding: 120px 0 0 60px; /* Padding atas agar teks tidak nabrak navbar */
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text { max-width: 600px; color: white; }
+.hero-text .subtitle { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 10px; font-weight: 600; }
+.hero-text h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 15px; }
+.hero-text p { font-size: 1.2rem; font-weight: 400; }
+
+/* 4. Curve Container (Bagian Hijau Judul 'Adopsi') */
+.curve-container {
+    background-color: var(--primary-green);
+    color: white;
+    
+    /* BENTUK LENGKUNGAN (Kanan Atas Naik) */
+    border-top-right-radius: 50% 120px;
+    border-top-left-radius: 0;
+    
+    /* POSISI TUMPUKAN (Naik ke atas foto) */
+    margin-top: -180px; 
+    
+    /* Padding diatur agar teks 'Adopsi' pas di tengah area hijau */
+    padding: 80px 60px 140px 60px; 
+    
+    position: relative;
+    z-index: 2;
+}
+
+.breadcrumb { font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px; }
+.intro-title h2 { font-size: 3.5rem; margin-bottom: 10px; }
+.intro-title p { max-width: 600px; font-size: 1.1rem; line-height: 1.5; }
+
+/* 5. Main Content (Bagian Krem) */
+.main-content {
+    background-color: var(--bg-cream);
+    
+    /* BENTUK LENGKUNGAN (Kiri Atas Cekung) */
+    border-top-left-radius: 50% 120px;
+    
+    /* POSISI TUMPUKAN (Naik ke atas hijau) */
+    margin-top: -100px;
+    
+    padding: 80px 60px;
+    position: relative;
+    z-index: 3;
+    
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* Layout Kiri & Kanan */
+.info-section { flex: 1; min-width: 350px; }
+.form-card-container { flex: 1; min-width: 400px; max-width: 550px; position: relative; margin-top: -50px; }
+
+/* Teks Styles */
+.section-title { font-size: 2.2rem; color: var(--primary-green); margin-bottom: 20px; }
+.mt-large { margin-top: 40px; }
+.info-section p { color: var(--text-grey); line-height: 1.8; margin-bottom: 20px; font-size: 1rem; }
+
+/* List Benefit */
+.benefit-list { list-style: none; margin-bottom: 30px; }
+.benefit-list li { display: flex; align-items: center; margin-bottom: 12px; color: var(--text-grey); font-weight: 500; font-size: 0.95rem; }
+.benefit-list li::before { content: ''; display: inline-block; width: 14px; height: 14px; background: radial-gradient(circle at 30% 30%, #4cd137, #009432); border-radius: 50%; margin-right: 15px; flex-shrink: 0; }
+
+/* Form Card Style */
+.form-card { background-color: var(--card-green); color: white; padding: 35px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+.form-card h3 { text-align: center; font-size: 1.8rem; margin-bottom: 25px; }
+
+/* Tombol Harga */
+.pricing-options { display: flex; gap: 10px; justify-content: center; margin-bottom: 30px; flex-wrap: wrap; }
+.price-btn { padding: 10px 18px; border: 1px solid rgba(255,255,255,0.5); background: transparent; color: white; border-radius: 50px; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
+.price-btn.active, .price-btn:hover { background-color: var(--accent-orange); border-color: var(--accent-orange); }
+
+/* Input Form */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.form-group { display: flex; flex-direction: column; }
+.form-group.full-width { grid-column: span 2; }
+.form-group label { margin-bottom: 8px; font-weight: 600; font-size: 0.85rem; }
+.form-group input { padding: 12px; border-radius: 8px; border: none; background: white; color: #333; font-size: 0.95rem; outline: none; }
+
+/* Tombol Submit */
+.submit-btn { background-color: var(--accent-orange); color: white; border: none; padding: 14px 30px; border-radius: 8px; font-weight: 700; margin-top: 20px; cursor: pointer; font-size: 1rem; }
+.submit-btn:hover { background-color: #c25e0f; }
+
+/* Widget L HILANG */
+.chat-widget { display: none !important; }
+
+/* 6. Footer */
+footer { background-color: var(--primary-green); color: white; padding: 40px 60px; margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); }
+.footer-content { display: flex; justify-content: space-between; align-items: center; }
+.social-icons i { margin: 0 10px; font-size: 1.2rem; }
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .navbar { padding: 15px 20px; }
+    .nav-links { display: none; }
+    .hero { height: 60vh; padding: 80px 0 0 20px; }
+    .hero-text h1 { font-size: 2.5rem; }
+    /* Mobile: Reset margins agar rapi */
+    .curve-container { margin-top: -60px; padding: 40px 20px; border-top-right-radius: 50% 60px; }
+    .main-content { margin-top: -40px; padding: 30px 20px; border-top-left-radius: 50% 60px; }
+    .form-card-container { min-width: 100%; margin-top: 0; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full-width { grid-column: span 1; }
+    .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+}

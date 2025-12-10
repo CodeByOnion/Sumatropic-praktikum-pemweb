@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumatropic - Adopsi Orangutan</title>
     
-    <link rel="stylesheet" href="assets/css/styleadopsi.css">
+    <link rel="stylesheet" href="../assets/css/styleadopsi1.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
@@ -26,7 +26,7 @@
         </div>
     </nav>
 
-    <header class="hero-orangutan" style="background-image: url('assets/image/adopsi.jpg');">
+    <header class="hero-orangutan" style="background-image: url('../assets/image/adopsi.jpg');">
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
@@ -63,7 +63,7 @@
             
             <div class="card-orangutan">
                 <div class="card-img-wrapper">
-                    <img src="assets/image/adopsi.jpg" alt="Orangutan Tapanuli">
+                    <img src="../assets/image/adopsi.jpg" alt="Orangutan Tapanuli">
                 </div>
                 <div class="card-body">
                     <h3>Orangutan Tapanuli, Sumatra</h3>
@@ -73,7 +73,7 @@
 
             <div class="card-orangutan">
                 <div class="card-img-wrapper">
-                    <img src="assets/image/adopsi.jpg" alt="Orangutan Tapanuli">
+                    <img src="../assets/image/adopsi.jpg" alt="Orangutan Tapanuli">
                 </div>
                 <div class="card-body">
                     <h3>Orangutan Tapanuli, Sumatra</h3>
@@ -83,7 +83,7 @@
 
             <div class="card-orangutan">
                 <div class="card-img-wrapper">
-                    <img src="assets/image/adopsi.jpg" alt="Orangutan Tapanuli">
+                    <img src="../assets/image/adopsi.jpg" alt="Orangutan Tapanuli">
                 </div>
                 <div class="card-body">
                     <h3>Orangutan Tapanuli, Sumatra</h3>
@@ -93,7 +93,7 @@
 
             <div class="card-orangutan">
                 <div class="card-img-wrapper">
-                    <img src="assets/image/adopsi.jpg" alt="Orangutan Tapanuli">
+                    <img src="../assets/image/adopsi.jpg" alt="Orangutan Tapanuli">
                 </div>
                 <div class="card-body">
                     <h3>Orangutan Tapanuli, Sumatra</h3>
@@ -103,7 +103,7 @@
 
             <div class="card-orangutan">
                 <div class="card-img-wrapper">
-                    <img src="assets/image/adopsi.jpg" alt="Orangutan Tapanuli">
+                    <img src="../assets/image/adopsi.jpg" alt="Orangutan Tapanuli">
                 </div>
                 <div class="card-body">
                     <h3>Orangutan Tapanuli, Sumatra</h3>
@@ -113,7 +113,7 @@
 
             <div class="card-orangutan">
                 <div class="card-img-wrapper">
-                    <img src="assets/image/adopsi.jpg" alt="Orangutan Tapanuli">
+                    <img src="../assets/image/adopsi.jpg" alt="Orangutan Tapanuli">
                 </div>
                 <div class="card-body">
                     <h3>Orangutan Tapanuli, Sumatra</h3>
