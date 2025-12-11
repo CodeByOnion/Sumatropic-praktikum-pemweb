@@ -1,4 +1,4 @@
-CREATE DATABASE sumatropic_db;
+usersusersCREATE DATABASE sumatropic_db;
 
 USE sumatropic_db;
 
@@ -13,13 +13,24 @@ CREATE TABLE users (
 );
 
 -- 2. Tabel Flora & Fauna
-CREATE TABLE florafauna (
+CREATE TABLE flora (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nama_lokal VARCHAR(100) NOT NULL,
     nama_ilmiah VARCHAR(100),
-    kategori ENUM('flora', 'fauna') NOT NULL,
     status_konservasi VARCHAR(50), 
     deskripsi TEXT,
+    asal_provinsi VARCHAR(100), -- Kolom baru
+    gambar VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE fauna (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_lokal VARCHAR(100) NOT NULL,
+    nama_ilmiah VARCHAR(100),
+    status_konservasi VARCHAR(50), 
+    deskripsi TEXT,
+    asal_provinsi VARCHAR(100), -- Kolom baru
     gambar VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

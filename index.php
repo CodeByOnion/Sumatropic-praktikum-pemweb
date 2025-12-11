@@ -2,9 +2,8 @@
 session_start();
 require 'config/connect.php';
 
-// 1. Ambil 1 Fauna Terbaru untuk "Did You Know"
-// Kita ambil kategori 'fauna' saja
-$query_spotlight = "SELECT * FROM florafauna WHERE kategori='fauna' ORDER BY created_at DESC LIMIT 1";
+// 1. Ambil 1 Fauna Terbaru untuk "Did You Know" 
+$query_spotlight = "SELECT * FROM fauna ORDER BY created_at DESC LIMIT 1";
 $result_spotlight = mysqli_query($conn, $query_spotlight);
 $spotlight = mysqli_fetch_assoc($result_spotlight);
 
@@ -33,18 +32,16 @@ $result_news = mysqli_query($conn, $query_news);
 <body>
 
     <nav>
-        <div class="logo">SUMATROPIC</div>
+        <div class="logo"><a href="index.php" style="text-decoration:none; color:inherit;">SUMATROPIC</a></div>
         <ul>
             <li><a href="index.php">Beranda</a></li>
-            <li><a href="#">Berita</a></li>
+            <li><a href="pages/berita.php">Berita</a></li>
             <li><a href="#">Flora</a></li>
             <li><a href="#">Fauna</a></li>
         </ul>
         <div class="auth-buttons">
             <?php if (isset($_SESSION['status']) && $_SESSION['status'] == "login"): ?>
 
-                <a href="admin/dashboard.php" class="btn btn-outline"
-                    style="text-decoration:none; display:inline-block; text-align:center;">Dashboard</a>
                 <a href="actions/logout.php" class="btn btn-orange"
                     style="text-decoration:none; display:inline-block; text-align:center;">Logout</a>
 

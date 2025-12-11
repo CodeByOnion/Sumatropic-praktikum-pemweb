@@ -1,0 +1,238 @@
+/* --- RESET & LAYOUT --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fdfaf0;
+    /* Light cream background like mockup */
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* --- SIDEBAR (Slight adjustments to match mockup color if needed) --- */
+.sidebar {
+    width: 250px;
+    background-color: #fdfaf0;
+    /* Cream background */
+    color: #2e4a1c;
+    /* Dark green text */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar h2 {
+    color: #2e4a1c;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: serif;
+    /* Matches "SUMATROPIC" serif font */
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #2e4a1c;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+.sidebar a:hover,
+.sidebar a[style*="background-color"] {
+    /* Matches inline style for active menu */
+    background-color: #e0e0e0 !important;
+    /* Light grey hover */
+    color: #2e4a1c !important;
+}
+
+.sidebar .logout {
+    background-color: red;
+    color: white !important;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 20px;
+    /* Rounded button like mockup */
+    padding: 8px 0;
+}
+
+/* --- MAIN CONTENT CONTAINER --- */
+.container {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    background-color: #fdfaf0;
+    /* Cream background */
+}
+
+/* --- HEADER SECTION --- */
+.container h2 {
+    color: #fdfaf0;
+    /* White text for header inside the green box */
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+/* --- GREEN CARD WRAPPER (The main dark box) --- */
+.table-wrapper {
+    background-color: #2e4a1c;
+    /* Dark Green background */
+    padding: 30px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --- SEARCH & ADD BUTTON BAR --- */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.search-input {
+    flex: 2;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.sort-select {
+    flex: 1;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.btn-add {
+    background-color: #d4d8c6;
+    /* Light greenish/white button */
+    color: #2e4a1c;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+    border: 1px solid white;
+}
+
+.btn-add:hover {
+    background-color: white;
+}
+
+/* --- TABLE STYLING --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+}
+
+table th {
+    text-align: left;
+    padding: 15px 10px;
+    border-bottom: 1px solid #5a754a;
+    /* Lighter green border */
+    font-weight: bold;
+    font-size: 15px;
+}
+
+table td {
+    padding: 15px 10px;
+    border-bottom: 1px solid #5a754a;
+    font-size: 13px;
+    vertical-align: top;
+}
+
+/* Column specific widths to match mockup */
+table th:nth-child(1),
+table td:nth-child(1) {
+    width: 5%;
+}
+
+/* Id */
+table th:nth-child(2),
+table td:nth-child(2) {
+    width: 20%;
+}
+
+/* Judul */
+table th:nth-child(3),
+table td:nth-child(3) {
+    width: 30%;
+}
+
+/* Deskripsi */
+table th:nth-child(4),
+table td:nth-child(4) {
+    width: 15%;
+}
+
+/* Url */
+table th:nth-child(5),
+table td:nth-child(5) {
+    width: 15%;
+}
+
+/* Tanggal */
+table th:nth-child(6),
+table td:nth-child(6) {
+    width: 15%;
+}
+
+/* Action */
+
+/* Links inside table (URL Sumber) */
+table td a.source-link {
+    color: white;
+    text-decoration: underline;
+}
+
+/* --- ACTION BUTTONS (Ubah & Hapus) --- */
+.btn-edit {
+    background-color: #e67e22;
+    /* Orange */
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 5px;
+    width: 60px;
+    text-align: center;
+}
+
+.btn-delete {
+    background-color: #c0392b;
+    /* Red */
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+}
+
+/* Adjust images in table */
+td img {
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    margin-bottom: 5px;
+}

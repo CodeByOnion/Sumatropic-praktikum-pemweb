@@ -12,10 +12,10 @@
 <body>
 
     <header>
-        <div class="logo">SUMATROPIC</div>
+        <div class="logo"><a href="index.php" style="text-decoration:none; color:inherit;">SUMATROPIC</a></div>
         <nav>
-            <a href="#">Beranda</a>
-            <a href="#">Berita</a>
+            <a href="index.php">Beranda</a>
+            <a href="pages/berita.php">Berita</a>
             <a href="#">Flora</a>
             <a href="#">Fauna</a>
         </nav>
@@ -26,21 +26,21 @@
     </header>
 
     <div class="container" id="container">
-        
+
         <div class="form-container sign-up-container">
             <form action="actions/register_proses.php" method="POST">
                 <h1>Daftar</h1>
                 <p class="subtitle">Bergabung menjadi Sobat Suma dan mulai jelajahi keindahan Flora dan Fauna Sumatra</p>
-                
+
                 <label>Username</label>
                 <input type="text" name="username" placeholder="Masukkan Username..." required />
-                
+
                 <label>Email</label>
                 <input type="email" name="email" placeholder="Masukkan Email..." required />
-                
+
                 <label>Password</label>
                 <input type="password" name="password" placeholder="Masukkan Password..." required />
-                
+
                 <label>Konfirmasi Password</label>
                 <input type="password" name="conf_password" placeholder="Konfirmasi Password..." />
 
@@ -52,13 +52,13 @@
             <form action="actions/login_proses.php" method="POST">
                 <h1>Masuk</h1>
                 <p class="subtitle">Masuk ke akunmu dan lanjutkan menjelajahi keindahan Hutan Sumatra</p>
-                
+
                 <label>Email</label>
                 <input type="email" name="email" placeholder="Masukkan Email..." required />
-                
+
                 <label>Password</label>
                 <input type="password" name="password" placeholder="Masukkan password..." required />
-                
+
                 <button type="submit" name="login_btn" class="orange-btn">Masuk</button>
             </form>
         </div>
@@ -70,7 +70,7 @@
                     <p>Jika sudah punya akun, klik tombol "Masuk" di bawah ini ya!</p>
                     <button class="ghost" id="signIn">Masuk</button>
                 </div>
-                
+
                 <div class="overlay-panel overlay-right">
                     <h1>Halo, Sobat Suma!</h1>
                     <p>Jika belum punya akun, klik tombol "Daftar" di bawah ini ya!</p>
