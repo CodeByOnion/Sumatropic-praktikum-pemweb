@@ -1,0 +1,267 @@
+/* --- Reset & Variables --- */
+:root {
+    --bg-color: #FFFBE6; /* Warna krem background */
+    --primary-green: #3A522C; /* Hijau tua untuk card/header */
+    --text-dark: #2C3E23;
+    --accent-orange: #E67E22;
+    --text-white: #ffffff;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: var(--primary-green);
+    color: var(--text-white);
+}
+
+.navbar .logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+.user-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    height: 80vh; /* Tinggi hero section */
+    background: url('https://images.unsplash.com/photo-1581852017103-68ac6550535e?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    display: flex;
+    align-items: flex-end; /* Text di bawah */
+    padding: 0 50px 50px 50px;
+    color: var(--text-white);
+}
+
+/* Overlay gradient agar text terbaca */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(58, 82, 44, 0.9));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+/* Text floating di kanan (Spotlight on Gajah) */
+.hero-overlay-text {
+    position: absolute;
+    top: 30%;
+    right: 50px;
+    text-align: right;
+    z-index: 2;
+    color: var(--text-white);
+}
+
+.hero-overlay-text h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    line-height: 1;
+    margin: 10px 0;
+}
+
+/* --- Content Container --- */
+.container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* --- Intro Section --- */
+.intro {
+    margin-bottom: 60px;
+}
+
+.intro h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    margin-bottom: 5px;
+}
+
+.intro .subtitle {
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.intro .description {
+    max-width: 800px;
+}
+
+/* --- Card List (The Tricky Part) --- */
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* Jarak antar card vertikal */
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.card-text {
+    background-color: var(--primary-green);
+    color: var(--text-white);
+    padding: 40px;
+    border-radius: 12px;
+    width: 50%; /* Mengambil setengah lebar container */
+    z-index: 10; /* Agar di atas gambar */
+    /* Shadow halus */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.card-text h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.card-text p {
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.btn-action {
+    background-color: var(--accent-orange);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+    background-color: #d35400;
+}
+
+.card-image {
+    width: 60%; /* Gambar lebih lebar dari text box */
+    height: 400px;
+    margin-left: -100px; /* TEKNIK OVERLAP: Tarik gambar ke kiri masuk ke area text */
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #1a2910; /* Lebih gelap dari primary */
+    color: var(--text-white);
+    padding: 30px 50px;
+    margin-top: 100px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+}
+
+.socials i {
+    margin: 0 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* --- Responsiveness (Mobile) --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .nav-links {
+        display: none; /* Sembunyikan menu di mobile untuk simpelnya */
+    }
+
+    .hero h1 { font-size: 2.5rem; }
+    .hero-overlay-text { display: none; } /* Hide text overlay di mobile */
+
+    .card {
+        flex-direction: column-reverse; /* Gambar di atas, teks di bawah */
+    }
+
+    .card-text {
+        width: 100%;
+        margin-top: -50px; /* Overlap vertikal */
+    }
+
+    .card-image {
+        width: 100%;
+        margin-left: 0;
+        height: 250px;
+    }
+}

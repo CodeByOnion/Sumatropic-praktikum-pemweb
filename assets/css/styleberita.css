@@ -109,8 +109,9 @@ ul {
 
 /* HERO SECTION */
 .hero {
-    /* Ganti URL ini dengan gambar Harimau kamu */
-    background: url('https://placehold.co/1920x800/222/999?text=Tiger+Image') no-repeat center center/cover;
+    background-image: url('assets/image/harimauberita.jpg');
+    background-size: cover;
+    background-position: center;
     height: 500px;
     position: relative;
     display: flex;
