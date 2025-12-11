@@ -1,0 +1,156 @@
+/* --- CSS LENGKAP (Timpah yang lama) --- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+:root {
+    --primary-green: #2F4F28;
+    --bg-cream: #FDFCEF;
+    --accent-orange: #E67E22;
+    --form-grey: #E0E0E0;
+    --text-dark: #2F4F28;
+    --font-serif: 'Merriweather', serif;
+    --font-sans: 'Open Sans', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-cream);
+    font-family: var(--font-sans);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    flex: 1;
+}
+
+/* --- SUMMARY --- */
+.summary-section { margin-bottom: 30px; padding-left: 10px; }
+.summary-row { display: flex; margin-bottom: 8px; font-size: 1rem; color: var(--text-dark); font-weight: 600; }
+.summary-row .label { width: 130px; font-weight: 700; }
+.summary-row .separator { margin-right: 15px; }
+
+/* --- CARD --- */
+.payment-card {
+    background-color: var(--primary-green);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.payment-title {
+    font-family: var(--font-serif); color: white; text-align: center;
+    font-size: 2.2rem; margin-bottom: 30px;
+}
+
+/* --- OPTION (ACCORDION) --- */
+.payment-option {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: transparent;
+    overflow: hidden;
+    cursor: pointer; /* Pointer biar tau bisa diklik */
+}
+
+.option-header {
+    background-color: white;
+    padding: 15px 25px;
+    display: flex; align-items: center;
+    height: 70px;
+    border-radius: 8px; /* Default rounded */
+    transition: 0.3s;
+}
+
+.payment-option.active .option-header {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; /* Hapus round bawah kalau dibuka */
+}
+
+/* LOGO STYLES */
+.bank-logo { font-weight: 900; font-size: 1.5rem; margin-right: 20px; width: 60px; text-align: center; }
+.bank-logo.bca { color: #005eb8; font-style: italic; }
+.bank-logo.bni { color: #f15a23; }
+.bank-logo.small { font-size: 1.2rem; width: auto; margin-right: 10px; } /* Untuk dalam detail */
+
+.cc-logos { display: flex; align-items: center; gap: 10px; font-size: 1.8rem; margin-right: 20px; }
+.cc-logos .fa-cc-visa { color: #1a1f71; }
+.cc-logos .fa-cc-mastercard { color: #eb001b; }
+.atm-text { font-size: 0.7rem; background: #005eb8; color: white; padding: 2px 4px; border-radius: 2px; }
+
+.bank-name { flex: 1; font-weight: 700; font-size: 1rem; text-transform: uppercase; color: #333;}
+.icon-plus { font-size: 1.2rem; color: #333; transition: transform 0.3s; }
+
+/* --- OPTION BODY (HIDDEN BY DEFAULT) --- */
+.option-body {
+    background-color: var(--form-grey);
+    padding: 25px 30px;
+    display: none; /* Hidden default */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    animation: slideDown 0.3s ease-out;
+}
+
+.payment-option.active .option-body {
+    display: block; /* Muncul kalau active */
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- DETAIL BANK (BCA/BNI) --- */
+.bank-info-header {
+    display: flex; align-items: center; margin-bottom: 20px;
+    border-bottom: 1px solid #ccc; padding-bottom: 10px;
+}
+.bank-label { font-weight: 700; font-size: 1rem; color: #333; }
+
+.va-details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Kolom */
+    gap: 20px;
+}
+.va-item { display: flex; flex-direction: column; }
+.va-label { font-size: 0.85rem; color: #555; margin-bottom: 5px; }
+.va-value { font-size: 1rem; color: #000; font-weight: 600; }
+
+/* --- FORM KARTU KREDIT --- */
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.form-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+
+.form-group label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; color: #333;}
+.form-group input {
+    width: 100%; padding: 12px; border-radius: 6px; border: none; outline: none;
+    font-family: var(--font-sans);
+}
+
+/* --- TOMBOL FINISH (LUAR) --- */
+.finish-btn {
+    background-color: var(--accent-orange);
+    color: white; border: none; padding: 12px 35px; border-radius: 8px;
+    font-weight: 700; font-size: 1rem; cursor: pointer; margin-top: 20px;
+    transition: background 0.3s;
+}
+.finish-btn:hover { background-color: #cf6d17; }
+
+/* --- FOOTER --- */
+footer { background-color: #1a2e16; color: white; padding: 25px 0; margin-top: auto; }
+.footer-container {
+    max-width: 900px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.footer-logo { font-family: var(--font-serif); font-weight: 700; font-size: 1.2rem; }
+.socials i { margin: 0 10px; font-size: 1rem; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .va-details-grid { grid-template-columns: 1fr; gap: 15px; } /* Stack jadi 1 kolom di HP */
+    .form-grid-2, .form-grid-3 { grid-template-columns: 1fr; }
+    .footer-container { flex-direction: column; gap: 20px; text-align: center; }
+}

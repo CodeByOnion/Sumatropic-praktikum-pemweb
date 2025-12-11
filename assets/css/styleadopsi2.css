@@ -1,161 +1,192 @@
-/* --- CSS FINAL & FIX --- */
-
-/* 1. Global Reset */
+/* --- RESET & VARIABLES --- */
 :root {
-    --primary-green: #2e4222;
-    --card-green: #354e26;
-    --accent-orange: #d96c16;
-    --bg-cream: #fbfbe3;
-    --text-dark: #1a1a1a;
-    --text-grey: #4a4a4a;
-    --text-light: #ffffff;
+    --dark-green: #294222;  /* Hijau tua kartu & footer */
+    --strip-green: #2F4F28; /* Hijau strip judul */
+    --cream-bg: #FEFDF5;    /* Cream background */
+    --orange-btn: #E07A1E;  /* Warna oranye tombol */
+    --text-color: #333;
+    --font-serif: 'Merriweather', serif;
+    --font-sans: 'Open Sans', sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    background-color: var(--bg-cream);
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-dark);
-    overflow-x: hidden; /* Mencegah scroll samping */
+    background-color: var(--cream-bg);
+    font-family: var(--font-sans);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-h1, h2, h3, .logo, .section-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* 2. Navbar */
+/* --- NAVBAR --- */
 .navbar {
-    background-color: var(--primary-green);
+    background-color: var(--dark-green);
+    padding: 15px 0;
+    color: white;
+}
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    position: relative;
-    z-index: 100;
 }
-.logo { color: white; font-size: 1.5rem; letter-spacing: 1px; }
-.nav-links { list-style: none; display: flex; gap: 30px; }
-.nav-links a { text-decoration: none; color: white; font-weight: 500; }
-.user-icon i { color: white; font-size: 1.5rem; }
+.logo { font-family: var(--font-serif); font-weight: 700; letter-spacing: 1px; }
+.nav-links a {
+    color: white; text-decoration: none; margin-left: 20px;
+    font-size: 0.9rem; font-weight: 600;
+}
+.user-icon { font-size: 1.2rem; }
 
-/* 3. Hero Section (FOTO) */
+/* --- HERO SECTION --- */
 .hero {
-    /* Pastikan gambar ada di folder ../image/adopsi.jpg */
-    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../image/adopsi.jpg');
+    background-image: url('../image/adopsi.jpg'); /* Pastikan file gambar ada */
     background-size: cover;
-    /* PENTING: Angka 20% membuat wajah orangutan terlihat pas di tengah atas */
-    background-position: center 20%; 
-    height: 90vh; /* Tinggi pas agar tidak kependekan */
-    display: flex;
-    align-items: flex-start; /* Teks mulai dari atas */
-    padding: 120px 0 0 60px; /* Padding atas agar teks tidak nabrak navbar */
+    background-position: center 20%;
+    height: 420px;
     position: relative;
-    z-index: 1;
 }
+.hero-overlay {
+    width: 100%; height: 100%;
+    background: linear-gradient(to right, transparent 40%, rgba(0,0,0,0.6) 100%);
+    display: flex; align-items: center; justify-content: flex-end;
+}
+.hero-text-content {
+    color: white; text-align: right; margin-right: 15%; margin-top: -40px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.hero-text-content h1 {
+    font-family: var(--font-serif); font-size: 3rem; line-height: 1.1; margin: 5px 0;
+}
+.spotlight { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
 
-.hero-text { max-width: 600px; color: white; }
-.hero-text .subtitle { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 10px; font-weight: 600; }
-.hero-text h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 15px; }
-.hero-text p { font-size: 1.2rem; font-weight: 400; }
-
-/* 4. Curve Container (Bagian Hijau Judul 'Adopsi') */
-.curve-container {
-    background-color: var(--primary-green);
+/* --- GREEN TITLE STRIP (LENGKUNGAN) --- */
+.title-strip {
+    background-color: var(--strip-green);
     color: white;
-    
-    /* BENTUK LENGKUNGAN (Kanan Atas Naik) */
-    border-top-right-radius: 50% 120px;
-    border-top-left-radius: 0;
-    
-    /* POSISI TUMPUKAN (Naik ke atas foto) */
-    margin-top: -180px; 
-    
-    /* Padding diatur agar teks 'Adopsi' pas di tengah area hijau */
-    padding: 80px 60px 140px 60px; 
-    
+    padding: 30px 0 50px;
+    margin-top: -30px; /* Tarik ke atas menutupi gambar */
     position: relative;
-    z-index: 2;
+    border-top-left-radius: 60% 30px; /* Lengkungan kiri */
+    border-top-right-radius: 0;
+    z-index: 10;
+}
+.title-strip::before {
+    /* Hack untuk meluruskan lengkungan kanan agar smooth */
+    content: ""; position: absolute; top: 0; right: 0; width: 50%; height: 30px;
+    background-color: var(--strip-green);
+    border-top-right-radius: 60% 30px;
 }
 
-.breadcrumb { font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px; }
-.intro-title h2 { font-size: 3.5rem; margin-bottom: 10px; }
-.intro-title p { max-width: 600px; font-size: 1.1rem; line-height: 1.5; }
+.breadcrumb { font-size: 0.8rem; opacity: 0.8; margin-bottom: 5px; position: relative; z-index: 11;}
+.title-strip h2 { font-family: var(--font-serif); font-size: 2.5rem; position: relative; z-index: 11;}
+.subtitle { font-size: 0.9rem; opacity: 0.9; max-width: 600px; position: relative; z-index: 11;}
 
-/* 5. Main Content (Bagian Krem) */
-.main-content {
-    background-color: var(--bg-cream);
-    
-    /* BENTUK LENGKUNGAN (Kiri Atas Cekung) */
-    border-top-left-radius: 50% 120px;
-    
-    /* POSISI TUMPUKAN (Naik ke atas hijau) */
-    margin-top: -100px;
-    
-    padding: 80px 60px;
-    position: relative;
-    z-index: 3;
-    
+/* --- MAIN CONTENT (2 COLUMNS) --- */
+.main-wrapper { padding: 50px 0; }
+
+.content-flex {
     display: flex;
-    justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
 }
 
-/* Layout Kiri & Kanan */
-.info-section { flex: 1; min-width: 350px; }
-.form-card-container { flex: 1; min-width: 400px; max-width: 550px; position: relative; margin-top: -50px; }
+/* KIRI */
+.left-content { flex: 1; }
+.heading-serif {
+    font-family: var(--font-serif); color: var(--strip-green);
+    font-size: 1.8rem; margin-bottom: 15px; margin-top: 10px;
+}
+.text-body { margin-bottom: 25px; color: #444; }
+.small-text { font-size: 0.85rem; color: #555; line-height: 1.5; margin-top: 30px;}
 
-/* Teks Styles */
-.section-title { font-size: 2.2rem; color: var(--primary-green); margin-bottom: 20px; }
-.mt-large { margin-top: 40px; }
-.info-section p { color: var(--text-grey); line-height: 1.8; margin-bottom: 20px; font-size: 1rem; }
+/* Custom Bullets */
+.benefit-list { list-style: none; margin-bottom: 20px; }
+.benefit-list li {
+    position: relative; padding-left: 25px; margin-bottom: 10px;
+    color: var(--text-color); font-weight: 600; font-size: 0.95rem;
+}
+.benefit-list li::before {
+    content: ""; position: absolute; left: 0; top: 5px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #5ce468, #009900); /* Efek 3D */
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
 
-/* List Benefit */
-.benefit-list { list-style: none; margin-bottom: 30px; }
-.benefit-list li { display: flex; align-items: center; margin-bottom: 12px; color: var(--text-grey); font-weight: 500; font-size: 0.95rem; }
-.benefit-list li::before { content: ''; display: inline-block; width: 14px; height: 14px; background: radial-gradient(circle at 30% 30%, #4cd137, #009432); border-radius: 50%; margin-right: 15px; flex-shrink: 0; }
+/* KANAN (CARD) */
+.right-content {
+    flex: 0 0 450px; /* Lebar fix untuk form agar tidak melar */
+}
 
-/* Form Card Style */
-.form-card { background-color: var(--card-green); color: white; padding: 35px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-.form-card h3 { text-align: center; font-size: 1.8rem; margin-bottom: 25px; }
+.adoption-card {
+    background-color: var(--dark-green); /* HIJAU TUA WAJIB */
+    padding: 30px;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
 
-/* Tombol Harga */
-.pricing-options { display: flex; gap: 10px; justify-content: center; margin-bottom: 30px; flex-wrap: wrap; }
-.price-btn { padding: 10px 18px; border: 1px solid rgba(255,255,255,0.5); background: transparent; color: white; border-radius: 50px; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
-.price-btn.active, .price-btn:hover { background-color: var(--accent-orange); border-color: var(--accent-orange); }
+.card-title {
+    font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 15px;
+}
+.mt-large { margin-top: 30px; }
 
-/* Input Form */
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-.form-group { display: flex; flex-direction: column; }
-.form-group.full-width { grid-column: span 2; }
-.form-group label { margin-bottom: 8px; font-weight: 600; font-size: 0.85rem; }
-.form-group input { padding: 12px; border-radius: 8px; border: none; background: white; color: #333; font-size: 0.95rem; outline: none; }
+/* Pricing Buttons */
+.price-options { display: flex; flex-wrap: wrap; gap: 10px; }
+.price-btn {
+    flex: 1 1 45%; /* Setengah lebar */
+    padding: 10px; background: transparent;
+    border: 1px solid white; color: white;
+    border-radius: 6px; cursor: pointer; font-weight: 600;
+}
+.price-btn.full { flex: 1 1 100%; } /* Tombol panjang */
+.price-btn.active {
+    background-color: var(--orange-btn); border-color: var(--orange-btn);
+}
 
-/* Tombol Submit */
-.submit-btn { background-color: var(--accent-orange); color: white; border: none; padding: 14px 30px; border-radius: 8px; font-weight: 700; margin-top: 20px; cursor: pointer; font-size: 1rem; }
-.submit-btn:hover { background-color: #c25e0f; }
+/* Form Inputs */
+.input-group { margin-bottom: 15px; }
+.row-input { display: flex; gap: 15px; }
+.row-input .input-group { flex: 1; }
 
-/* Widget L HILANG */
-.chat-widget { display: none !important; }
+.input-group label {
+    display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 5px;
+}
+.input-group input {
+    width: 100%; padding: 10px 12px;
+    border-radius: 6px; border: none;
+    font-family: var(--font-sans);
+    background-color: #fff; /* Warna putih wajib */
+}
 
-/* 6. Footer */
-footer { background-color: var(--primary-green); color: white; padding: 40px 60px; margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); }
-.footer-content { display: flex; justify-content: space-between; align-items: center; }
-.social-icons i { margin: 0 10px; font-size: 1.2rem; }
+.submit-btn {
+    background-color: var(--orange-btn);
+    color: white; font-weight: 700;
+    padding: 12px 25px; border: none; border-radius: 6px;
+    font-size: 1rem; cursor: pointer; margin-top: 10px;
+    transition: background 0.3s;
+}
+.submit-btn:hover { background-color: #c46410; }
 
-/* Responsive Mobile */
+/* --- FOOTER --- */
+footer { background-color: #1a2b15; color: white; padding: 25px 0; margin-top: auto; }
+.footer-flex { display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { font-family: var(--font-serif); font-weight: 700; font-size: 1.2rem; }
+.socials i { margin: 0 10px; cursor: pointer; }
+
+/* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
-    .navbar { padding: 15px 20px; }
-    .nav-links { display: none; }
-    .hero { height: 60vh; padding: 80px 0 0 20px; }
-    .hero-text h1 { font-size: 2.5rem; }
-    /* Mobile: Reset margins agar rapi */
-    .curve-container { margin-top: -60px; padding: 40px 20px; border-top-right-radius: 50% 60px; }
-    .main-content { margin-top: -40px; padding: 30px 20px; border-top-left-radius: 50% 60px; }
-    .form-card-container { min-width: 100%; margin-top: 0; }
-    .form-grid { grid-template-columns: 1fr; }
-    .form-group.full-width { grid-column: span 1; }
-    .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+    .content-flex { flex-direction: column; } /* Tumpuk vertikal di HP */
+    .right-content { flex: 1; width: 100%; }
+    .hero { height: 300px; }
+    .hero-text-content { text-align: center; margin-right: 0; padding: 0 20px; }
+    .footer-flex { flex-direction: column; gap: 15px; text-align: center; }
 }
