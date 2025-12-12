@@ -1,0 +1,246 @@
+/* --- IMPORTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap');
+
+/* --- VARIABLES --- */
+:root {
+    --primary-green: #294222; /* Hijau Tua Dominan */
+    --card-green: #385226;    /* Hijau Kartu Info */
+    --bg-cream: #FDFCEF;      /* Cream Background */
+    --accent-orange: #E67E22; /* Orange Tombol */
+    --status-red: #D00000;    /* Merah Badge */
+    --text-white: #ffffff;
+    --text-dark: #333333;
+    --font-serif: 'Merriweather', serif;
+    --font-sans: 'Open Sans', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-cream);
+    font-family: var(--font-sans);
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    background-color: var(--primary-green);
+    padding: 15px 0;
+    color: white;
+}
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-group { display: flex; align-items: center; gap: 12px; }
+.logo-image { height: 45px; width: auto; object-fit: contain; }
+.logo-text { font-family: var(--font-serif); font-size: 1.4rem; letter-spacing: 2px; font-weight:700; color: white; }
+
+.nav-right { display: flex; align-items: center; gap: 30px; }
+/* Center the nav links between logo and auth buttons */
+.nav-links { display: flex; gap: 34px; flex: 1; justify-content: center; align-items: center; }
+.nav-links a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+.nav-links a:hover, .nav-links a.active { color: white; }
+
+/* Tombol Auth */
+.auth-buttons { display: flex; gap: 10px; }
+.btn-login {
+    color: white; text-decoration: none;
+    border: 1px solid white; padding: 8px 25px;
+    border-radius: 20px; font-weight: 600; font-size: 0.9rem;
+}
+.btn-register {
+    background-color: var(--accent-orange); color: white; text-decoration: none;
+    padding: 8px 25px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;
+    border: 1px solid var(--accent-orange);
+}
+
+/* --- HERO SECTION (Beo Nias) --- */
+.hero-fauna {
+    /* Placeholder Beo Nias */
+    background-image: url('../assets/image/beo.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 550px;
+    position: relative;
+}
+.hero-overlay {
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.2);
+    display: flex; align-items: center;
+}
+.hero-content {
+    color: white;
+    text-align: left; /* align like flora */
+    width: 100%;
+    padding-left: 20px;
+}
+.spotlight-text {
+    font-size: 1rem; letter-spacing: 3px; text-transform: uppercase;
+    display: block; margin-bottom: 10px; font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.hero-title {
+    font-family: var(--font-serif); font-size: 4rem; line-height: 1; margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.hero-subtitle {
+    font-size: 1.1rem; line-height: 1.4; opacity: 0.95;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* --- STRIP HIJAU --- */
+.fauna-intro-strip {
+    background-color: var(--primary-green);
+    color: white;
+    padding: 20px 0 30px;
+}
+.breadcrumb { font-size: 0.8rem; opacity: 0.8; margin-bottom: 5px; }
+.fauna-intro-strip h2 { font-family: var(--font-serif); font-size: 2.5rem; }
+
+/* --- SEARCH SECTION --- */
+.main-content { padding: 50px 0; }
+
+.search-section { margin-bottom: 60px; }
+.search-header {
+    display: flex; align-items: center; justify-content: center; gap: 20px;
+    margin-bottom: 30px;
+}
+.section-title {
+    font-family: var(--font-serif); color: var(--primary-green);
+    font-size: 2.2rem; font-weight: 700;
+}
+.line { height: 3px; background-color: var(--primary-green); width: 120px; }
+
+.filter-bar { max-width: 800px; margin: 0 auto; }
+.search-input {
+    width: 100%; padding: 12px 20px; border: 1px solid #ccc; border-radius: 8px;
+    margin-bottom: 15px; font-family: var(--font-sans);
+}
+.filter-row { display: flex; gap: 20px; }
+.select-wrapper { flex: 1; position: relative; }
+.filter-select {
+    width: 100%; padding: 10px 15px; border: 1px solid #ccc; border-radius: 8px;
+    font-family: var(--font-sans); color: #444; appearance: none;
+    background: white url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="gray" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>') no-repeat right 15px center;
+}
+
+/* --- CARD LIST (ZIG-ZAG) --- */
+.fauna-list { display: flex; flex-direction: column; gap: 60px; }
+
+.fauna-card {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Alternate layout */
+.fauna-card.reverse { flex-direction: row-reverse; }
+.fauna-card .card-image-wrapper { flex: 0 0 45%; position: relative; border-radius: 12px; overflow: hidden; height: 360px; }
+.fauna-card .card-info { flex: 1; background-color: var(--card-green); color: white; padding: 30px 40px; border-radius: 12px; margin-left: -20px; z-index: 2; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+.fauna-card.reverse .card-info { margin-left: 0; margin-right: -20px; }
+
+/* Image Wrapper */
+.card-image-wrapper {
+    flex: 0 0 55%; /* Gambar ambil 55% lebar container */
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    height: 400px;
+}
+.card-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Status Badge */
+.status-badge {
+    position: absolute; top: 20px; right: 20px;
+    color: white; padding: 5px 15px; border-radius: 20px;
+    font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+.status-badge.critical { background-color: var(--status-red); }
+
+/* Card Info (Green Box) */
+.card-info {
+    flex: 0 0 50%; /* Teks ambil 50% */
+    background-color: var(--card-green);
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    z-index: 2; /* Di atas gambar */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.fauna-name {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 8px;
+    font-weight: 800;
+}
+.meta-row {
+    display: flex;
+    justify-content: space-between;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    color: rgba(255,255,255,0.95);
+    border-bottom: 1px solid rgba(255,255,255,0.35);
+    padding-bottom: 10px;
+}
+.location { font-style: normal; }
+.underline { height: 1px; background-color: rgba(255,255,255,0.35); width: 100%; margin-bottom: 16px; }
+
+.fauna-desc p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    opacity: 0.95;
+}
+.fauna-desc ul {
+    padding-left: 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+.fauna-desc li { margin-bottom: 8px; }
+
+/* --- FOOTER --- */
+footer {
+    background-color: #1a2e16; color: white; padding: 25px 0; margin-top: 80px;
+}
+.footer-container { display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { font-family: var(--font-serif); font-weight: 700; font-size: 1.2rem; }
+.socials i { margin: 0 10px; cursor: pointer; opacity: 0.8; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero-fauna { height: 400px; }
+    .hero-content { text-align: center; padding-right: 0; }
+    
+    .fauna-card { flex-direction: column; gap: 0; margin-bottom: 50px;}
+    .fauna-card.right-image { flex-direction: column; } /* Reset order di HP */
+    .fauna-card.right-image .card-image-wrapper { order: 1; }
+    .fauna-card.right-image .card-info { order: 2; margin-right: 0; }
+    
+    .card-image-wrapper { width: 100%; height: 250px; }
+    .card-info { width: 95%; margin: -30px auto 0 !important; } /* Center overlap */
+    
+    .nav-right { display: none; } /* Hide menu di HP sederhana */
+    .filter-row { flex-direction: column; gap: 10px; }
+}

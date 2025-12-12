@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumatropic - Volunteer</title>
     
-    <link rel="stylesheet" href="assets/css/stylevolunteer.css">
+    <link rel="stylesheet" href="../assets/css/stylevolunteer.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     
@@ -14,19 +14,27 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">SUMATROPIC</div>
-        <ul class="nav-links">
-            <li><a href="#" class="active">Beranda</a></li>
-            <li><a href="#">Berita</a></li>
-            <li><a href="#">Flora</a></li>
-            <li><a href="#">Fauna</a></li>
-        </ul>
-        <div class="user-icon">
-            <i class="fas fa-user-circle"></i>
+        <div class="nav-container">
+            <div class="logo-group">
+                <img src="../assets/image/logosumatropic.jpg" alt="SUMATROPIC" class="logo-image">
+                <span class="logo-text">SUMATROPIC</span>
+            </div>
+            <div class="nav-links">
+                <a href="#">Beranda</a>
+                <a href="#">Berita</a>
+                <a href="#">Flora</a>
+                <a href="#">Fauna</a>
+            </div>
+            <div class="nav-right">
+                <div class="auth-buttons">
+                    <a href="#" class="btn-login">Masuk</a>
+                    <a href="#" class="btn-register">Daftar</a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <header class="hero" style="background-image: url('assets/image/volunteer.jpg');">
+    <header class="hero" style="background-image: url('../assets/image/volunteer.jpg');">
         <div class="hero-content">
             <p class="breadcrumb">Beranda > Volunteer</p>
             <h1>Volunteer</h1>
@@ -60,7 +68,7 @@
                     <button class="btn-action">Take action</button>
                 </div>
                 <div class="card-image">
-                    <img src="assets/image/volunteer.jpg" alt="Gajah Sumatra">
+                    <img src="../assets/image/volunteer.jpg" alt="Gajah Sumatra">
                 </div>
             </div>
 
@@ -73,7 +81,33 @@
                     <button class="btn-action">Take action</button>
                 </div>
                 <div class="card-image">
-                    <img src="assets/image/volunteer.jpg" alt="Gajah Sumatra">
+                    <img src="../assets/image/volunteer.jpg" alt="Gajah Sumatra">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-text">
+                    <h3>Perlindungan Gajah Sumatra</h3>
+                    <p>
+                        Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan. Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.
+                    </p>
+                    <button class="btn-action">Take action</button>
+                </div>
+                <div class="card-image">
+                    <img src="../assets/image/volunteer.jpg" alt="Gajah Sumatra">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-text">
+                    <h3>Perlindungan Gajah Sumatra</h3>
+                    <p>
+                        Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan.
+                    </p>
+                    <button class="btn-action">Take action</button>
+                </div>
+                <div class="card-image">
+                    <img src="../assets/image/volunteer.jpg" alt="Gajah Sumatra">
                 </div>
             </div>
 
