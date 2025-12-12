@@ -24,41 +24,92 @@ body {
 
 /* --- Navbar --- */
 .navbar {
+    background-color: var(--primary-green);
+    padding: 15px 0;
+    color: var(--text-white);
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background-color: var(--primary-green);
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-image {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    font-weight: 700;
     color: var(--text-white);
 }
 
-.navbar .logo {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
 .nav-links {
-    list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 34px;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-white);
-    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    font-weight: 600;
+    font-size: 0.95rem;
     transition: 0.3s;
 }
 
-.nav-links a:hover {
-    opacity: 0.8;
+.nav-links a:hover, .nav-links a.active {
+    color: var(--text-white);
 }
 
-.user-icon {
-    font-size: 1.5rem;
-    cursor: pointer;
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-login {
+    color: var(--text-white);
+    text-decoration: none;
+    border: 1px solid var(--text-white);
+    padding: 8px 25px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.btn-register {
+    background-color: var(--accent-orange);
+    color: var(--text-white);
+    text-decoration: none;
+    padding: 8px 25px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid var(--accent-orange);
 }
 
 /* --- Hero Section --- */
@@ -118,13 +169,14 @@ body {
 /* --- Content Container --- */
 .container {
     max-width: 1200px;
-    margin: 60px auto;
+    margin: 0 auto;
     padding: 0 20px;
+    display: block;
 }
 
 /* --- Intro Section --- */
 .intro {
-    margin-bottom: 60px;
+    margin: 60px 0 60px 0;
 }
 
 .intro h2 {
@@ -149,12 +201,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 80px; /* Jarak antar card vertikal */
+    margin-top: 60px;
 }
 
 .card {
     display: flex;
     align-items: center;
     position: relative;
+    min-height: 400px;
 }
 
 .card-text {
@@ -166,6 +220,12 @@ body {
     z-index: 10; /* Agar di atas gambar */
     /* Shadow halus */
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    position: relative;
+    flex-shrink: 0;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-text h3 {

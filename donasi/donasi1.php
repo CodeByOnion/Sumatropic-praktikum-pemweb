@@ -10,18 +10,28 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">SUMATROPIC</div>
+            <div class="logo-group">
+                <img src="../assets/image/logosumatropic.jpg" alt="SUMATROPIC" class="logo-image">
+                <span class="logo-text">SUMATROPIC</span>
+            </div>
+
             <div class="nav-links">
                 <a href="#">Beranda</a>
                 <a href="#">Berita</a>
                 <a href="#">Flora</a>
                 <a href="#">Fauna</a>
-                <a href="#" class="user-icon"><i class="fas fa-user-circle"></i></a>
+            </div>
+
+            <div class="nav-right">
+                <div class="auth-buttons">
+                    <a href="#" class="btn-login">Masuk</a>
+                    <a href="#" class="btn-register">Daftar</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <header class="hero">
+    <header class="hero" style ="background-image: url('../assets/image/donasi.jpg');">
         </header>
 
     <section class="title-strip">

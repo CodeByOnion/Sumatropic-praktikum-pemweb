@@ -32,9 +32,14 @@ body {
 
 /* --- NAVBAR --- */
 .navbar {
+    /* Ensure this page's navbar overrides any global nav rules */
+    position: relative !important;
+    top: auto !important;
+    width: 100% !important;
     background-color: var(--primary-green);
     padding: 15px 0;
     color: white;
+    z-index: 120;
 }
 .nav-container {
     max-width: 1100px;
@@ -44,35 +49,73 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-.logo { font-family: var(--font-serif); font-weight: 700; font-size: 1.2rem; letter-spacing: 1px; }
-.nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 0.9rem; }
-.user-icon { font-size: 1.2rem; }
+.logo-group { display: flex; align-items: center; gap: 12px; }
+.logo-image { height: 45px; width: auto; object-fit: contain; }
+
+/* Strongly enforce logo dimensions to prevent oversized rendering */
+.nav-container > .logo-group .logo-image,
+.navbar .logo-image,
+.logo-image {
+    height: 45px !important;
+    max-height: 45px !important;
+    width: auto !important;
+    max-width: 200px !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+}
+.logo-text { font-family: var(--font-serif); font-size: 1.4rem; letter-spacing: 2px; font-weight:700; color: white; }
+
+.nav-right { display: flex; align-items: center; gap: 30px; }
+/* Center the nav links between logo and auth buttons */
+.nav-links { display: flex; gap: 34px; flex: 1; justify-content: center; align-items: center; }
+.nav-links a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+.nav-links a:hover, .nav-links a.active { color: white; }
+
+/* Tombol Auth */
+.auth-buttons { display: flex; gap: 10px; }
+.btn-login {
+    color: white; text-decoration: none;
+    border: 1px solid white; padding: 8px 25px;
+    border-radius: 20px; font-weight: 600; font-size: 0.9rem;
+}
+.btn-register {
+    background-color: var(--accent-orange); color: white; text-decoration: none;
+    padding: 8px 25px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;
+    border: 1px solid var(--accent-orange);
+}
 
 /* --- HERO SECTION (BADAK) --- */
 .hero {
     /* Gambar Badak Placeholder */
-    background-image: url('https://images.unsplash.com/photo-1535591273668-578e31182c4f?q=80&w=2070&auto=format&fit=crop');
+    background-image: url('../assets/image/donasi.jpg');
     background-size: cover;
     background-position: center;
-    height: 450px;
+    height: 550px;
     position: relative;
 }
 
 /* --- STRIP HIJAU (LENGKUNGAN) --- */
+/* Styles for the section under the hero (donasi title strip) */
 .title-strip {
     background-color: var(--primary-green);
     color: white;
     padding: 30px 0 50px;
-    margin-top: -40px; /* Tarik ke atas menimpa gambar */
+    margin-top: -40px; /* overlap the hero */
     position: relative;
     z-index: 10;
-    /* Lengkungan Kiri Bawah & Kanan Bawah pada gambar Hero dicapai dengan border radius Top pada strip ini */
-    border-top-left-radius: 50% 30px; 
-    border-top-right-radius: 50% 30px;
 }
 .breadcrumb { font-size: 0.8rem; opacity: 0.8; margin-bottom: 5px; }
 .title-strip h2 { font-family: var(--font-serif); font-size: 2.8rem; margin-bottom: 5px; }
 .strip-subtitle { font-size: 0.9rem; opacity: 0.9; max-width: 600px; }
+
+/* Backwards-compatible selector used elsewhere */
+.fauna-intro-strip { display: none; }
 
 /* --- MAIN CONTENT --- */
 .main-content { padding: 50px 0; }
