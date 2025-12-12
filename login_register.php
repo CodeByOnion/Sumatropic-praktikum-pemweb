@@ -12,16 +12,25 @@
 <body>
 
     <header>
-        <div class="logo"><a href="index.php" style="text-decoration:none; color:inherit;">SUMATROPIC</a></div>
-        <nav>
-            <a href="index.php">Beranda</a>
-            <a href="pages/berita.php">Berita</a>
-            <a href="#">Flora</a>
-            <a href="#">Fauna</a>
-        </nav>
-        <div class="header-btns">
-            <button class="nav-btn ghost" id="nav-login">Masuk</button>
-            <button class="nav-btn filled" id="nav-register">Daftar</button>
+        <div class="nav-container">
+            <div class="logo-group">
+                <img src="assets/image/Logo.png" alt="SUMATROPIC" class="logo-image">
+                <span class="logo-text">SUMATROPIC</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.php">Beranda</a>
+                <a href="pages/berita.php">Berita</a>
+                <a href="#">Flora</a>
+                <a href="#">Fauna</a>
+            </div>
+
+            <div class="nav-right">
+                <div class="header-btns">
+                    <button class="nav-btn ghost" id="nav-login">Masuk</button>
+                    <button class="nav-btn filled" id="nav-register">Daftar</button>
+                </div>
+            </div>
         </div>
     </header>
 

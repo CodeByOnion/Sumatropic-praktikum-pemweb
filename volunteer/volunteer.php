@@ -16,7 +16,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo-group">
-                <img src="../assets/image/logosumatropic.jpg" alt="SUMATROPIC" class="logo-image">
+                <img src="../assets/image/Logo.png" alt="SUMATROPIC" class="logo-image">
                 <span class="logo-text">SUMATROPIC</span>
             </div>
             <div class="nav-links">
