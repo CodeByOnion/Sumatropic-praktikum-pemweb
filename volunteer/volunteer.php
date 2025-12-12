@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumatropic - Volunteer</title>
-    
-    <link rel="stylesheet" href="assets/css/stylevolunteer.css">
-    
+
+    <link rel="stylesheet" href="../assets/css/stylevolunteer.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
     <nav class="navbar">
@@ -40,7 +42,7 @@
     </header>
 
     <main class="container">
-        
+
         <section class="intro">
             <h2>Aksi kecil, dampak besar</h2>
             <p class="subtitle">Small action is matter.</p>
@@ -50,7 +52,7 @@
         </section>
 
         <section class="card-list">
-            
+
             <div class="card">
                 <div class="card-text">
                     <h3>Perlindungan Gajah Sumatra</h3>
@@ -95,4 +97,5 @@
     </footer>
 
 </body>
+
 </html>

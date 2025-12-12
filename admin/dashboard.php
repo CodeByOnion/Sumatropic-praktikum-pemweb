@@ -38,6 +38,8 @@ $nama_admin = $_SESSION['username'];
         <a href="../admin/kelola_fauna.php">Data Fauna</a>
         <a href="../admin/kelola_berita.php">Data Berita</a>
         <a href="../admin/kelola_volunteer.php">Verifikasi Volunteer</a>
+        <a href="../index.php">Lihat Website</a>
+
 
         <a href="../actions/logout.php" class="logout">Keluar</a>
     </aside>

@@ -27,9 +27,11 @@ if (isset($_POST['login_btn'])) {
             $_SESSION['status'] = "login";
 
             if ($user['role'] == 'admin') {
-                echo "<script>alert('Selamat Datang Admin!'); window.location='../admin/dashboard.php';</script>";
+                header("Location: ../admin/dashboard.php");
+                exit;
             } else {
-                echo "<script>alert('Login Berhasil!'); window.location='../index.php';</script>";
+                header("Location: ../index.php");
+                exit;
             }
         } else {
             // Password hash tidak cocok

@@ -42,6 +42,11 @@ $result_news = mysqli_query($conn, $query_news);
         <div class="auth-buttons">
             <?php if (isset($_SESSION['status']) && $_SESSION['status'] == "login"): ?>
 
+                <?php if ($_SESSION['role'] == 'admin'): ?>
+                    <!-- Tombol Admin Member -->
+                    <a href="admin/dashboard.php" class="btn btn-dark"
+                        style="margin-right:10px;">Dashboard</a>
+                <?php endif; ?>
                 <a href="actions/logout.php" class="btn btn-orange"
                     style="text-decoration:none; display:inline-block; text-align:center;">Logout</a>
 

@@ -59,4 +59,4 @@ CREATE TABLE volunteers (
 
 -- 5. Insert Akun Admin (Password: admin123)
 INSERT INTO users (username, email, password, role) 
-VALUES ('Admin', 'admin@sumatropic.com', 'sumatropic123', 'admin');
+VALUES ('Admin', 'admin@sumatropic.com', 'admin123', 'admin');
