@@ -320,6 +320,27 @@ body {
     display: block;
 }
 
+.bank-details-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #333;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 10px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.95rem;
+}
+
+.method-header { background: white; border-radius: 8px; }
+.method-header span { font-weight: 700; color: #333; text-transform: uppercase; }
+
+.method-item .plus-icon { font-size: 1.5rem; color: #333; transform: rotate(0deg); transition: transform 0.2s ease, color 0.2s ease; }
+.method-item.active .plus-icon { transform: rotate(45deg); color: var(--primary-green); }
+
 .qr-details {
     display: flex;
     gap: 20px;
