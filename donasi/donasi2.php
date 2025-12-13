@@ -77,11 +77,27 @@
             <div class="payment-methods-box">
                 <h2 class="method-title">Cara Pembayaran</h2>
 
-                <div class="method-item">
+                <div class="method-item active">
                     <div class="method-header">
                         <div class="bank-logo bca">BCA</div> 
                         <span>BCA VIRTUAL ACCOUNT</span>
                         <span class="plus-icon">+</span>
+                    </div>
+                    <div class="method-content">
+                        <div class="bank-details-grid">
+                            <div class="detail-row">
+                                <span>Rekening Virtual</span>
+                                <span>8571234567890</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Pemilik Rekening</span>
+                                <span>SUMATROPIC Foundation</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Jumlah Pembayaran</span>
+                                <span>Rp 100.000</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -91,9 +107,25 @@
                         <span>BNI VIRTUAL ACCOUNT</span>
                         <span class="plus-icon">+</span>
                     </div>
+                    <div class="method-content">
+                        <div class="bank-details-grid">
+                            <div class="detail-row">
+                                <span>Rekening Virtual</span>
+                                <span>123456789012</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Pemilik Rekening</span>
+                                <span>SUMATROPIC Foundation</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Jumlah Pembayaran</span>
+                                <span>Rp 100.000</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="method-item active">
+                <div class="method-item">
                     <div class="method-header">
                         <div class="bank-logo qris">QRIS</div> 
                         <span>QRIS</span>
