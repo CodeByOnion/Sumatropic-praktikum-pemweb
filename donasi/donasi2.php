@@ -168,5 +168,24 @@
         </footer>
     </div>
 
+    <script>
+        methodHeaders.forEach(header =&gt; {
+    header.addEventListener(&#39;click&#39;, () =&gt; {
+        // Ambil parent element (.method-item)
+        const methodItem = header.parentElement;
+        
+        // Toggle class &#39;active&#39; untuk membuka/menutup
+        methodItem.classList.toggle(&#39;active&#39;);
+        
+        // (Opsional) Tutup metode lain saat satu dibuka (Accordion behavior)
+        document.querySelectorAll(&#39;.method-item&#39;).forEach(item =&gt; {
+            if (item !== methodItem) {
+                item.classList.remove(&#39;active&#39;);
+            }
+        });
+    });
+});
+    </script>
+
 </body>
 </html>

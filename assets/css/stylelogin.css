@@ -1,62 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-:root {
-    --green: #325118; /* Hijau Tua Utama */
-    --dark-green: #334D25;    /* Hijau Box Donasi */
-    --cream: #FDFBE4;      /* Cream Background */
-    --orange: #E66D07; /* Tombol Orange */
-    --font-serif: 'Crimson text', serif;
-    --font-sans: 'Inter', sans-serif;
-}
-
+/* --- RESET DASAR --- */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-green: #325118 ; /* Hijau Navbar */
+    --orange: #E86D09;        /* Warna Tombol Daftar */
+    --cream: #FDFBE4;
+    --font-serif: 'Crimson Text', serif; /* Font untuk Menu Navbar */
+    --font-sans: 'Poppins', sans-serif;  /* Font untuk Input Form */
 }
 
 body {
-    background: url('assets/image/bglogin.png') no-repeat center center fixed;
+    /* Pastikan gambar ada di folder assets/image/ */
+    /* Menggunakan ../ karena file css ada di dalam folder css */
+    background: url('../image/bglogin.png') no-repeat center center fixed;
     background-size: cover;
+    font-family: var(--font-sans);
     display: flex;
     justify-content: center;
-    align-items: flex-start; 
-    flex-direction: column;
-    font-family: 'Poppins', sans-serif;
+    align-items: center;
     min-height: 100vh;
-    position: relative;
-    padding-top: 120px;
-    padding-bottom: 100px;
+    padding-top: 80px; /* Jarak agar tidak ketutup navbar */
 }
 
-/* Overlay gelap di background agar teks terbaca */
+/* Overlay Hitam Transparan di Background */
 body::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    content: ''; 
+    position: absolute; 
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4); 
     z-index: -1;
 }
 
-/* --- NAVBAR --- */
+/* --- NAVBAR (SESUAI GAMBAR TARGET) --- */
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 200;
-    background-color: rgba(45, 79, 35, 0.95);
+    background-color: var(--primary-green); /* Hijau Gelap Solid */
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 12px 30px;
+    padding: 0 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* Penting: Logo Kiri, Menu Tengah, Tombol Kanan */
+    height: 60px;
 }
 
+/* LOGO GROUP */
 .logo-group {
     display: flex;
     align-items: center;
@@ -64,79 +64,92 @@ header {
 }
 
 .logo-image {
-    height: 45px;
+    height: 50px; /* Ukuran Logo Pas */
     width: auto;
-    object-fit: contain;
 }
 
 .logo-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    letter-spacing: 2px;
-    color: #ffffff;
-    font-weight: 700;
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400; /* Regular serif */
 }
 
+/* MENU TENGAH */
 .nav-links {
     display: flex;
-    gap: 34px;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
+    gap: 30px;
 }
 
 .nav-links a {
-    color: #ffffff;
+    font-family: var(--font-serif); /* Pakai Serif agar elegan */
+    color: #fff;
     text-decoration: none;
+    font-size: 1.2rem;
     font-weight: 600;
-    font-size: 0.95rem;
+    transition: color 0.3s;
 }
 
-.nav-links a:hover, .nav-links a.active { color: #ffffff; }
+.nav-links a:hover {
+    color: #ddd;
+}
 
-.nav-right { display: flex; align-items: center; gap: 12px; }
+/* TOMBOL KANAN */
+.header-btns {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
 
-.header-btns { display: flex; gap: 12px; }
+.nav-btn {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 6px 25px;
+    border-radius: 25px; /* Membulat seperti pil */
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
 
-.header-btns .nav-btn { padding: 8px 25px; border-radius: 20px; border: 1px solid #ffffff; font-weight: 600; }
-
-.header-btns .ghost { background: transparent; color: #ffffff; }
-
-.header-btns .filled { background: #e67e22; color: white; border-color: #e67e22; }
-
-.header-btns .filled:hover { background: #d35400; }
-
-.header-btns .ghost {
+/* Tombol Masuk: Transparan + Border Putih */
+.nav-btn.ghost {
     background: transparent;
-    color: #ffffff;
+    color: #fff;
+    border: 2px solid #fff;
 }
 
-.header-btns .ghost:hover {
-    background: rgba(255, 255, 255, 0.15);
+.nav-btn.ghost:hover {
+    background: rgba(255,255,255,0.1);
 }
 
-.header-btns .filled {
-    background: #e67e22;
-    color: white;
-    border-color: #e67e22;
+/* Tombol Daftar: Background Oranye */
+.nav-btn.filled {
+    background: var(--orange);
+    color: #fff;
+    border: 2px solid var(--orange);
 }
 
-.header-btns .filled:hover {
+.nav-btn.filled:hover {
     background: #d35400;
+    border-color: #d35400;
 }
 
-/* --- CONTAINER LOGIN/REGISTER --- */
+
+/* --- CONTAINER FORM --- */
 .container {
-    background-color: rgba(45, 79, 35, 0.92);
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    background-color: rgba(30, 50, 20, 0.85);
+    border-radius: 15px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25);
     position: relative;
     overflow: hidden;
-    width: 1000px;
+    width: 900px;
     max-width: 95%;
-    height: 600px;
-    backdrop-filter: blur(10px);
-    margin-top: 20px; /* ensure container sits below header */
+    min-height: 550px;
+    margin-top: 20px;
 }
 
 .form-container {
@@ -144,117 +157,92 @@ header {
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
+    width: 50%;
 }
 
-/* --- FORM STYLING --- */
 form {
-    background-color: transparent;
+    background: transparent;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 50px 60px;
+    padding: 0 50px;
     height: 100%;
+    justify-content: center;
     text-align: left;
     color: #fff;
 }
 
-.form-container h1 {
-    font-family: 'Crimson text', serif;
-    font-size: 60px;
-    margin-bottom: 15px;
-    color:#ffffff;
-    font-weight: 700;
-    letter-spacing: -1px;
+h1 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
 .subtitle {
-    font-size: 14px;
-    margin-bottom: 40px;
-    line-height: 1.6;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 380px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    font-weight: 300;
+    line-height: 1.5;
 }
 
-label {
-    font-size: 12px;
-    margin-top: 20px;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.95);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
+/* Input Styles */
 input {
-    background-color: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    padding: 12px 15px;
+    background: transparent !important;
+    border: none;
+    border-bottom: 1px solid #fff;
+    padding: 10px 0;
     width: 100%;
     color: #fff;
     outline: none;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    transition: all 0.3s;
     margin-bottom: 15px;
+    font-family: var(--font-sans);
 }
 
-input:focus {
-    background-color: rgba(255, 255, 255, 0.25);
-    border-color: #e67e22;
-    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+/* Fix browser autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #223a18 inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255,255,255,0.6);
 }
 
-/* Tombol Oranye */
 button.orange-btn {
-    border-radius: 10px;
+    background: var(--orange);
     border: none;
-    background-color: #e67e22;
-    color: #FFFFFF;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 13px 50px;
-    letter-spacing: 0.5px;
-    text-transform: capitalize;
-    transition: all 0.3s ease;
-    width: fit-content;
+    padding: 12px;
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
     cursor: pointer;
-    margin-top: 25px;
-    font-family: 'Poppins', sans-serif;
-    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.2);
+    margin-top: 10px;
+    font-family: var(--font-sans);
 }
 
 button.orange-btn:hover {
-    background-color: #d35400;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+    background: #d35400;
 }
 
-button.orange-btn:active {
-    transform: translateY(0);
-}
-
-/* --- POSISI FORM --- */
+/* Posisi Slider */
 .sign-in-container {
     left: 0;
-    width: 50%;
     z-index: 2;
 }
 
 .sign-up-container {
     left: 0;
-    width: 50%;
     opacity: 0;
     z-index: 1;
 }
 
 .container.right-panel-active .sign-in-container {
     transform: translateX(100%);
+    opacity: 0;
 }
 
 .container.right-panel-active .sign-up-container {
@@ -265,17 +253,11 @@ button.orange-btn:active {
 }
 
 @keyframes show {
-    0%, 49.99% {
-        opacity: 0;
-        z-index: 1;
-    }
-    50%, 100% {
-        opacity: 1;
-        z-index: 5;
-    }
+    0%, 49.99% { opacity: 0; z-index: 1; }
+    50%, 100% { opacity: 1; z-index: 5; }
 }
 
-/* --- OVERLAY PANEL --- */
+/* Overlay Hijau */
 .overlay-container {
     position: absolute;
     top: 0;
@@ -292,8 +274,8 @@ button.orange-btn:active {
 }
 
 .overlay {
-    background: linear-gradient(135deg, #2d4f23 0%, #1f3b15 100%);
-    color: #FFFFFF;
+    background: #2d4f23;
+    color: #fff;
     position: relative;
     left: -100%;
     height: 100%;
@@ -321,40 +303,6 @@ button.orange-btn:active {
     transition: transform 0.6s ease-in-out;
 }
 
-.overlay-panel h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    margin-bottom: 20px;
-    font-weight: 700;
-    letter-spacing: -1px;
-}
-
-.overlay-panel p {
-    font-size: 14px;
-    margin-bottom: 35px;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.95);
-}
-
-.overlay-panel button.ghost {
-    background-color: #ffffff;
-    color: #2d4f23;
-    border: none;
-    border-radius: 10px;
-    padding: 13px 50px;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s;
-    letter-spacing: 0.5px;
-}
-
-.overlay-panel button.ghost:hover {
-    background-color: #f5f5dc;
-    transform: translateY(-2px);
-}
-
 .overlay-left {
     transform: translateX(-20%);
 }
@@ -372,106 +320,49 @@ button.orange-btn:active {
     transform: translateX(20%);
 }
 
-/* --- FOOTER --- */
+button.ghost-btn {
+    background: #FDFBE4;
+    color: #2d4f23;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: var(--font-serif);
+}
+
+button.ghost-btn:hover {
+    background: #fff;
+}
+
+/* Footer */
 footer {
+    position: fixed;
+    bottom: 0;
     width: 100%;
-    background-color: rgba(45, 79, 35, 0.95);
-    color: white;
-    padding: 18px 50px;
+    padding: 15px 50px;
+    background: var(--primary-green);
+    color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    bottom: 0;
-    font-size: 13px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-    z-index: 199;
-}
-
-.footer-left {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 16px;
-}
-
-.footer-social {
-    display: flex;
-    gap: 18px;
+    font-size: 0.9rem;
+    z-index: 999;
 }
 
 .footer-social i {
+    margin-left: 15px;
     cursor: pointer;
-    transition: opacity 0.3s;
-    font-size: 14px;
 }
 
-.footer-social i:hover {
-    opacity: 0.7;
-}
-
-.footer-right {
-    color: rgba(255, 255, 255, 0.85);
-}
-
-/* Responsiveness */
+/* Responsive Mobile */
 @media (max-width: 768px) {
-    header {
-        padding: 12px 20px;
-        flex-wrap: wrap;
-    }
-
-    .nav-container { padding: 8px 20px; }
-
-    header nav {
-        gap: 20px;
-        margin: 0 15px;
-        display: none;
-    }
-
-    .logo-text { font-size: 1.1rem; }
-
-    .container {
-        width: 100%;
-        height: auto;
-        min-height: 600px;
-        border-radius: 0;
-        margin-top: 12px;
-    }
-
-    form {
-        padding: 40px 30px;
-        width: 100%;
-    }
-
-    .form-container h1 {
-        font-size: 36px;
-    }
-
-    .sign-in-container,
-    .sign-up-container {
-        width: 100%;
-    }
-
-    .overlay-container {
-        display: none;
-    }
-
-    .container.right-panel-active .sign-in-container {
-        transform: translateX(0);
-    }
-
-    .container.right-panel-active .sign-up-container {
-        transform: translateX(0);
-    }
-
-    footer {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 20px;
-    }
-
-    .footer-social {
-        gap: 12px;
-    }
+    .nav-links { display: none; }
+    .header-btns { display: none; }
+    .container { width: 100%; min-height: 600px; margin-top: 80px; }
+    .form-container { width: 100%; }
+    .overlay-container { display: none; }
+    .sign-in-container { z-index: 5; }
+    .footer { flex-direction: column; }
 }

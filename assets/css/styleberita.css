@@ -1,6 +1,6 @@
 /* RESET & VARIABLES */
 :root {
-    --primary-green: #324c28; /* Hijau tua header/footer */
+    --primary-green: #325118 ; /* Hijau tua header/footer */
     --secondary-green: #3e5e32; /* Hijau sedikit lebih terang */
     --accent-orange: #e87c0e; /* Warna tombol daftar */
     --bg-cream: #fffded; /* Warna background utama */
@@ -42,6 +42,11 @@ ul {
     background-color: var(--primary-green);
     padding: 15px 0;
     color: var(--text-light);
+    position: fixed; /* Agar menempel saat scroll */
+    top: 0;          /* Nempel di sisi atas */
+    left: 0;         /* Nempel di sisi kiri */
+    width: 100%;     /* Lebar penuh */
+    z-index: 1000;
 }
 
 .nav-container {

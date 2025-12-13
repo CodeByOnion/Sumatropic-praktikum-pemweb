@@ -3,7 +3,7 @@
 
 /* --- VARIABLES --- */
 :root {
-    --primary-green: #2F4F28;  /* Hijau Tua (Navbar, Footer, Card BG) */
+    --primary-green: #325118 ;  /* Hijau Tua (Navbar, Footer, Card BG) */
     --strip-green: #3D5C32;    /* Hijau Strip Bawah Hero */
     --bg-cream: #FDFCEF;       /* Background Cream */
     --accent-orange: #E67E22;  /* Tombol Daftar */
@@ -32,6 +32,11 @@ body {
     background-color: var(--primary-green);
     padding: 12px 0;
     color: white;
+    position: fixed; /* Agar menempel saat scroll */
+    top: 0;          /* Nempel di sisi atas */
+    left: 0;         /* Nempel di sisi kiri */
+    width: 100%;     /* Lebar penuh */
+    z-index: 1000;
 }
 .nav-container {
     max-width: 1200px;
