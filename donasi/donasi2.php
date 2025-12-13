@@ -6,27 +6,36 @@
     <title>Sumatropic - Donasi Badak Sumatra</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/css/styledonasi2.css">
 </head>
 <body>
 
     <div class="landing-page-container">
         
         <nav class="navbar">
-            <div class="logo">
-                <i class="fa-solid fa-leaf"></i> SUMATROPIC
-            </div>
-            <div class="nav-links">
-                <a href="#">Beranda</a>
-                <a href="#">Berita</a>
-                <a href="#">Flora</a>
-                <a href="#">Fauna</a>
-                <a href="#" class="btn-event">Event</a>
-                <a href="#" class="user-icon"><i class="fa-regular fa-circle-user"></i></a>
+            <div class="nav-container">
+                <div class="logo-group">
+                    <img src="../assets/image/Logo.png" alt="SUMATROPIC" class="logo-image">
+                    <span class="logo-text">SUMATROPIC</span>
+                </div>
+
+                <div class="nav-links">
+                    <a href="#">Beranda</a>
+                    <a href="#">Berita</a>
+                    <a href="#">Flora</a>
+                    <a href="#">Fauna</a>
+                </div>
+
+                <div class="nav-right">
+                    <div class="auth-buttons">
+                        <a href="#" class="btn-login">Masuk</a>
+                        <a href="#" class="btn-register">Daftar</a>
+                    </div>
+                </div>
             </div>
         </nav>
 
-        <header class="hero">
+        <header class="hero" style="background-image: url('../assets/image/donasi.jpg');"> 
             <div class="hero-overlay"></div> 
             
             <div class="hero-content">
@@ -36,10 +45,12 @@
             </div>
         </header>
 
-        <section class="donation-banner">
-            <div class="breadcrumb">Beranda > Donasi</div>
-            <h2>Donasi</h2>
-            <p>Salurkan kepedulianmu hari ini untuk menyelamatkan spesies yang terancam punah, memulihkan habitat yang rapuh, dan menjaga paru-paru dunia demi generasi masa depan.</p>
+        <section class="title-strip">
+            <div class="container">
+                <div class="breadcrumb">Beranda > Donasi</div>
+                <h2>Donasi</h2>
+                <p class="strip-subtitle">Salurkan kepedulianmu hari ini untuk menyelamatkan spesies yang terancam punah, memulihkan habitat yang rapuh, dan menjaga paru-paru dunia demi generasi masa depan.</p>
+            </div>
         </section>
     </div>
 

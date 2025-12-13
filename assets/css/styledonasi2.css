@@ -23,6 +23,8 @@ body {
 
 /* ================= BAGIAN 1: LANDING PAGE ================= */
 
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
 .landing-page-container {
     width: 100%;
     position: relative;
@@ -31,14 +33,49 @@ body {
 
 /* Navbar */
 .navbar {
+    position: relative !important;
+    top: auto !important;
+    width: 100% !important;
+    background-color: var(--primary-green);
+    padding: 15px 0;
+    color: white;
+    z-index: 120;
+}
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background-color: var(--primary-green);
-    position: relative;
-    z-index: 10;
 }
+.logo-group { display: flex; align-items: center; gap: 12px; }
+.logo-image { height: 45px; width: auto; object-fit: contain; }
+
+/* Strongly enforce logo dimensions to prevent oversized rendering */
+.nav-container > .logo-group .logo-image,
+.navbar .logo-image,
+.logo-image {
+    height: 45px !important;
+    max-height: 45px !important;
+    width: auto !important;
+    max-width: 200px !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+}
+.logo-text { font-family: var(--font-serif); font-size: 1.4rem; letter-spacing: 2px; font-weight:700; color: white; }
+
+.nav-right { display: flex; align-items: center; gap: 30px; }
+.nav-links { display: flex; gap: 34px; flex: 1; justify-content: center; align-items: center; }
+.nav-links a { color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+
+/* Tombol Auth */
+.auth-buttons { display: flex; gap: 10px; }
+.btn-login { color: white; text-decoration: none; border: 1px solid white; padding: 8px 25px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; }
+.btn-register { background-color: var(--accent-orange); color: white; text-decoration: none; padding: 8px 25px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; border: 1px solid var(--accent-orange); }
+
+
+/* Keep previous simple styles in case layout uses them */
 
 .logo {
     font-family: var(--font-serif);
@@ -73,20 +110,34 @@ body {
     font-size: 1.5rem;
 }
 
-/* Hero Section */
+/* HERO + TITLE STRIP RULES from styledonasi1.css */
+
 .hero {
-    height: 70vh;
-    position: relative;
-    /* Ganti URL ini dengan gambar Badak asli jika ada */
-    background-image: url('https://images.unsplash.com/photo-1579704258836-93106578a06e?q=80&w=2070&auto=format&fit=crop'); 
+    background-image: url('../assets/image/donasi.jpg');
     background-size: cover;
     background-position: center;
-    display: flex;
-    align-items: center;
-    padding-left: 50px;
+    height: 550px;
+    position: relative;
 }
 
-/* Overlay agar teks terlihat jelas di atas gambar */
+.title-strip {
+    background-color: var(--primary-green);
+    color: white;
+    padding: 30px 0 50px;
+    margin-top: -40px; /* overlap the hero */
+    position: relative;
+    z-index: 10;
+}
+.breadcrumb { font-size: 0.8rem; opacity: 0.8; margin-bottom: 5px; }
+.title-strip h2 { font-family: var(--font-serif); font-size: 2.8rem; margin-bottom: 5px; }
+.strip-subtitle { font-size: 0.9rem; opacity: 0.9; max-width: 600px; }
+
+/* Keep the existing donation-banner colors for backup */
+.donation-banner { background-color: #263c1e; padding: 40px 50px; }
+.donation-banner h2 { font-family: var(--font-serif); font-size: 3rem; margin-bottom: 10px; }
+
+
+/* Overlay and Hero content */
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -119,6 +170,18 @@ body {
 .hero-content .description {
     font-size: 1.2rem;
     font-weight: 300;
+}
+
+/* Ensures hero uses Donasi image and height like Donasi1 */
+.hero {
+    background-image: url('../assets/image/donasi.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 550px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
 }
 
 /* Donation Banner */
