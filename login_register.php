@@ -108,6 +108,8 @@
     </div>
 
     <footer>
+    <div class="footer-container">
+        
         <div class="footer-brand">Sumatropic</div>
         
         <div class="footer-socials">
@@ -121,7 +123,9 @@
         <div class="footer-copy">
             Sumatropic 2025. All rights reserved.
         </div>
-    </footer>
+
+    </div>
+</footer>
 
     <script>
         const signUpButton = document.getElementById('signUp');

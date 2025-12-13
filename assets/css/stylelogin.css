@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --green: #325118;       /* Hijau Hutan Tua */
+    --green: #325118;       /* Hijau */
     --footer: #1A2E12;      /* Hijau Gelap Footer */
     --orange: #E66D07;      /* Oranye Harimau (CTA) */
-    --cream: #FDFBE4;       /* Krem Tulang */
+    --cream: #FDFBE4;       
     --white: #FFFFFF;
     
-    /* Typography */
     --font-serif: 'Crimson Text', serif;
     --font-sans: 'Inter', sans-serif;
 }
@@ -22,19 +21,14 @@ body {
     background: url('../image/bglogin.png') no-repeat center center fixed;
     background-size: cover;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    min-height: 100vh; 
     font-family: var(--font-sans);
-    min-height: 100vh;
-    position: relative;
     color: var(--cream);
-    padding-top: 80px;  
-    padding-bottom: 90px; 
-    box-sizing: border-box; 
+    padding-top: 90px;
     
     /* Overlay Background Gelap */
-    background-color: rgba(0, 0, 0, 0.4); 
+    background-color: rgba(0, 0, 0, 0.2); 
     background-blend-mode: overlay;
     z-index: -1;
 }
@@ -45,7 +39,7 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
-    padding: 20px 0;
+    padding: 15px 0;
     transition: all 0.3s ease;
     background-color: var(--green);
 }
@@ -59,8 +53,9 @@ header.scrolled {
 
 .nav-container {
     max-width: 1200px;
+    width: 90%;
+    height: 100%;
     margin: 0 auto;
-    padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -79,7 +74,7 @@ header.scrolled {
 
 .logo-text {
     font-family: var(--font-serif);
-    font-size: 36px;
+    font-size: 34px;
     letter-spacing: -2px;
     color: var(--cream);
     font-weight: 600;
@@ -94,7 +89,7 @@ header.scrolled {
 .nav-links a {
     color: var(--cream);
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 24px;
     transition: color 0.3s;
     font-family: var(--font-serif);
@@ -108,20 +103,20 @@ header.scrolled {
 /* --- Navigation Buttons --- */
 .header-btns {
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 .nav-btn {
     font-family: var(--font-serif);
     padding: 8px 25px;
     border-radius: 12px;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 24px;
     text-decoration: none;
     transition: all 0.3s ease;
     display: flex;
-    width: 130px;
-    height: 40px; 
+    width: 120px;
+    height: 35px; 
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -156,8 +151,8 @@ header.scrolled {
     border-radius: 12px; 
     position: relative;
     overflow: hidden;
-    width: 1200px; 
-    max-width: 95%;
+    width: 100%; 
+    max-width: 1200px;
     margin: auto;
     min-height: 678px; 
     backdrop-filter: blur(25px);}
@@ -184,8 +179,8 @@ form {
 /* Typography Form (Judul) */
 form h1 {
     font-family: var(--font-serif);
-    font-weight: 700;
-    font-size: 52px; 
+    font-weight: 600;
+    font-size: 50px; 
     letter-spacing: -2px;
     text-align: center;
     margin-bottom: 10px;
@@ -195,7 +190,7 @@ form h1 {
 /* Subtitle (Deskripsi di bawah judul) */
 .subtitle {
     font-size: 22px; 
-    font-weight: 300;
+    font-weight: 200;
     font-family: var(--font-sans);
     line-height: 1,2;
     color: var(--cream);
@@ -213,7 +208,7 @@ label {
     font-size: 22px; 
     margin-bottom: 5px;
     margin-top: 5px;
-    font-weight: 500;
+    font-weight: 300;
     color: var(--cream);
 }
 
@@ -248,7 +243,7 @@ button.daftar-btn {
     background-color: var(--orange); 
     color: var(--cream);
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 600;
     transition: all 0.3s ease;
     text-align: center;
     cursor: pointer;
@@ -278,11 +273,11 @@ button.masuk-btn {
     background-color: var(--cream); 
     color: var(--green);
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 600;
     transition: all 0.3s ease;
     text-align: center;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 10px;
     width: 100%;
     height: 47px;
     font-family: var(--font-serif);
@@ -358,6 +353,7 @@ button.masuk-btn:active {
     width: 200%;
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
+    margin: auto;
 }
 
 .overlay-panel {
@@ -377,24 +373,24 @@ button.masuk-btn:active {
 
 .overlay-panel h1 {
     font-family: var(--font-serif);
-    font-weight: 700;
-    font-size: 52px;
-    margin-bottom: 10px;
-    line-height: 1.1;
+    font-weight: 600;
+    font-size: 50px; 
     letter-spacing: -2px;
     text-align: center;
+    margin-bottom: 10px;
     color: var(--cream);
    
 }
 /* (Deskripsi di bawah judul) */
 .overlay-panel p {
     font-size: 22px; 
-    font-weight: 300;
+    font-weight: 200;
     font-family: var(--font-sans);
     line-height: 1,2;
     color: var(--cream);
     text-align: center;
     margin-bottom: 25px;
+    
 }
 
 /* --- TOMBOL OVERLAY --- */
@@ -404,13 +400,13 @@ button.masuk-btn:active {
     background-color: var(--cream); 
     color: var(--green);
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 600;
     transition: all 0.3s ease;
     text-align: center;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 10px;
     min-width: 200px;
-    height: 47px;
+    height: 40px;
     font-family: var(--font-serif);
     padding: 4px 25px;
     text-decoration: none;
@@ -486,23 +482,26 @@ footer {
     z-index: 199;
     position: absolute; 
     bottom: 0px;
-    text-align: center;
-    padding: 0 20%;
-    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    
+}
+
+.footer-container {
+    max-width: 1200px; 
+    width: 90%; 
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--cream);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 24px;
-    font-family: var(--font-serif);
-    
+    height: 100%;
 }
 
 .footer-brand {
     font-family: var(--font-serif);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 24px;
     color: var(--cream);
 }
@@ -519,29 +518,83 @@ footer {
     opacity: 0.7;
 }
 
-/*RESPONSIVE (MOBILE)*/
-@media (max-width: 768px) {
+.footer-copy {
+    font-size: 24px;
+    font-family: var(--font-serif);
+    font-weight: 600;
+    color: var(--cream);
+}
+
+/*RESPONSIVE*/
+/* Tablet & Mobile (<1024px) */
+@media (max-width: 1024px) {
     .container {
-        width: 100%;
-        min-height: 700px;
-        margin-top: 80px;
-        border-radius: 0; 
+        min-height: 550px;
+    }
+}
+
+/* Mobile Only (<768px) */
+@media (max-width: 768px) {
+        .nav-links {
+        display: none; 
     }
     
-    .sign-in-container, 
-    .sign-up-container {
+    .nav-container {
+        padding: 0 20px;
+    }
+    
+    .logo-text { font-size: 22px; }
+    
+    footer {
+        height: auto; 
+        padding: 20px 0;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* Container Mobile */
+    .container {
         width: 100%;
-        position: relative;
+        margin-top: 20px;
+        min-height: auto;
+        display: block; 
+    }
+
+    /* Form Mobile */
+    .form-container {
+        position: relative; 
+        width: 100%;
         height: auto;
         padding: 40px 20px;
     }
+    
+    form h1 { font-size: 32px; }
     
     .overlay-container {
         display: none; 
     }
     
-    .container.right-panel-active .sign-in-container,
+    .sign-up-container {
+        display: none; 
+        opacity: 1;
+        z-index: 5;
+    }
+    
+    .sign-in-container {
+        display: block; 
+        width: 100%;
+    }
+    
+    .container.right-panel-active .sign-in-container {
+        display: none;
+    }
+    
     .container.right-panel-active .sign-up-container {
+        display: block;
         transform: none;
         animation: none;
     }
