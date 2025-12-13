@@ -1,5 +1,14 @@
-/* Import Font mirip gambar: Serif untuk Judul, Sans untuk body */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --green: #325118; /* Hijau Tua Utama */
+    --dark-green: #334D25;    /* Hijau Box Donasi */
+    --cream: #FDFBE4;      /* Cream Background */
+    --orange: #E66D07; /* Tombol Orange */
+    --font-serif: 'Crimson text', serif;
+    --font-sans: 'Inter', sans-serif;
+}
 
 * {
     box-sizing: border-box;
@@ -8,17 +17,16 @@
 }
 
 body {
-    background: url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=1600&auto=format&fit=crop') no-repeat center center fixed;
+    background: url('assets/image/bglogin.png') no-repeat center center fixed;
     background-size: cover;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* place content from top so header and container don't overlap */
+    align-items: flex-start; 
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    color: #fff;
     position: relative;
-    padding-top: 120px; /* give extra space for fixed header */
+    padding-top: 120px;
     padding-bottom: 100px;
 }
 
@@ -151,10 +159,10 @@ form {
 }
 
 .form-container h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
+    font-family: 'Crimson text', serif;
+    font-size: 60px;
     margin-bottom: 15px;
-    color: #ffffff;
+    color:#ffffff;
     font-weight: 700;
     letter-spacing: -1px;
 }
