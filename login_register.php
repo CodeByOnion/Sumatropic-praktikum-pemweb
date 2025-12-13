@@ -108,6 +108,7 @@
     </div>
 
     <footer>
+        
     <div class="footer-container">
         
         <div class="footer-brand">Sumatropic</div>

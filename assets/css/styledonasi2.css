@@ -14,7 +14,7 @@ body {
 
 /* Variabel Warna */
 :root {
-    --primary-green: #2c4a24; /* Hijau Tua */
+    --primary-green: #325118 ; /* Hijau Tua */
     --accent-orange: #d97018; /* Oranye Tombol */
     --bg-cream: #fafce8; /* Background Hal Pembayaran */
     --text-dark: #333;
@@ -39,7 +39,11 @@ body {
     background-color: var(--primary-green);
     padding: 15px 0;
     color: white;
-    z-index: 120;
+    position: fixed; /* Agar menempel saat scroll */
+    top: 0;          /* Nempel di sisi atas */
+    left: 0;         /* Nempel di sisi kiri */
+    width: 100%;     /* Lebar penuh */
+    z-index: 1000;
 }
 .nav-container {
     max-width: 1100px;
