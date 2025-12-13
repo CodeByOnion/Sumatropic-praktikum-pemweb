@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/image/img/Logo.png" alt="Logo Sumatropic" width="200">
+  <img src="assets/image/Logo.png" alt="Logo Sumatropic" width="200">
 
   # SUMATROPIC
   **Hutan Sumatra, Warisan yang Harus Dijaga**
@@ -26,7 +26,7 @@
 
 Melalui platform ini, user bisa menjelajahi informasi mengenai flora dan fauna unik Sumatra, mendapatkan berita konservasi terkini, serta berkontribusi nyata melalui fitur donasi dan *volunteer*.
 
-> **Status Project:** Disusun untuk memenuhi Responsi 2 Praktikum Pemrograman Web (Semester 3).
+> **Project:** Dibuat untuk memenuhi Responsi 2 Praktikum Pemrograman Web (Semester 3).
 
 ## Fitur
 
@@ -48,12 +48,12 @@ Melalui platform ini, user bisa menjelajahi informasi mengenai flora dan fauna u
 * **Registrasi Akun:** Pendaftaran pengguna baru dengan password.
 
 ### Dashboard Admin
-* **Kelola Konten (CRUD):** Admin memiliki kontrol penuh untuk CRUD (Create, Read, Update, Delete) data:
+* **Kelola Konten (CRUD):** Admin bisa CRUD (Create, Read, Update, Delete) data:
     * Data Flora
     * Data Fauna
     * Data Berita
     * Data Donasi 
-* **User Management:** Pengelolaan data user terdaftar.
+* **Kelola User:** Mengelola data user terdaftar.
 
 ## Tech Stack
 
@@ -118,9 +118,9 @@ Gambaran singkat struktur tabel utama dalam database:
 
 Project ini dikembangkan oleh Kelompok Sumatropic:
 
-* **[Yustinus Ergi Owen Sinaga (H1D024072)]** - *[Ketua: Frontend]*
-* **[Raihan Dwi Ananda Harvian (H1D024091)]** - *[Anggota: Backend]*
-* **[Latifanika Nurafwi (H1D024099)]** - *[Anggota: UI/UX]*
+* **Yustinus Ergi Owen Sinaga (H1D024072)** - Ketua: Frontend
+* **Raihan Dwi Ananda Harvian (H1D024091)** - Anggota: Backend
+* **Latifanika Nurafwi (H1D024099)** - Anggota: UI/UX
 
 ---
 <p align="center">Sumatropic. Made with 💚 for Sumatra's Wildlife</p>
