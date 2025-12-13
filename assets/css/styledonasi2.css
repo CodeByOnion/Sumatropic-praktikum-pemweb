@@ -1,0 +1,404 @@
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    /* Agar bisa scroll melihat kedua desain */
+    background-color: #f0f0f0; 
+}
+
+/* Variabel Warna */
+:root {
+    --primary-green: #2c4a24; /* Hijau Tua */
+    --accent-orange: #d97018; /* Oranye Tombol */
+    --bg-cream: #fafce8; /* Background Hal Pembayaran */
+    --text-dark: #333;
+    --font-serif: 'Playfair Display', serif;
+}
+
+/* ================= BAGIAN 1: LANDING PAGE ================= */
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+.landing-page-container {
+    width: 100%;
+    position: relative;
+    background: #333;
+}
+
+/* Navbar */
+.navbar {
+    position: relative !important;
+    top: auto !important;
+    width: 100% !important;
+    background-color: var(--primary-green);
+    padding: 15px 0;
+    color: white;
+    z-index: 120;
+}
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-group { display: flex; align-items: center; gap: 12px; }
+.logo-image { height: 45px; width: auto; object-fit: contain; }
+
+/* Strongly enforce logo dimensions to prevent oversized rendering */
+.nav-container > .logo-group .logo-image,
+.navbar .logo-image,
+.logo-image {
+    height: 45px !important;
+    max-height: 45px !important;
+    width: auto !important;
+    max-width: 200px !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+}
+.logo-text { font-family: var(--font-serif); font-size: 1.4rem; letter-spacing: 2px; font-weight:700; color: white; }
+
+.nav-right { display: flex; align-items: center; gap: 30px; }
+.nav-links { display: flex; gap: 34px; flex: 1; justify-content: center; align-items: center; }
+.nav-links a { color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+
+/* Tombol Auth */
+.auth-buttons { display: flex; gap: 10px; }
+.btn-login { color: white; text-decoration: none; border: 1px solid white; padding: 8px 25px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; }
+.btn-register { background-color: var(--accent-orange); color: white; text-decoration: none; padding: 8px 25px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; border: 1px solid var(--accent-orange); }
+
+
+/* Keep previous simple styles in case layout uses them */
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.btn-event {
+    background-color: var(--accent-orange);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.user-icon {
+    font-size: 1.5rem;
+}
+
+/* HERO + TITLE STRIP RULES from styledonasi1.css */
+
+.hero {
+    background-image: url('../assets/image/donasi.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 550px;
+    position: relative;
+}
+
+.title-strip {
+    background-color: var(--primary-green);
+    color: white;
+    padding: 30px 0 50px;
+    margin-top: -40px; /* overlap the hero */
+    position: relative;
+    z-index: 10;
+}
+.breadcrumb { font-size: 0.8rem; opacity: 0.8; margin-bottom: 5px; }
+.title-strip h2 { font-family: var(--font-serif); font-size: 2.8rem; margin-bottom: 5px; }
+.strip-subtitle { font-size: 0.9rem; opacity: 0.9; max-width: 600px; }
+
+/* Keep the existing donation-banner colors for backup */
+.donation-banner { background-color: #263c1e; padding: 40px 50px; }
+.donation-banner h2 { font-family: var(--font-serif); font-size: 3rem; margin-bottom: 10px; }
+
+
+/* Overlay and Hero content */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.hero-content .subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hero-content h1 {
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    line-height: 1;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content .description {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* Ensures hero uses Donasi image and height like Donasi1 */
+.hero {
+    background-image: url('../assets/image/donasi.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 550px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+}
+
+/* Donation Banner */
+.donation-banner {
+    background-color: #263c1e; /* Sedikit lebih gelap dari navbar */
+    padding: 40px 50px;
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.donation-banner h2 {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.donation-banner p {
+    max-width: 800px;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+
+/* ================= BAGIAN 2: PAYMENT PAGE ================= */
+
+.payment-page-container {
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    padding-top: 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+    flex: 1; /* Mendorong footer ke bawah */
+}
+
+/* Detail Pembayaran Info */
+.payment-info {
+    margin-bottom: 30px;
+}
+
+.payment-info h2 {
+    font-family: var(--font-serif);
+    color: var(--primary-green);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 10px;
+    font-size: 1rem;
+    color: #2c4a24;
+    font-weight: 600;
+}
+
+/* Kotak Hijau Pembayaran */
+.payment-methods-box {
+    background-color: var(--primary-green);
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 50px;
+}
+
+.method-title {
+    font-family: var(--font-serif);
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.method-item {
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.method-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+.bank-logo {
+    width: 60px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.bca { color: #0060af; }
+.bni { color: #f15a23; }
+.qris { color: #000; font-family: monospace; letter-spacing: -1px; font-weight: 900;}
+
+.method-header span {
+    font-weight: 700;
+    flex-grow: 1;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.plus-icon {
+    flex-grow: 0 !important;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Bagian QRIS yang terbuka (Active) */
+.method-content {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    display: none; /* Hidden by default */
+}
+
+.method-item.active .method-content {
+    display: block;
+}
+
+.qr-details {
+    display: flex;
+    gap: 20px;
+}
+
+.qr-code-placeholder {
+    background: white;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #000;
+}
+
+.qr-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.qr-text strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.qr-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.btn-finish {
+    background-color: var(--accent-orange);
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-finish:hover {
+    background-color: #bf6214;
+}
+
+/* Footer */
+.footer {
+    background-color: #1a2e15; /* Hijau sangat tua */
+    color: white;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.footer-left {
+    font-family: var(--font-serif);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.footer-center {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-center i {
+    cursor: pointer;
+}
+
+.footer-right {
+    opacity: 0.8;
+}
