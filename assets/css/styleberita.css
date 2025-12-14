@@ -1,5 +1,6 @@
 /* RESET & VARIABLES */
 :root {
+<<<<<<< HEAD
     --primary-green: #324c28;
     /* Hijau tua header/footer */
     --secondary-green: #3e5e32;
@@ -8,6 +9,12 @@
     /* Warna tombol daftar */
     --bg-cream: #fffded;
     /* Warna background utama */
+=======
+    --primary-green: #325118 ; /* Hijau tua header/footer */
+    --secondary-green: #3e5e32; /* Hijau sedikit lebih terang */
+    --accent-orange: #e87c0e; /* Warna tombol daftar */
+    --bg-cream: #fffded; /* Warna background utama */
+>>>>>>> 15157152e9db78071cb47e91f67466079b747638
     --text-dark: #333333;
     --text-light: #ffffff;
     --font-serif: 'Playfair Display', serif;
@@ -41,10 +48,87 @@ ul {
     padding: 0 20px;
 }
 
+<<<<<<< HEAD
+=======
+/* NAVBAR */
+.navbar {
+    background-color: var(--primary-green);
+    padding: 15px 0;
+    color: var(--text-light);
+    position: fixed; /* Agar menempel saat scroll */
+    top: 0;          /* Nempel di sisi atas */
+    left: 0;         /* Nempel di sisi kiri */
+    width: 100%;     /* Lebar penuh */
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    font-size: 1rem;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    opacity: 1;
+    font-weight: 600;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-outline {
+    border: 1px solid var(--text-light);
+    color: var(--text-light);
+}
+
+.btn-outline:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.btn-fill {
+    background-color: var(--accent-orange);
+    color: var(--text-light);
+    border: 1px solid var(--accent-orange);
+}
+
+.btn-fill:hover {
+    background-color: #cf6d0a;
+}
+>>>>>>> 15157152e9db78071cb47e91f67466079b747638
 
 /* HERO SECTION */
 .hero {
-    background-image: url('assets/image/harimauberita.jpg');
+    background-image: url('assets/image/harmauberita.jpg');
     background-size: cover;
     background-position: center;
     height: 500px;

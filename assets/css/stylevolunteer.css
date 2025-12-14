@@ -1,7 +1,7 @@
 /* --- Reset & Variables --- */
 :root {
     --bg-color: #FFFBE6; /* Warna krem background */
-    --primary-green: #3A522C; /* Hijau tua untuk card/header */
+    --primary-green: #325118 ; /* Hijau tua untuk card/header */
     --text-dark: #2C3E23;
     --accent-orange: #E67E22;
     --text-white: #ffffff;
@@ -20,6 +20,7 @@ body {
     font-family: var(--font-body);
     color: var(--text-dark);
     line-height: 1.6;
+    padding-top: 75px;
 }
 
 /* --- Navbar --- */
@@ -27,8 +28,12 @@ body {
     background-color: var(--primary-green);
     padding: 15px 0;
     color: var(--text-white);
-    position: relative;
+    position: fixed; /* Agar menempel saat scroll */
+    top: 0;          /* Nempel di sisi atas */
+    left: 0;         /* Nempel di sisi kiri */
+    width: 100%;     /* Lebar penuh */
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 .nav-container {
