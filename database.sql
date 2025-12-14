@@ -56,6 +56,7 @@ CREATE TABLE volunteers (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- 5. Tabel Donasi
 CREATE TABLE donate(
     id INT AUTO_INCREMENT PRIMARY KEY,
     nama VARCHAR(100) NOT NULL,
@@ -66,6 +67,6 @@ CREATE TABLE donate(
     tanggal_donasi TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 5. Insert Akun Admin (Password: admin123)
+-- 6. Insert Akun Admin (Password: admin123)
 INSERT INTO users (username, email, password, role) 
 VALUES ('Admin', 'admin@sumatropic.com', 'admin 123', 'admin');
