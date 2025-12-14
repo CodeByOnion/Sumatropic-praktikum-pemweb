@@ -92,6 +92,7 @@ body {
     border: 1px solid var(--accent-orange);
 }
 
+/* Overlay and Hero content */
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -102,6 +103,7 @@ body {
     position: relative;
     z-index: 2;
     max-width: 600px;
+    color: white; /* <--- TAMBAHKAN BARIS INI */
 }
 
 .hero-content .subtitle {
@@ -111,6 +113,7 @@ body {
     text-transform: uppercase;
     display: block;
     margin-bottom: 10px;
+    /* color: white; <-- Opsi lain jika ingin mengubah subtitle saja */
 }
 
 .hero-content h1 {
@@ -119,6 +122,7 @@ body {
     line-height: 1;
     margin-bottom: 15px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    /* Warna text-shadow akan lebih terlihat jika teksnya putih */
 }
 
 .hero-content .description {

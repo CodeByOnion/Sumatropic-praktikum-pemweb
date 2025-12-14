@@ -169,23 +169,28 @@
     </div>
 
     <script>
-        methodHeaders.forEach(header =&gt; {
-    header.addEventListener(&#39;click&#39;, () =&gt; {
-        // Ambil parent element (.method-item)
-        const methodItem = header.parentElement;
-        
-        // Toggle class &#39;active&#39; untuk membuka/menutup
-        methodItem.classList.toggle(&#39;active&#39;);
-        
-        // (Opsional) Tutup metode lain saat satu dibuka (Accordion behavior)
-        document.querySelectorAll(&#39;.method-item&#39;).forEach(item =&gt; {
-            if (item !== methodItem) {
-                item.classList.remove(&#39;active&#39;);
-            }
+    // 1. Definisikan/Pilih elemennya terlebih dahulu
+    const methodHeaders = document.querySelectorAll('.method-header');
+
+    methodHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            // Ambil parent element (.method-item) dari header yang diklik
+            const currentItem = header.parentElement;
+            
+            // LOGIKA ACCORDION (Hanya satu yang terbuka dalam satu waktu)
+            // Loop semua item untuk menutup yang lain
+            document.querySelectorAll('.method-item').forEach(item => {
+                // Jika item ini bukan yang sedang diklik, hapus class 'active'
+                if (item !== currentItem) {
+                    item.classList.remove('active');
+                }
+            });
+
+            // Toggle class 'active' pada item yang diklik (buka/tutup)
+            currentItem.classList.toggle('active');
         });
     });
-});
-    </script>
+</script>
 
 </body>
 </html>

@@ -425,3 +425,28 @@ body {
 .footer-right {
     opacity: 0.8;
 }
+
+/* Pastikan bagian ini ada di CSS Anda */
+
+.method-content {
+    display: none; /* Sembunyikan konten secara default */
+    /* Opsional: Tambahkan transisi jika ingin animasi slide (perlu max-height) */
+}
+
+.method-item.active .method-content {
+    display: block; /* Tampilkan konten jika parent memiliki class 'active' */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animasi sederhana agar munculnya tidak kaku */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Rotasi ikon plus (+) menjadi silang (x) saat aktif */
+.method-item.active .plus-icon {
+    transform: rotate(45deg); 
+    color: var(--primary-green);
+    transition: transform 0.3s ease;
+}
