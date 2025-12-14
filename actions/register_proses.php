@@ -1,34 +1,32 @@
 <?php
-// File: actions/register_process.php
 session_start();
 require '../config/connect.php';
 
-if (isset($_POST['register_btn'])) {
-    // 1. Tangkap input user
-    $username = $_POST['username'];
-    $email    = $_POST['email'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $username = trim($_POST['username']);
+    $email    = trim($_POST['email']);
     $password = $_POST['password'];
 
-    // 2. Hash Password (WAJIB)
     $password_hashed = password_hash($password, PASSWORD_DEFAULT);
 
-    // 3. Cek Email Kembar
-    $check = mysqli_query($conn, "SELECT email FROM users WHERE email = '$email'");
-    if (mysqli_num_rows($check) > 0) {
+    $check = $conn->prepare("SELECT id FROM users WHERE email = ?");
+    $check->bind_param("s", $email);
+    $check->execute();
+    $check->store_result();
+
+    if ($check->num_rows > 0) {
         echo "<script>alert('Email sudah terdaftar!'); window.location='../login_register.php';</script>";
         exit;
     }
 
-    // 4. Simpan ke DB
-    $query = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
-
-    $stmt = $conn->prepare($query);
-    // "sss" artinya 3 string (username, email, password_hashed)
+    $query = "INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, 'user')";
+    $stmt  = $conn->prepare($query);
     $stmt->bind_param("sss", $username, $email, $password_hashed);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Registrasi Berhasil! Silakan Login.'); window.location='../login_register.php';</script>";
+        echo "<script>alert('Registrasi berhasil! Silakan login.'); window.location='../login_register.php';</script>";
     } else {
-        echo "Error: " . $conn->error;
+        echo "<script>alert('Registrasi gagal!'); window.location='../login_register.php';</script>";
     }
 }

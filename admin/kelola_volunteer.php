@@ -1,24 +1,23 @@
 <?php
 session_start();
-require '../config/conncet.php';
+require '../config/connect.php';
 
-// 1. Cek Admin (Logic Tetap)
 if (!isset($_SESSION['status']) || $_SESSION['role'] != 'admin') {
     header("Location: ../login_register.php");
     exit;
 }
 
-// 2. Ambil Data (Logic Tetap)
-$query = "SELECT * FROM volunteer ORDER BY id_volunteer DESC";
-$result = mysqli_query($conn, $query);
+$result = mysqli_query($conn, "SELECT * FROM volunteers ORDER BY id DESC");
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kelola Volunteer</title>
+    <link rel="stylesheet" href="../assets/css/styledashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
@@ -26,11 +25,8 @@ $result = mysqli_query($conn, $query);
 
     <div class="container">
 
-        <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px;">
-            <div style="font-weight: bold; color: #2e4a1c; font-size: 18px;">
-                <i class="fas fa-user-circle" style="font-size: 24px; vertical-align: middle; margin-right: 8px;"></i>
-                Admin
-            </div>
+        <div style="display:flex; justify-content:flex-end; margin-bottom:20px;">
+            <b>Admin</b>
         </div>
 
         <div class="table-wrapper">
@@ -44,14 +40,48 @@ $result = mysqli_query($conn, $query);
             <table>
                 <thead>
                     <tr>
-                        <th width="5%">Id</th>
-                        <th width="20%">Judul Volunteer</th>
+                        <th width="5%">No</th>
+                        <th width="20%">Judul</th>
                         <th width="30%">Deskripsi</th>
-                        <th width="15%">Email</th>
-                        <th width="15%">No. Telepon</th>
-                        <th width="10%">Aksi</th>
+                        <th width="15%">URL</th>
+                        <th width="15%">Cover</th>
+                        <th width="15%">Aksi</th>
                     </tr>
                 </thead>
+
+                <tbody>
+                    <?php $no = 1;
+                    while ($row = mysqli_fetch_assoc($result)): ?>
+                        <tr>
+                            <td>0<?= $no++; ?></td>
+
+                            <td><b><?= $row['judul']; ?></b></td>
+
+                            <td><?= substr($row['deskripsi_singkat'], 0, 100); ?>...</td>
+
+                            <td>
+                                <a href="<?= $row['url_sumber']; ?>" target="_blank" class="source-link">
+                                    Sumber
+                                </a>
+                            </td>
+
+                            <td>
+                                <?php if ($row['gambar']): ?>
+                                    <img src="../uploads/volunteer/<?= $row['gambar']; ?>">
+                                <?php endif; ?>
+                            </td>
+
+                            <td>
+                                <a href="../actions/tambah_volunteer.php?id=<?= $row['id']; ?>" class="btn-edit">Ubah</a>
+                                <a href="../actions/tambah_volunteer.php?hapus=<?= $row['id']; ?>"
+                                    onclick="return confirm('Hapus data ini?');"
+                                    class="btn-delete">Hapus</a>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
 </body>
 
 </html>

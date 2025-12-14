@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+// Jika sudah login, langsung redirect
+if (isset($_SESSION['status']) && $_SESSION['status'] === 'login') {
+
+    // Redirect berdasarkan role
+    if ($_SESSION['role'] === 'admin') {
+        header("Location: admin/dashboard.php");
+    } else {
+        header("Location: index.php");
+    }
+    exit;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="id">
 
