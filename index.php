@@ -68,8 +68,8 @@ $result_news = mysqli_query($conn, $query_news);
             <h1>SUMATROPIC</h1>
             <p>Dari lembah berkabut hingga punggung harimau, setiap jengkal hutan ini menyimpan cerita.</p>
             <div class="hero-buttons">
-                <button class="btn btn-outline-white">JELAJAHI FLORA</button>
-                <button class="btn btn-outline-white">KENALI FAUNA</button>
+                <a href="pages/flora.php"><button class="btn btn-outline-white">JELAJAHI FLORA</button></a>
+                <a href="pages/fauna.php"><button class="btn btn-outline-white">KENALI FAUNA</button></a>
             </div>
         </div>
         <div class="hero-location">← Pulau Sumatra, Indonesia →</div>

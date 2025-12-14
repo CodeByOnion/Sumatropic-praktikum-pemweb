@@ -2,15 +2,10 @@
 
 /* --- RESET & VARIABLES --- */
 :root {
-<<<<<<< HEAD
-    --primary-green: #2F4F2F;
+    --primary-green: #325118;
     /* Hijau tua hutan */
     --secondary-green: #4A6741;
     /* Hijau daun */
-=======
-    --primary-green: #325118 ; /* Hijau tua hutan */
-    --secondary-green: #4A6741; /* Hijau daun */
->>>>>>> 15157152e9db78071cb47e91f67466079b747638
     --accent-orange: #E67E22;
     --bg-cream: #FFFDF5;
     --text-dark: #1a1a1a;

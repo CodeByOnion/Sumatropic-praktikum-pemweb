@@ -34,31 +34,8 @@ $result = mysqli_query($conn, $query);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<<<<<<< HEAD
 <body>
     <?php require_once "../template/navbar.php"; ?>
-=======
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-group">
-                <img src="../assets/image/Logo.png" alt="SUMATROPIC" class="logo-image">
-                <span class="logo-text">SUMATROPIC</span>
-            </div>
-            <div class="nav-links">
-                <a href="#">Beranda</a>
-                <a href="#">Berita</a>
-                <a href="#">Flora</a>
-                <a href="#" class="active">Fauna</a>
-            </div>
-            <div class="nav-right">
-                <div class="auth-buttons">
-                    <a href="#" class="btn-login">Masuk</a>
-                    <a href="#" class="btn-register">Daftar</a>
-                </div>
-            </div>
-        </div>
-    </nav>
->>>>>>> 15157152e9db78071cb47e91f67466079b747638
 
     <header class="hero-fauna" style="background-image: url('../assets/image/beo.jpg');">
         <div class="hero-overlay">

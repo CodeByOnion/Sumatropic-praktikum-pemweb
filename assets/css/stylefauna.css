@@ -3,7 +3,6 @@
 
 /* --- VARIABLES --- */
 :root {
-<<<<<<< HEAD
     --primary-green: #294222;
     /* Hijau Tua Dominan */
     --card-green: #385226;
@@ -14,13 +13,6 @@
     /* Orange Tombol */
     --status-red: #D00000;
     /* Merah Badge */
-=======
-    --primary-green: #325118 ; /* Hijau Tua Dominan */
-    --card-green: #385226;    /* Hijau Kartu Info */
-    --bg-cream: #FDFCEF;      /* Cream Background */
-    --accent-orange: #E67E22; /* Orange Tombol */
-    --status-red: #D00000;    /* Merah Badge */
->>>>>>> 15157152e9db78071cb47e91f67466079b747638
     --text-white: #ffffff;
     --text-dark: #333333;
     --font-serif: 'Merriweather', serif;
@@ -45,19 +37,24 @@ body {
     padding: 0 20px;
 }
 
-<<<<<<< HEAD
-=======
+
+
 /* --- NAVBAR --- */
 .navbar {
     background-color: var(--primary-green);
     padding: 15px 0;
     color: white;
-    position: fixed; /* Agar menempel saat scroll */
-    top: 0;          /* Nempel di sisi atas */
-    left: 0;         /* Nempel di sisi kiri */
-    width: 100%;     /* Lebar penuh */
+    position: fixed;
+    /* Agar menempel saat scroll */
+    top: 0;
+    /* Nempel di sisi atas */
+    left: 0;
+    /* Nempel di sisi kiri */
+    width: 100%;
+    /* Lebar penuh */
     z-index: 1000;
 }
+
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -66,35 +63,83 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-.logo-group { display: flex; align-items: center; gap: 12px; }
-.logo-image { height: 45px; width: auto; object-fit: contain; }
-.logo-text { font-family: var(--font-serif); font-size: 1.4rem; letter-spacing: 2px; font-weight:700; color: white; }
 
-.nav-right { display: flex; align-items: center; gap: 30px; }
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-image {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: white;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
 /* Center the nav links between logo and auth buttons */
-.nav-links { display: flex; gap: 34px; flex: 1; justify-content: center; align-items: center; }
+.nav-links {
+    display: flex;
+    gap: 34px;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
 .nav-links a {
-    color: rgba(255,255,255,0.9);
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
     transition: 0.3s;
 }
-.nav-links a:hover, .nav-links a.active { color: white; }
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: white;
+}
 
 /* Tombol Auth */
-.auth-buttons { display: flex; gap: 10px; }
-.btn-login {
-    color: white; text-decoration: none;
-    border: 1px solid white; padding: 8px 25px;
-    border-radius: 20px; font-weight: 600; font-size: 0.9rem;
+.auth-buttons {
+    display: flex;
+    gap: 10px;
 }
+
+.btn-login {
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 8px 25px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
 .btn-register {
-    background-color: var(--accent-orange); color: white; text-decoration: none;
-    padding: 8px 25px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;
+    background-color: var(--accent-orange);
+    color: white;
+    text-decoration: none;
+    padding: 8px 25px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
     border: 1px solid var(--accent-orange);
 }
->>>>>>> 15157152e9db78071cb47e91f67466079b747638
+
+
 
 /* --- HERO SECTION (Beo Nias) --- */
 .hero-fauna {
