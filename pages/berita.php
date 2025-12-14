@@ -47,7 +47,7 @@ $result = mysqli_query($conn, $query);
 
     <?php require_once "../template/navbar.php"; ?>
 
-    <header class="hero" style="background-image :url('../assets/image/berita.jpg');'>
+    <header class="hero" style="background-image :url('../assets/image/berita.jpg');">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <div class="hero-text">
@@ -64,7 +64,7 @@ $result = mysqli_query($conn, $query);
     <section class="page-header-strip">
         <div class="container">
             <h2>Berita</h2>
-            <p>Berita konservasi dan pembaruan penting dari proyek Sumatropic.</p>
+<p>Ikuti perkembangan terbaru dari garis depan konservasi, kisah penyelamatan satwa, dan inisiatif pemulihan habitat di seluruh Sumatera.</p>        </div>
         </div>
     </section>
 

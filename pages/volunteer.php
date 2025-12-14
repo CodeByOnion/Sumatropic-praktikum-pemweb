@@ -39,7 +39,7 @@
             <div class="hero-content">
                 <p class="breadcrumb">Beranda > Volunteer</p>
                 <h1>Volunteer</h1>
-                <p class="hero-desc">Help protect and restore nature near you, connect to our conservation work and build community.</p>
+                <p class="hero-desc">Bergabunglah dengan komunitas penjaga alam. Dari menanam pohon hingga patroli hutan, setiap tetes keringatmu adalah napas baru bagi masa depan hutan Sumatera.</p>
             </div>
             <div class="hero-spotlight">
                 <span>SPOTLIGHT ON</span>
@@ -53,7 +53,7 @@
                 <h2>Aksi kecil, dampak besar</h2>
                 <p class="subtitle">Small action is matter.</p>
                 <p class="description">
-                    Setiap tangan yang terulur membawa harapan untuk bumi yang lebih sehat dan masa depan yang tetap hijau. Pilih program <em>volunteer</em> yang sesuai dengan minatmu dan mulai berkontribusi untuk alam Sumatra.
+                 Setiap tangan yang terulur membawa harapan untuk bumi yang lebih sehat dan masa depan yang tetap hijau. Pilih program volunteer yang sesuai dengan minatmu dan mulai berkontribusi untuk alam SumatraSetiap tangan yang terulur membawa harapan untuk bumi yang lebih sehat dan masa depan yang tetap hijau. Pilih program <em>volunteer</em> yang sesuai dengan minatmu dan mulai berkontribusi untuk alam Sumatra.
                 </p>
             </section>
 
@@ -62,33 +62,44 @@
                 <div class="card">
                     <div class="card-text">
                         <h3>Perlindungan Gajah Sumatra</h3>
-                        <p>Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan. Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.</p>
-                        <button class="btn-action">Take action</button>
+                        <p>Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan. Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.</p>                        
+                        <button class="btn-action" a href="Bergabung Menjadi Relawan - Greenpeace Indonesia - Greenpeace Indonesia">Take action</button>
                     </div>
                     <div class="card-image">
                         <img src="../assets/image/volunteer.jpg" alt="Gajah">
                     </div>
                 </div>
 
-                <div class="card reverse">
+                <div class="card">
                     <div class="card-text">
-                        <h3>Restorasi Hutan</h3>
-                        <p>Bantu kami menanam kembali pohon-pohon endemik Sumatra yang hilang. Program ini berfokus pada penghijauan kembali area gundul untuk mengembalikan fungsi hutan sebagai paru-paru dunia.</p>
-                        <button class="btn-action">Take action</button>
+                        <h3>Perlindungan Gajah Sumatra</h3>
+                        <p>Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan. Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.</p>                        
+                        <button class="btn-action" a href="Bergabung Menjadi Relawan - Greenpeace Indonesia - Greenpeace Indonesia">Take action</button>
                     </div>
                     <div class="card-image">
-                        <img src="../assets/image/hutan.jpg" alt="Hutan">
+                        <img src="../assets/image/volunteer.jpg" alt="Gajah">
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-text">
-                        <h3>Edukasi Masyarakat</h3>
-                        <p>Menjadi jembatan antara konservasi dan masyarakat lokal. Edukasi tentang pentingnya menjaga satwa liar dan bagaimana hidup berdampingan dengan alam tanpa merusaknya.</p>
-                        <button class="btn-action">Take action</button>
+                        <h3>Perlindungan Gajah Sumatra</h3>
+                        <p>Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan. Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.</p>                        
+                        <button class="btn-action" a href="Bergabung Menjadi Relawan - Greenpeace Indonesia - Greenpeace Indonesia">Take action</button>
                     </div>
                     <div class="card-image">
-                        <img src="../assets/image/warga.jpg" alt="Warga">
+                        <img src="../assets/image/volunteer.jpg" alt="Gajah">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-text">
+                        <h3>Perlindungan Gajah Sumatra</h3>
+                        <p>Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan. Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.</p>                        
+                        <button class="btn-action" a href="Bergabung Menjadi Relawan - Greenpeace Indonesia - Greenpeace Indonesia">Take action</button>
+                    </div>
+                    <div class="card-image">
+                        <img src="../assets/image/volunteer.jpg" alt="Gajah">
                     </div>
                 </div>
 
