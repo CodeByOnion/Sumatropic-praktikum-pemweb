@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
@@ -11,16 +12,37 @@
     --font-sans: 'Inter', sans-serif;
 }
 
+=======
+/* --- RESET DASAR --- */
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+<<<<<<< HEAD
 }
 
 body {
+=======
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-green: #2d4f23; /* Hijau Navbar */
+    --orange: #E86D09;        /* Warna Tombol Daftar */
+    --cream: #FDFBE4;
+    --font-serif: 'Crimson Text', serif; /* Font untuk Menu Navbar */
+    --font-sans: 'Poppins', sans-serif;  /* Font untuk Input Form */
+}
+
+body {
+    /* Pastikan gambar ada di folder assets/image/ */
+    /* Menggunakan ../ karena file css ada di dalam folder css */
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
     background: url('../image/bglogin.png') no-repeat center center fixed;
     background-size: cover;
     display: flex;
+<<<<<<< HEAD
     flex-direction: column;
     min-height: 100vh; 
     font-family: var(--font-sans);
@@ -30,6 +52,20 @@ body {
     /* Overlay Background Gelap */
     background-color: rgba(0, 0, 0, 0.2); 
     background-blend-mode: overlay;
+=======
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 80px; /* Jarak agar tidak ketutup navbar */
+}
+
+/* Overlay Hitam Transparan di Background */
+body::before {
+    content: ''; 
+    position: absolute; 
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4); 
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
     z-index: -1;
 }
 
@@ -38,6 +74,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+<<<<<<< HEAD
     z-index: 1000;
     padding: 15px 0;
     transition: all 0.3s ease;
@@ -49,6 +86,12 @@ header.scrolled {
     backdrop-filter: blur(10px);
     padding: 15px 0;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+=======
+    background-color: var(--primary-green); /* Hijau Gelap Solid */
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 }
 
 .nav-container {
@@ -56,6 +99,10 @@ header.scrolled {
     width: 90%;
     height: 100%;
     margin: 0 auto;
+<<<<<<< HEAD
+=======
+    padding: 0 30px;
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -64,25 +111,38 @@ header.scrolled {
 .logo-group {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .logo-image {
+<<<<<<< HEAD
     height: 50px; 
+=======
+    height: 50px; /* Ukuran Logo Pas */
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
     width: auto;
 }
 
 .logo-text {
     font-family: var(--font-serif);
+<<<<<<< HEAD
     font-size: 34px;
     letter-spacing: -2px;
     color: var(--cream);
     font-weight: 600;
     text-transform: uppercase;
+=======
+    font-size: 1.6rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400; /* Regular serif */
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 }
 
 .nav-links {
     display: flex;
+<<<<<<< HEAD
     gap: 40px;
 }
 
@@ -104,10 +164,34 @@ header.scrolled {
 .header-btns {
     display: flex;
     gap: 20px;
+=======
+    gap: 30px;
+}
+
+.nav-links a {
+    font-family: var(--font-serif); /* Pakai Serif agar elegan */
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ddd;
+}
+
+/* TOMBOL KANAN */
+.header-btns {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 }
 
 .nav-btn {
     font-family: var(--font-serif);
+<<<<<<< HEAD
     padding: 8px 25px;
     border-radius: 12px;
     font-weight: 600;
@@ -143,10 +227,44 @@ header.scrolled {
 .nav-btn.filled:hover {
     background: #c05805;
     transform: translateY(-2px);
+=======
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 6px 25px;
+    border-radius: 25px; /* Membulat seperti pil */
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Tombol Masuk: Transparan + Border Putih */
+.nav-btn.ghost {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.nav-btn.ghost:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Tombol Daftar: Background Oranye */
+.nav-btn.filled {
+    background: var(--orange);
+    color: #fff;
+    border: 2px solid var(--orange);
+}
+
+.nav-btn.filled:hover {
+    background: #d35400;
+    border-color: #d35400;
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 }
 
 /* --- CONTAINER LOGIN/REGISTER --- */
 .container {
+<<<<<<< HEAD
     background-color: rgba(50, 81, 24, 0.30); 
     border-radius: 12px; 
     position: relative;
@@ -156,8 +274,19 @@ header.scrolled {
     margin: auto;
     min-height: 678px; 
     backdrop-filter: blur(25px);}
+=======
+    background-color: rgba(30, 50, 20, 0.85);
+    border-radius: 15px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+    width: 900px;
+    max-width: 95%;
+    min-height: 550px;
+    margin-top: 20px;
+}
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 
-/*FORM STYLES*/
 .form-container {
     position: absolute;
     top: 0;
@@ -165,17 +294,26 @@ header.scrolled {
     transition: all 0.6s ease-in-out;
 }
 
+<<<<<<< HEAD
 /* Layout Form untuk Masuk & Daftar */
+=======
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 form {
     background: transparent;
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     justify-content: center;
     padding: 0 40px; 
+=======
+    padding: 0 50px;
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
     height: 100%;
     text-align: left;
+    color: #fff;
 }
 
+<<<<<<< HEAD
 /* Typography Form (Judul) */
 form h1 {
     font-family: var(--font-serif);
@@ -185,10 +323,16 @@ form h1 {
     text-align: center;
     margin-bottom: 10px;
     color: var(--cream);
+=======
+h1 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 }
 
-/* Subtitle (Deskripsi di bawah judul) */
 .subtitle {
+<<<<<<< HEAD
     font-size: 22px; 
     font-weight: 200;
     font-family: var(--font-sans);
@@ -210,9 +354,16 @@ label {
     margin-top: 5px;
     font-weight: 300;
     color: var(--cream);
+=======
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    font-weight: 300;
+    line-height: 1.5;
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 }
 
 input {
+<<<<<<< HEAD
 
     color: var(--cream);
     font-family: var(--font-sans); 
@@ -222,8 +373,16 @@ input {
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
     padding: 12px 15px;
+=======
+    background: transparent !important;
+    border: none;
+    border-bottom: 1px solid #fff;
+    padding: 10px 0;
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
     width: 100%;
+    color: #fff;
     outline: none;
+<<<<<<< HEAD
 }
 
 input::placeholder {
@@ -298,11 +457,48 @@ button.masuk-btn:active {
 }
 
 /*ANIMATION & LOGIC (SLIDING)*/
+=======
+    margin-bottom: 15px;
+    font-family: var(--font-sans);
+}
+
+/* Fix browser autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #223a18 inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+button.orange-btn {
+    background: var(--orange);
+    border: none;
+    padding: 12px;
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: var(--font-sans);
+}
+
+button.orange-btn:hover {
+    background: #d35400;
+}
+
+/* Posisi Slider */
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 .sign-in-container {
     left: 0;
     width: 50%;
     z-index: 2;
-    opacity: 1; 
 }
 
 .sign-up-container {
@@ -312,11 +508,14 @@ button.masuk-btn:active {
     z-index: 1;
 }
 
-/* Animasi saat tombol diklik */
 .container.right-panel-active .sign-in-container {
     transform: translateX(100%);
+<<<<<<< HEAD
     opacity: 0; 
     pointer-events: none; 
+=======
+    opacity: 0;
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 }
 
 .container.right-panel-active .sign-up-container {
@@ -324,7 +523,6 @@ button.masuk-btn:active {
     opacity: 1;
     z-index: 5;
     animation: show 0.6s;
-    pointer-events: all; 
 }
 
 @keyframes show {
@@ -332,7 +530,11 @@ button.masuk-btn:active {
     50%, 100% { opacity: 1; z-index: 5; }
 }
 
+<<<<<<< HEAD
 /*OVERLAY PANEL (HIJAU BERGERAK)*/
+=======
+/* Overlay Hijau */
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 .overlay-container {
     position: absolute;
     top: 0;
@@ -344,9 +546,18 @@ button.masuk-btn:active {
     z-index: 100;
 }
 
+.container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
 .overlay {
+<<<<<<< HEAD
     background: var(--green);
     color: var(--cream);
+=======
+    background: #2d4f23;
+    color: #fff;
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
     position: relative;
     left: -100%;
     height: 100%;
@@ -354,6 +565,10 @@ button.masuk-btn:active {
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
     margin: auto;
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
 }
 
 .overlay-panel {
@@ -371,6 +586,7 @@ button.masuk-btn:active {
     transition: transform 0.6s ease-in-out;
 }
 
+<<<<<<< HEAD
 .overlay-panel h1 {
     font-family: var(--font-serif);
     font-weight: 600;
@@ -456,6 +672,8 @@ button.ghost2:active {
     transform: translateX(50%);
 }
 
+=======
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 .overlay-left {
     transform: translateX(-20%);
 }
@@ -476,6 +694,7 @@ button.ghost2:active {
 /* --- FOOTER --- */
 footer {
     width: 100%;
+<<<<<<< HEAD
     height: 80px;
     background-color: var(--footer);
     color: var(--cream);
@@ -598,4 +817,30 @@ footer {
         transform: none;
         animation: none;
     }
+=======
+    padding: 15px 50px;
+    background: var(--primary-green);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    z-index: 999;
+}
+
+.footer-social i {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .header-btns { display: none; }
+    .container { width: 100%; min-height: 600px; margin-top: 80px; }
+    .form-container { width: 100%; }
+    .overlay-container { display: none; }
+    .sign-in-container { z-index: 5; }
+    .footer { flex-direction: column; }
+>>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 }

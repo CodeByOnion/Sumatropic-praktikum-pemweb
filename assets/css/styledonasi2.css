@@ -10,6 +10,7 @@ body {
     color: #fff;
     /* Agar bisa scroll melihat kedua desain */
     background-color: #f0f0f0; 
+    padding-top: 75px;
 }
 
 /* Variabel Warna */
@@ -33,9 +34,6 @@ body {
 
 /* Navbar */
 .navbar {
-    position: relative !important;
-    top: auto !important;
-    width: 100% !important;
     background-color: var(--primary-green);
     padding: 15px 0;
     color: white;
