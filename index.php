@@ -152,14 +152,19 @@ $result_news = mysqli_query($conn, $query_news);
             thrive together.</p>
 
         <div class="involvement-grid">
-            <div class="involve-card">
-                <img src="assets/image/monyet.jpg" alt="Volunteer">
-                <h3>Volunteer</h3>
-            </div>
-            <div class="involve-card">
-                <img src="assets/image/monyet.jpg" alt="Donasi">
-                <h3>Donasi</h3>
-            </div>
+            <a href="pages/volunteer.php">
+                <div class="involve-card">
+                    <img src="assets/image/monyet.jpg" alt="Volunteer">
+                    <h3>Volunteer</h3>
+                </div>
+            </a>
+            <a href="pages/donasi.php">
+                <div class="involve-card">
+                    <img src="assets/image/monyet.jpg" alt="Donasi">
+                    <h3>Donasi</h3>
+
+                </div>
+            </a>
             <div class="involve-card">
                 <img src="assets/image/monyet.jpg" alt="Adopsi">
                 <h3>Adopsi</h3>

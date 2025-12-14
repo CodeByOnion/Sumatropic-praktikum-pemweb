@@ -49,12 +49,11 @@ CREATE TABLE news (
 -- 4. Tabel Volunteer
 CREATE TABLE volunteers (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    alasan_join TEXT NOT NULL,
-    no_hp VARCHAR(15),
-    status ENUM('pending', 'diterima', 'ditolak') DEFAULT 'pending',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    judul VARCHAR(150) NOT NULL,       
+    deskripsi_singkat VARCHAR(255),    
+    url_sumber TEXT NOT NULL,          
+    gambar VARCHAR(255),          
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE donate(
