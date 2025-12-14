@@ -1,113 +1,72 @@
-<<<<<<< HEAD
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
-
-:root {
-    --green: #325118;       /* Hijau */
-    --footer: #1A2E12;      /* Hijau Gelap Footer */
-    --orange: #E66D07;      /* Oranye Harimau (CTA) */
-    --cream: #FDFBE4;       
-    --white: #FFFFFF;
-    
-    --font-serif: 'Crimson Text', serif;
-    --font-sans: 'Inter', sans-serif;
-}
-
-=======
 /* --- RESET DASAR --- */
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-<<<<<<< HEAD
-}
-
-body {
-=======
     box-sizing: border-box;
 }
 
 :root {
-    --primary-green: #2d4f23; /* Hijau Navbar */
-    --orange: #E86D09;        /* Warna Tombol Daftar */
+    --primary-green: #2d4f23;
+    /* Hijau Navbar */
+    --orange: #E86D09;
+    /* Warna Tombol Daftar */
     --cream: #FDFBE4;
-    --font-serif: 'Crimson Text', serif; /* Font untuk Menu Navbar */
-    --font-sans: 'Poppins', sans-serif;  /* Font untuk Input Form */
+    --font-serif: 'Crimson Text', serif;
+    /* Font untuk Menu Navbar */
+    --font-sans: 'Poppins', sans-serif;
+    /* Font untuk Input Form */
 }
 
 body {
     /* Pastikan gambar ada di folder assets/image/ */
     /* Menggunakan ../ karena file css ada di dalam folder css */
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
     background: url('../image/bglogin.png') no-repeat center center fixed;
     background-size: cover;
-    display: flex;
-<<<<<<< HEAD
-    flex-direction: column;
-    min-height: 100vh; 
     font-family: var(--font-sans);
-    color: var(--cream);
-    padding-top: 90px;
-    
-    /* Overlay Background Gelap */
-    background-color: rgba(0, 0, 0, 0.2); 
-    background-blend-mode: overlay;
-=======
+    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding-top: 80px; /* Jarak agar tidak ketutup navbar */
+    padding-top: 80px;
+    /* Jarak agar tidak ketutup navbar */
 }
 
 /* Overlay Hitam Transparan di Background */
 body::before {
-    content: ''; 
-    position: absolute; 
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.4); 
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
     z-index: -1;
 }
 
-/* --- NAVBAR --- */
+/* --- NAVBAR (SESUAI GAMBAR TARGET) --- */
 header {
     position: fixed;
     top: 0;
     width: 100%;
-<<<<<<< HEAD
-    z-index: 1000;
-    padding: 15px 0;
-    transition: all 0.3s ease;
-    background-color: var(--green);
-}
-
-header.scrolled {
-    background-color:var(--green);
-    backdrop-filter: blur(10px);
-    padding: 15px 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-=======
-    background-color: var(--primary-green); /* Hijau Gelap Solid */
+    background-color: var(--primary-green);
+    /* Hijau Gelap Solid */
     z-index: 1000;
     padding: 10px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
     max-width: 1200px;
-    width: 90%;
-    height: 100%;
     margin: 0 auto;
-<<<<<<< HEAD
-=======
     padding: 0 30px;
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* Penting: Logo Kiri, Menu Tengah, Tombol Kanan */
+    height: 60px;
 }
 
+/* LOGO GROUP */
 .logo-group {
     display: flex;
     align-items: center;
@@ -115,61 +74,30 @@ header.scrolled {
 }
 
 .logo-image {
-<<<<<<< HEAD
-    height: 50px; 
-=======
-    height: 50px; /* Ukuran Logo Pas */
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
+    height: 50px;
+    /* Ukuran Logo Pas */
     width: auto;
 }
 
 .logo-text {
     font-family: var(--font-serif);
-<<<<<<< HEAD
-    font-size: 34px;
-    letter-spacing: -2px;
-    color: var(--cream);
-    font-weight: 600;
-    text-transform: uppercase;
-=======
     font-size: 1.6rem;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: 400; /* Regular serif */
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
+    font-weight: 400;
+    /* Regular serif */
 }
 
+/* MENU TENGAH */
 .nav-links {
     display: flex;
-<<<<<<< HEAD
-    gap: 40px;
-}
-
-.nav-links a {
-    color: var(--cream);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 24px;
-    transition: color 0.3s;
-    font-family: var(--font-serif);
-}
-
-.nav-links a:hover, 
-.nav-links a.active {
-    color: var(--white);
-    text-shadow: 0 0 10px rgba(255,255,255,0.3);
-}
-/* --- Navigation Buttons --- */
-.header-btns {
-    display: flex;
-    gap: 20px;
-=======
     gap: 30px;
 }
 
 .nav-links a {
-    font-family: var(--font-serif); /* Pakai Serif agar elegan */
+    font-family: var(--font-serif);
+    /* Pakai Serif agar elegan */
     color: #fff;
     text-decoration: none;
     font-size: 1.2rem;
@@ -186,52 +114,15 @@ header.scrolled {
     display: flex;
     gap: 15px;
     align-items: center;
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 }
 
 .nav-btn {
     font-family: var(--font-serif);
-<<<<<<< HEAD
-    padding: 8px 25px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 24px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: flex;
-    width: 120px;
-    height: 35px; 
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-}
-
-.nav-btn.ghost {
-    background: transparent;
-    color: var(--cream);
-    border: 2px solid var(--cream);
-}
-
-.nav-btn.ghost:hover {
-    background: rgba(253, 251, 228, 0.1);
-    transform: translateY(-2px);
-}
-
-.nav-btn.filled {
-    background: var(--orange);
-    color: var(--cream);
-    border: none;
-}
-
-.nav-btn.filled:hover {
-    background: #c05805;
-    transform: translateY(-2px);
-=======
     font-size: 1.1rem;
     font-weight: 700;
     padding: 6px 25px;
-    border-radius: 25px; /* Membulat seperti pil */
+    border-radius: 25px;
+    /* Membulat seperti pil */
     cursor: pointer;
     transition: all 0.3s;
     text-decoration: none;
@@ -246,7 +137,7 @@ header.scrolled {
 }
 
 .nav-btn.ghost:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* Tombol Daftar: Background Oranye */
@@ -259,25 +150,14 @@ header.scrolled {
 .nav-btn.filled:hover {
     background: #d35400;
     border-color: #d35400;
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 }
 
-/* --- CONTAINER LOGIN/REGISTER --- */
+
+/* --- CONTAINER FORM --- */
 .container {
-<<<<<<< HEAD
-    background-color: rgba(50, 81, 24, 0.30); 
-    border-radius: 12px; 
-    position: relative;
-    overflow: hidden;
-    width: 100%; 
-    max-width: 1200px;
-    margin: auto;
-    min-height: 678px; 
-    backdrop-filter: blur(25px);}
-=======
     background-color: rgba(30, 50, 20, 0.85);
     border-radius: 15px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
     position: relative;
     overflow: hidden;
     width: 900px;
@@ -285,187 +165,56 @@ header.scrolled {
     min-height: 550px;
     margin-top: 20px;
 }
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 
 .form-container {
     position: absolute;
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
+    width: 50%;
 }
 
-<<<<<<< HEAD
-/* Layout Form untuk Masuk & Daftar */
-=======
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 form {
     background: transparent;
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-    justify-content: center;
-    padding: 0 40px; 
-=======
     padding: 0 50px;
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
     height: 100%;
+    justify-content: center;
     text-align: left;
     color: #fff;
 }
 
-<<<<<<< HEAD
-/* Typography Form (Judul) */
-form h1 {
-    font-family: var(--font-serif);
-    font-weight: 600;
-    font-size: 50px; 
-    letter-spacing: -2px;
-    text-align: center;
-    margin-bottom: 10px;
-    color: var(--cream);
-=======
 h1 {
     font-family: var(--font-serif);
     font-size: 2.5rem;
     margin-bottom: 10px;
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 }
 
 .subtitle {
-<<<<<<< HEAD
-    font-size: 22px; 
-    font-weight: 200;
-    font-family: var(--font-sans);
-    line-height: 1,2;
-    color: var(--cream);
-    text-align: center;
-    margin-bottom: 25px;
-}
-/* Inputs */
-.input-group {
-    margin-bottom: 12px; 
-    width: 100%;
-}
-
-label {
-    display: block;
-    font-size: 22px; 
-    margin-bottom: 5px;
-    margin-top: 5px;
-    font-weight: 300;
-    color: var(--cream);
-=======
     font-size: 0.9rem;
     margin-bottom: 20px;
     font-weight: 300;
     line-height: 1.5;
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 }
 
+/* Input Styles */
 input {
-<<<<<<< HEAD
-
-    color: var(--cream);
-    font-family: var(--font-sans); 
-    font-size: 20px; 
-    transition: all 0.3s;
-    background-color: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    padding: 12px 15px;
-=======
     background: transparent !important;
     border: none;
     border-bottom: 1px solid #fff;
     padding: 10px 0;
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
     width: 100%;
     color: #fff;
     outline: none;
-<<<<<<< HEAD
-}
-
-input::placeholder {
-    background-color: transparent;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-input:focus {
-    outline: none;
-    border-bottom-color: var(--orange);
-}
-
-/* Tombol Submit Besar (Masuk / Daftar Sekarang) */
-button.daftar-btn {
-    border: none;
-    border-radius: 12px;
-    background-color: var(--orange); 
-    color: var(--cream);
-    font-size: 24px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-align: center;
-    cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
-    height: 47px;
-    font-family: var(--font-serif);
-    padding: 4px 25px;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-button.daftar-btn:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transform: translateY(-2px);
-}
-
-button.daftar-btn:active {
-    transform: scale(0.95);
-}
-
-button.masuk-btn {
-    border: none;
-    border-radius: 12px;
-    background-color: var(--cream); 
-    color: var(--green);
-    font-size: 24px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-align: center;
-    cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
-    height: 47px;
-    font-family: var(--font-serif);
-    padding: 4px 25px;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-button.masuk-btn:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transform: translateY(-2px);
-}
-
-button.masuk-btn:active {
-    transform: scale(0.95);
-}
-
-/*ANIMATION & LOGIC (SLIDING)*/
-=======
     margin-bottom: 15px;
     font-family: var(--font-sans);
 }
 
 /* Fix browser autofill background */
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px #223a18 inset !important;
     -webkit-text-fill-color: white !important;
@@ -473,7 +222,7 @@ input:-webkit-autofill:active {
 }
 
 input::placeholder {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 button.orange-btn {
@@ -494,28 +243,20 @@ button.orange-btn:hover {
 }
 
 /* Posisi Slider */
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 .sign-in-container {
     left: 0;
-    width: 50%;
     z-index: 2;
 }
 
 .sign-up-container {
     left: 0;
-    width: 50%;
     opacity: 0;
     z-index: 1;
 }
 
 .container.right-panel-active .sign-in-container {
     transform: translateX(100%);
-<<<<<<< HEAD
-    opacity: 0; 
-    pointer-events: none; 
-=======
     opacity: 0;
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 }
 
 .container.right-panel-active .sign-up-container {
@@ -526,15 +267,21 @@ button.orange-btn:hover {
 }
 
 @keyframes show {
-    0%, 49.99% { opacity: 0; z-index: 1; }
-    50%, 100% { opacity: 1; z-index: 5; }
+
+    0%,
+    49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 1;
+        z-index: 5;
+    }
 }
 
-<<<<<<< HEAD
-/*OVERLAY PANEL (HIJAU BERGERAK)*/
-=======
 /* Overlay Hijau */
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 .overlay-container {
     position: absolute;
     top: 0;
@@ -551,20 +298,14 @@ button.orange-btn:hover {
 }
 
 .overlay {
-<<<<<<< HEAD
-    background: var(--green);
-    color: var(--cream);
-=======
     background: #2d4f23;
     color: #fff;
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
     position: relative;
     left: -100%;
     height: 100%;
     width: 200%;
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
-    margin: auto;
 }
 
 .container.right-panel-active .overlay {
@@ -586,94 +327,6 @@ button.orange-btn:hover {
     transition: transform 0.6s ease-in-out;
 }
 
-<<<<<<< HEAD
-.overlay-panel h1 {
-    font-family: var(--font-serif);
-    font-weight: 600;
-    font-size: 50px; 
-    letter-spacing: -2px;
-    text-align: center;
-    margin-bottom: 10px;
-    color: var(--cream);
-   
-}
-/* (Deskripsi di bawah judul) */
-.overlay-panel p {
-    font-size: 22px; 
-    font-weight: 200;
-    font-family: var(--font-sans);
-    line-height: 1,2;
-    color: var(--cream);
-    text-align: center;
-    margin-bottom: 25px;
-    
-}
-
-/* --- TOMBOL OVERLAY --- */
-.overlay-panel button {
-    border: none;
-    border-radius: 12px;
-    background-color: var(--cream); 
-    color: var(--green);
-    font-size: 24px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-align: center;
-    cursor: pointer;
-    margin-top: 10px;
-    min-width: 200px;
-    height: 40px;
-    font-family: var(--font-serif);
-    padding: 4px 25px;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-/* Tombol Masuk (Solid Cream) */
-button.ghost1 {
-    background-color: var(--cream);
-    color: var(--green);
-    border: 2px solid var(--cream);
-}
-
-button.ghost1:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transform: translateY(-2px);
-}
-
-button.ghost1:active {
-    transform: scale(0.95);
-}
-
-/* Tombol Daftar (Solid Orange) */
-button.ghost2 {
-    background-color: var(--orange);
-    color: var(--cream);
-    border: 2px solid var(--orange);
-}
-
-button.ghost2:hover {
-   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transform: translateY(-2px);
-}
-
-button.ghost2:active {
-    transform: scale(0.95);
-}
-
-/* Gerakan Overlay */
-.container.right-panel-active .overlay-container {
-    transform: translateX(-100%);
-}
-
-.container.right-panel-active .overlay {
-    transform: translateX(50%);
-}
-
-=======
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
 .overlay-left {
     transform: translateX(-20%);
 }
@@ -691,133 +344,27 @@ button.ghost2:active {
     transform: translateX(20%);
 }
 
-/* --- FOOTER --- */
+button.ghost-btn {
+    background: #FDFBE4;
+    color: #2d4f23;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: var(--font-serif);
+}
+
+button.ghost-btn:hover {
+    background: #fff;
+}
+
+/* Footer */
 footer {
+    position: fixed;
+    bottom: 0;
     width: 100%;
-<<<<<<< HEAD
-    height: 80px;
-    background-color: var(--footer);
-    color: var(--cream);
-    z-index: 199;
-    position: absolute; 
-    bottom: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    
-}
-
-.footer-container {
-    max-width: 1200px; 
-    width: 90%; 
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-
-.footer-brand {
-    font-family: var(--font-serif);
-    font-weight: 600;
-    font-size: 24px;
-    color: var(--cream);
-}
-
-.footer-socials a {
-    color: var(--cream);
-    margin: 0 10px;
-    text-decoration: none;
-    font-size: 18px;
-    transition: opacity 0.3s;
-}
-
-.footer-socials a:hover {
-    opacity: 0.7;
-}
-
-.footer-copy {
-    font-size: 24px;
-    font-family: var(--font-serif);
-    font-weight: 600;
-    color: var(--cream);
-}
-
-/*RESPONSIVE*/
-/* Tablet & Mobile (<1024px) */
-@media (max-width: 1024px) {
-    .container {
-        min-height: 550px;
-    }
-}
-
-/* Mobile Only (<768px) */
-@media (max-width: 768px) {
-        .nav-links {
-        display: none; 
-    }
-    
-    .nav-container {
-        padding: 0 20px;
-    }
-    
-    .logo-text { font-size: 22px; }
-    
-    footer {
-        height: auto; 
-        padding: 20px 0;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    /* Container Mobile */
-    .container {
-        width: 100%;
-        margin-top: 20px;
-        min-height: auto;
-        display: block; 
-    }
-
-    /* Form Mobile */
-    .form-container {
-        position: relative; 
-        width: 100%;
-        height: auto;
-        padding: 40px 20px;
-    }
-    
-    form h1 { font-size: 32px; }
-    
-    .overlay-container {
-        display: none; 
-    }
-    
-    .sign-up-container {
-        display: none; 
-        opacity: 1;
-        z-index: 5;
-    }
-    
-    .sign-in-container {
-        display: block; 
-        width: 100%;
-    }
-    
-    .container.right-panel-active .sign-in-container {
-        display: none;
-    }
-    
-    .container.right-panel-active .sign-up-container {
-        display: block;
-        transform: none;
-        animation: none;
-    }
-=======
     padding: 15px 50px;
     background: var(--primary-green);
     color: #fff;
@@ -835,12 +382,33 @@ footer {
 
 /* Responsive Mobile */
 @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .header-btns { display: none; }
-    .container { width: 100%; min-height: 600px; margin-top: 80px; }
-    .form-container { width: 100%; }
-    .overlay-container { display: none; }
-    .sign-in-container { z-index: 5; }
-    .footer { flex-direction: column; }
->>>>>>> 1c08b057bdbd6349b21316a0810011a840f188cc
+    .nav-links {
+        display: none;
+    }
+
+    .header-btns {
+        display: none;
+    }
+
+    .container {
+        width: 100%;
+        min-height: 600px;
+        margin-top: 80px;
+    }
+
+    .form-container {
+        width: 100%;
+    }
+
+    .overlay-container {
+        display: none;
+    }
+
+    .sign-in-container {
+        z-index: 5;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
 }

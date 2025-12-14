@@ -40,6 +40,18 @@ $result = mysqli_query($conn, $query);
             <div class="top-bar">
                 <a href="../actions/tambah_volunteer.php" class="btn-add">Tambah Volunteer</a>
             </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th width="5%">Id</th>
+                        <th width="20%">Judul Volunteer</th>
+                        <th width="30%">Deskripsi</th>
+                        <th width="15%">Email</th>
+                        <th width="15%">No. Telepon</th>
+                        <th width="10%">Aksi</th>
+                    </tr>
+                </thead>
 </body>
 
 </html>
