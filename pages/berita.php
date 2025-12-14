@@ -47,7 +47,7 @@ $result = mysqli_query($conn, $query);
 
     <?php require_once "../template/navbar.php"; ?>
 
-    <header class="hero">
+    <header class="hero" style="background-image :url('../assets/image/berita.jpg');'>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <div class="hero-text">
