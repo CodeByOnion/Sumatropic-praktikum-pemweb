@@ -18,8 +18,6 @@
 }
 
 body {
-    /* Pastikan gambar ada di folder assets/image/ */
-    /* Menggunakan ../ karena file css ada di dalam folder css */
     background: url('../image/bglogin.png') no-repeat center center fixed;
     background-size: cover;
     font-family: var(--font-sans);
@@ -27,8 +25,17 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding-top: 80px;
-    /* Jarak agar tidak ketutup navbar */
+    
+    /* PERUBAHAN DI SINI */
+    /* Navbar tingginya sekitar 80px, kita beri 120px biar ada napas */
+    padding-top: 120px; 
+    
+    /* Footer tingginya sekitar 50px, kita beri 80px biar tidak nabrak bawah */
+    padding-bottom: 80px; 
+    
+    /* Tambahkan padding samping sedikit untuk keamanan mode mobile */
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* Overlay Hitam Transparan di Background */
@@ -43,6 +50,87 @@ body::before {
     z-index: -1;
 }
 
+/* --- NAVBAR (SESUAI GAMBAR TARGET) --- */
+
+.logo-image {
+    height: 50px;
+    /* Ukuran Logo Pas */
+    width: auto;
+}
+
+.logo-text {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    /* Regular serif */
+}
+
+/* MENU TENGAH */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-family: var(--font-serif);
+    /* Pakai Serif agar elegan */
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ddd;
+}
+
+/* TOMBOL KANAN */
+.header-btns {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-btn {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 6px 25px;
+    border-radius: 25px;
+    /* Membulat seperti pil */
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Tombol Masuk: Transparan + Border Putih */
+.nav-btn.ghost {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.nav-btn.ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Tombol Daftar: Background Oranye */
+.nav-btn.filled {
+    background: var(--orange);
+    color: #fff;
+    border: 2px solid var(--orange);
+}
+
+.nav-btn.filled:hover {
+    background: #d35400;
+    border-color: #d35400;
+}
+
 
 /* --- CONTAINER FORM --- */
 .container {
@@ -52,9 +140,11 @@ body::before {
     position: relative;
     overflow: hidden;
     width: 900px;
-    max-width: 95%;
+    max-width: 100%; /* Ubah 95% jadi 100% karena sudah ada padding di body */
     min-height: 550px;
-    margin-top: 20px;
+    
+    /* PERUBAHAN DI SINI */
+    margin-top: 0; /* Ubah jadi 0 agar benar-benar di tengah vertikal */
 }
 
 .form-container {

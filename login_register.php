@@ -3,7 +3,6 @@ session_start();
 
 // Jika sudah login, langsung redirect
 if (isset($_SESSION['status']) && $_SESSION['status'] === 'login') {
-
     // Redirect berdasarkan role
     if ($_SESSION['role'] === 'admin') {
         header("Location: admin/dashboard.php");
@@ -13,7 +12,6 @@ if (isset($_SESSION['status']) && $_SESSION['status'] === 'login') {
     exit;
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="id">
@@ -25,17 +23,15 @@ if (isset($_SESSION['status']) && $_SESSION['status'] === 'login') {
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/stylelogin.css">
-    <link rel="stylesheet" href="assets/css/stylenavbar.css">
-    <link rel="stylesheet" href="../assets/css/stylefooter.css">
+    <link rel="stylesheet" href="assets/css/stylenavbar.css"> <link rel="stylesheet" href="assets/css/stylelogin.css">  <link rel="stylesheet" href="../assets/css/stylefooter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
 
-    <header>
+    <nav class="navbar">
         <div class="nav-container">
             <div class="logo-group">
                 <img src="assets/image/Logo.png" alt="SUMATROPIC" class="logo-image">
@@ -49,14 +45,12 @@ if (isset($_SESSION['status']) && $_SESSION['status'] === 'login') {
                 <a href="#">Fauna</a>
             </div>
 
-            <div class="nav-right">
-                <div class="header-btns">
-                    <button class="nav-btn ghost" id="nav-login">Masuk</button>
-                    <button class="nav-btn filled" id="nav-register">Daftar</button>
-                </div>
+            <div class="auth-buttons">
+                <button class="btn-login" id="nav-login">Masuk</button>
+                <button class="btn-register" id="nav-register">Daftar</button>
             </div>
         </div>
-    </header>
+    </nav>
 
     <div class="container" id="container">
 
@@ -112,21 +106,22 @@ if (isset($_SESSION['status']) && $_SESSION['status'] === 'login') {
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
+        
+        // Mengambil elemen tombol dari Navbar Baru
         const navRegister = document.getElementById('nav-register');
         const navLogin = document.getElementById('nav-login');
 
-        // Logic Slider
+        // Logic Slider (Tombol di dalam Overlay)
         if (signUpButton && signInButton && container) {
             signUpButton.addEventListener('click', () => container.classList.add("right-panel-active"));
             signInButton.addEventListener('click', () => container.classList.remove("right-panel-active"));
         }
 
-        // Logic Tombol Navbar
+        // Logic Tombol Navbar (Agar tombol Navbar juga memicu animasi slider)
         if (navRegister && navLogin) {
             navRegister.addEventListener('click', () => container.classList.add("right-panel-active"));
             navLogin.addEventListener('click', () => container.classList.remove("right-panel-active"));
         }
     </script>
 </body>
-
 </html>

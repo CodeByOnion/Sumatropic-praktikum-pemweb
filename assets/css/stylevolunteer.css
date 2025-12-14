@@ -1,238 +1,102 @@
-/* --- Reset & Variables --- */
+/* ================= LAYOUT VOLUNTEER ================= */
 :root {
-    --bg-color: #FFFBE6; /* Warna krem background */
-    --primary-green: #325118 ; /* Hijau tua untuk card/header */
-    --text-dark: #2C3E23;
+    --bg-cream: #FFFDF5;
+    --primary-green: #2F4F2F;
     --accent-orange: #E67E22;
-    --text-white: #ffffff;
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Poppins', sans-serif;
+    --font-serif: 'DM Serif Display', serif;
+    --font-sans: 'Poppins', sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* SETUP BODY AGAR FOOTER SELALU DI BAWAH & NAVBAR TIDAK MENUTUPI */
 body {
-    background-color: var(--bg-color);
-    font-family: var(--font-body);
-    color: var(--text-dark);
+    background-color: var(--bg-cream);
+    font-family: var(--font-sans);
+    color: #1a1a1a;
     line-height: 1.6;
-    padding-top: 75px;
+    
+    /* 1. Jarak atas untuk Navbar Fixed (80px) */
+    padding-top: 80px; 
+    
+    /* 2. Flexbox Column untuk mendorong footer ke bawah */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
 }
 
-/* --- Hero Section --- */
+/* Main content mengisi sisa ruang */
+main { flex: 1; width: 100%; }
+
+/* --- HERO SECTION (GAMBAR GAJAH) --- */
 .hero {
     position: relative;
-    height: 80vh; /* Tinggi hero section */
-    background: url('https://images.unsplash.com/photo-1581852017103-68ac6550535e?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    height: 550px; /* Tinggi Fix agar gambar muncul */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
-    align-items: flex-end; /* Text di bawah */
-    padding: 0 50px 50px 50px;
-    color: var(--text-white);
+    align-items: center;
+    padding: 0 5%;
+    color: white;
 }
-
-/* Overlay gradient agar text terbaca */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(58, 82, 44, 0.9));
+/* Overlay agar teks terbaca */
+.hero-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4); z-index: 1;
 }
+.hero-content, .hero-spotlight { position: relative; z-index: 2; }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 600px;
-}
+/* Teks Hero */
+.hero h1 { font-family: var(--font-serif); font-size: 4rem; line-height: 1; margin-bottom: 15px; }
+.breadcrumb { font-size: 0.9rem; margin-bottom: 10px; opacity: 0.9; }
+.hero-spotlight { position: absolute; bottom: 50px; right: 5%; text-align: right; }
+.hero-spotlight h2 { font-family: var(--font-serif); font-size: 3rem; line-height: 1; }
 
-.breadcrumb {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-    opacity: 0.8;
-}
+/* --- CARD LIST (KARTU HIJAU & GAMBAR) --- */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-.hero h1 {
-    font-family: var(--font-heading);
-    font-size: 4rem;
-    margin-bottom: 15px;
-}
+.intro { margin: 80px 0; }
+.intro h2 { font-family: var(--font-serif); font-size: 2.5rem; color: var(--primary-green); }
+.intro .subtitle { font-style: italic; color: var(--accent-orange); margin-bottom: 20px; font-weight: 500;}
 
-/* Text floating di kanan (Spotlight on Gajah) */
-.hero-overlay-text {
-    position: absolute;
-    top: 30%;
-    right: 50px;
-    text-align: right;
-    z-index: 2;
-    color: var(--text-white);
-}
+.card-list { display: flex; flex-direction: column; gap: 50px; margin-bottom: 100px; }
 
-.hero-overlay-text h2 {
-    font-family: var(--font-heading);
-    font-size: 3rem;
-    line-height: 1;
-    margin: 10px 0;
-}
-
-/* --- Content Container --- */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: block;
-}
-
-/* --- Intro Section --- */
-.intro {
-    margin: 60px 0 60px 0;
-}
-
-.intro h2 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    color: var(--primary-green);
-    margin-bottom: 5px;
-}
-
-.intro .subtitle {
-    font-style: italic;
-    font-weight: 500;
-    margin-bottom: 15px;
-}
-
-.intro .description {
-    max-width: 800px;
-}
-
-/* --- Card List (The Tricky Part) --- */
-.card-list {
-    display: flex;
-    flex-direction: column;
-    gap: 80px; /* Jarak antar card vertikal */
-    margin-top: 60px;
-}
-
+/* Desain Kartu (Box Hijau + Gambar) */
 .card {
     display: flex;
-    align-items: center;
-    position: relative;
-    min-height: 400px;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 420px; /* Tinggi Konsisten */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
+
+/* Reverse untuk selang-seling */
+.card.reverse { flex-direction: row-reverse; }
 
 .card-text {
-    background-color: var(--primary-green);
-    color: var(--text-white);
-    padding: 40px;
-    border-radius: 12px;
-    width: 50%; /* Mengambil setengah lebar container */
-    z-index: 10; /* Agar di atas gambar */
-    /* Shadow halus */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    position: relative;
-    flex-shrink: 0;
-    min-height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex: 1; padding: 50px;
+    background-color: var(--primary-green); /* Hijau Gelap */
+    color: white;
+    display: flex; flex-direction: column; justify-content: center;
 }
-
-.card-text h3 {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.card-text p {
-    margin-bottom: 30px;
-    font-size: 0.95rem;
-    opacity: 0.9;
-}
+.card-text h3 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 20px; }
+.card-text p { margin-bottom: 30px; opacity: 0.9; }
 
 .btn-action {
-    background-color: var(--accent-orange);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s;
+    background: var(--accent-orange); color: white; border: none;
+    padding: 12px 30px; border-radius: 50px; font-weight: 600; cursor: pointer;
+    width: fit-content; font-family: var(--font-sans);
 }
 
-.btn-action:hover {
-    transform: translateY(-2px);
-    background-color: #d35400;
-}
+/* Bagian Gambar */
+.card-image { flex: 1; height: 100%; }
+.card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.card-image {
-    width: 60%; /* Gambar lebih lebar dari text box */
-    height: 400px;
-    margin-left: -100px; /* TEKNIK OVERLAP: Tarik gambar ke kiri masuk ke area text */
-    position: relative;
-}
-
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-/* --- Footer --- */
-footer {
-    background-color: #1a2910; /* Lebih gelap dari primary */
-    color: var(--text-white);
-    padding: 30px 50px;
-    margin-top: 100px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-logo {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-}
-
-.socials i {
-    margin: 0 10px;
-    font-size: 1.1rem;
-    cursor: pointer;
-}
-
-/* --- Responsiveness (Mobile) --- */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
-    }
-    
-    .nav-links {
-        display: none; /* Sembunyikan menu di mobile untuk simpelnya */
-    }
-
+    .card, .card.reverse { flex-direction: column-reverse; height: auto; }
+    .card-image { height: 250px; }
     .hero h1 { font-size: 2.5rem; }
-    .hero-overlay-text { display: none; } /* Hide text overlay di mobile */
-
-    .card {
-        flex-direction: column-reverse; /* Gambar di atas, teks di bawah */
-    }
-
-    .card-text {
-        width: 100%;
-        margin-top: -50px; /* Overlap vertikal */
-    }
-
-    .card-image {
-        width: 100%;
-        margin-left: 0;
-        height: 250px;
-    }
+    .hero-spotlight { display: none; }
 }

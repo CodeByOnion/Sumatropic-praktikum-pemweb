@@ -2,7 +2,7 @@
 session_start();
 require 'config/connect.php';
 
-// 1. Ambil 1 Fauna Terbaru untuk "Did You Know" 
+// 1. Ambil 1 Fauna Terbaru untuk "Did You Know"
 $query_spotlight = "SELECT * FROM fauna ORDER BY created_at DESC LIMIT 1";
 $result_spotlight = mysqli_query($conn, $query_spotlight);
 $spotlight = mysqli_fetch_assoc($result_spotlight);
@@ -22,56 +22,49 @@ $result_news = mysqli_query($conn, $query_news);
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Serif+Display&family=Inter:wght@300;400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/stylenavbar.css">
-    <link rel="stylesheet" href="../assets/css/stylefooter.css">
-</head>
+    <link rel="stylesheet" href="assets/css/stylenavbar.css"> <link rel="stylesheet" href="assets/css/style.css">       </head>
 
 <body>
-    <div class="navbar">
-        <nav>
-            <div class="logo"><a href="index.php" style="text-decoration:none; color:inherit;">SUMATROPIC</a></div>
-            <ul>
-                <li><a href="index.php">Beranda</a></li>
-                <li><a href="pages/berita.php">Berita</a></li>
-                <li><a href="#">Flora</a></li>
-                <li><a href="#">Fauna</a></li>
-            </ul>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-group">
+                <img src="assets/image/Logo.png" alt="SUMATROPIC" class="logo-image">
+                <span class="logo-text">SUMATROPIC</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.php" class="active">Beranda</a>
+                <a href="pages/berita.php">Berita</a>
+                <a href="#">Flora</a>
+                <a href="#">Fauna</a>
+            </div>
+
             <div class="auth-buttons">
                 <?php if (isset($_SESSION['status']) && $_SESSION['status'] == "login"): ?>
-
-                    <?php if ($_SESSION['role'] == 'admin'): ?>
-                        <!-- Tombol Admin Member -->
-                        <a href="admin/dashboard.php" class="btn btn-dark"
-                            style="margin-right:10px;">Dashboard</a>
-                    <?php endif; ?>
-                    <a href="actions/logout.php" class="btn btn-orange"
-                        style="text-decoration:none; display:inline-block; text-align:center;">Logout</a>
+                    
+                    <a href="admin/dashboard.php" class="btn-login" style="text-decoration:none;">Dashboard</a>
+                    <a href="actions/logout.php" class="btn-register" style="text-decoration:none;">Logout</a>
 
                 <?php else: ?>
 
-                    <a href="login_register.php" class="btn btn-outline"
-                        style="text-decoration:none; display:inline-block; text-align:center;">Masuk</a>
-                    <a href="login_register.php" class="btn btn-orange"
-                        style="text-decoration:none; display:inline-block; text-align:center;">Daftar</a>
+                    <a href="login_register.php" class="btn-login" style="text-decoration:none;">Masuk</a>
+                    <a href="login_register.php" class="btn-register" style="text-decoration:none;">Daftar</a>
 
                 <?php endif; ?>
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
 
-    <section class="hero"
-        style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(0,0,0,0.4)), url('assets/image/bg.jpeg');">
+    <section class="hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('assets/image/bg.jpeg');">
         <div class="hero-content">
             <h1>SUMATROPIC</h1>
             <p>Dari lembah berkabut hingga punggung harimau, setiap jengkal hutan ini menyimpan cerita.</p>
             <div class="hero-buttons">
-                <a href="pages/flora.php"><button class="btn btn-outline-white">JELAJAHI FLORA</button></a>
-                <a href="pages/fauna.php"><button class="btn btn-outline-white">KENALI FAUNA</button></a>
+                <button class="btn btn-outline-white">JELAJAHI FLORA</button>
+                <button class="btn btn-outline-white">KENALI FAUNA</button>
             </div>
         </div>
         <div class="hero-location">← Pulau Sumatra, Indonesia →</div>
@@ -86,12 +79,9 @@ $result_news = mysqli_query($conn, $query_news);
                 <img src="assets/image/sumatra.png" alt="Peta Sumatra">
             </div>
             <div class="intro-text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.</p>
+                <p>Hutan hujan tropis Sumatra adalah salah satu paru-paru dunia yang tersisa. Rumah bagi ribuan spesies flora dan fauna yang tidak dapat ditemukan di tempat lain di bumi.</p>
                 <br>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit.</p>
+                <p>Mari bersama menjaga kelestarian alam ini demi masa depan yang lebih hijau dan berkelanjutan.</p>
             </div>
         </div>
     </section>
@@ -111,17 +101,15 @@ $result_news = mysqli_query($conn, $query_news);
                 <button class="btn btn-outline-white">Selengkapnya</button>
             </div>
             <?php
-            // Cek gambar, jika tidak ada pakai gambar default
             $gambar_spotlight = $spotlight ? "uploads/fauna/" . $spotlight['gambar'] : "assets/image/funfact.jpeg";
             ?>
-            <img src="<?= $gambar_spotlight; ?>" class="spotlight-image" alt="Spotlight Image"
-                style="object-fit: cover;">
+            <img src="<?= $gambar_spotlight; ?>" class="spotlight-image" alt="Spotlight Image">
         </div>
     </section>
 
     <div class="section-separator">
         <h2>Ada apa aja di Hutan Tropis Sumatra?</h2>
-        <p>Your support helps us protect endangered species and preserve their habitats for future generations.</p>
+        <p>Dukungan Anda membantu kami melindungi spesies yang terancam punah.</p>
     </div>
 
     <section class="features">
@@ -150,23 +138,17 @@ $result_news = mysqli_query($conn, $query_news);
 
     <section class="involvement">
         <h2>Nature Needs You</h2>
-        <p>There are so many ways you can get involved and do your part to support a world where people and nature
-            thrive together.</p>
+        <p>Banyak cara untuk berkontribusi menjaga kelestarian alam.</p>
 
         <div class="involvement-grid">
-            <a href="pages/volunteer.php">
-                <div class="involve-card">
-                    <img src="assets/image/monyet.jpg" alt="Volunteer">
-                    <h3>Volunteer</h3>
-                </div>
-            </a>
-            <a href="pages/donasi.php">
-                <div class="involve-card">
-                    <img src="assets/image/monyet.jpg" alt="Donasi">
-                    <h3>Donasi</h3>
-
-                </div>
-            </a>
+            <div class="involve-card">
+                <img src="assets/image/monyet.jpg" alt="Volunteer">
+                <h3>Volunteer</h3>
+            </div>
+            <div class="involve-card">
+                <img src="assets/image/monyet.jpg" alt="Donasi">
+                <h3>Donasi</h3>
+            </div>
             <div class="involve-card">
                 <img src="assets/image/monyet.jpg" alt="Adopsi">
                 <h3>Adopsi</h3>
@@ -182,31 +164,24 @@ $result_news = mysqli_query($conn, $query_news);
 
         <div class="news-grid">
             <?php while ($news = mysqli_fetch_assoc($result_news)): ?>
-
-                <a href="<?= $news['url_sumber']; ?>" target="_blank"
-                    style="text-decoration: none; color: inherit; display: block;">
-
+                <a href="<?= $news['url_sumber']; ?>" target="_blank" style="text-decoration: none; color: inherit; display: block;">
                     <div class="news-card">
                         <img src="uploads/berita/<?= $news['gambar']; ?>" alt="News Image">
-
                         <div class="news-content">
                             <div class="news-date">
                                 <?= date('d F Y', strtotime($news['tanggal_tayang'])); ?>
                             </div>
-
                             <div class="news-title">
                                 <?= $news['judul']; ?>
                             </div>
-
                             <div class="news-desc">
                                 <?= $news['deskripsi_singkat']; ?>
                             </div>
                         </div>
                     </div>
-
                 </a>
-
             <?php endwhile; ?>
+            
             <?php if (mysqli_num_rows($result_news) == 0): ?>
                 <p style="text-align: center; width: 100%;">Belum ada berita terbaru.</p>
             <?php endif; ?>
@@ -225,5 +200,4 @@ $result_news = mysqli_query($conn, $query_news);
     </footer>
 
 </body>
-
 </html>
