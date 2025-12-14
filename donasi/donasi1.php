@@ -31,7 +31,14 @@
         </div>
     </nav>
 
-    <header class="hero" style ="background-image: url('../assets/image/donasi.jpg');">
+     <header class="hero" style="background-image: url('../assets/image/donasi.jpg');"> 
+            <div class="hero-overlay"></div> 
+            
+            <div class="hero-content">
+                <span class="subtitle">SPOTLIGHT ON</span>
+                <h1>BADAK<br>SUMATRA</h1>
+                <p class="description">the smallest and hairiest species<br>of rhino</p>
+            </div>
         </header>
 
     <section class="title-strip">
