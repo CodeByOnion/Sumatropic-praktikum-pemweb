@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumatropic - Profile Saya</title>
-    <link rel="stylesheet" href="assets/css/styleprofile.css">
-    <link rel="stylesheet" href="assets/css/stylenavbar.css">
-    <link rel="stylesheet" href="../assets/css/stylefooter.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/stylenavbar.css">    
+    <link rel="stylesheet" href="assets/css/styleprofile.css">   
+    <link rel="stylesheet" href="assets/css/stylefooter.css">    
 </head>
 <body>
 
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo-group">
-                <img src="assets/image/Logo.png" alt="SUMATROPIC" class="logo-image">
+                <img src="../assets/image/Logo.png" alt="SUMATROPIC" class="logo-image">
                 <span class="logo-text">SUMATROPIC</span>
             </div>
             <div class="nav-links">
-                <a href="#">Beranda</a>
-                <a href="#">Berita</a>
+                <a href="../index.php">Beranda</a>
+                <a href="berita.php">Berita</a>
                 <a href="#">Flora</a>
                 <a href="#">Fauna</a>
             </div>
-            <div class="nav-right">
-                <div class="auth-buttons">
-                    <a href="#" class="btn-login">Masuk</a>
-                    <a href="#" class="btn-register">Daftar</a>
-                </div>
+            <div class="auth-buttons">
+               <a href="#" class="btn-register">Profile</a>
             </div>
         </div>
     </nav>
@@ -47,15 +47,15 @@
                     <form>
                         <div class="form-group">
                             <label>Username</label>
-                            <input type="text" value="" readonly>
+                            <input type="text" value="Yergi Sinaga" readonly>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" value="" readonly>
+                            <input type="email" value="yergi.sinaga@gmail.com" readonly>
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" value="" readonly>
+                            <input type="password" value="********" readonly>
                         </div>
 
                         <div class="action-row">
@@ -69,17 +69,17 @@
         </div>
     </main>
 
-    <footer>
-        <div class="container footer-container">
-            <div class="footer-logo">Sumatropic</div>
-            <div class="socials">
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-tiktok"></i>
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-youtube"></i>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">SUMATROPIC</div>
+            <div class="footer-center">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
-            <div class="copyright">Sumatropic 2025. All right reserved</div>
+            <div class="footer-right">Sumatropic 2025. All right reserved</div>
         </div>
     </footer>
 

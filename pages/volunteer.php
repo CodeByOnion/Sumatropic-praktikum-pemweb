@@ -9,7 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../assets/css/stylenavbar.css">    <link rel="stylesheet" href="../assets/css/stylevolunteer.css"> <link rel="stylesheet" href="../assets/css/stylefooter.css">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/stylenavbar.css">    
+    <link rel="stylesheet" href="../assets/css/stylevolunteer.css"> 
+    <link rel="stylesheet" href="../assets/css/stylefooter.css">    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
@@ -34,19 +38,27 @@
 
     <main>
         
-        <header class="hero" style="background-image: url('../assets/image/volunteer.jpg');">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <p class="breadcrumb">Beranda > Volunteer</p>
-                <h1>Volunteer</h1>
-                <p class="hero-desc">Help protect and restore nature near you, connect to our conservation work and build community.</p>
+        <div class="hero-wrapper">
+            
+            <div class="hero-image-area">
+                <div class="spotlight-text">
+                    <span>SPOTLIGHT ON</span>
+                    <h2>GAJAH <br> SUMATRA</h2>
+                    <p>contributing to a healthy forest ecosystem</p>
+                </div>
+                <img src="../assets/image/volunteer.jpg" alt="Gajah Sumatra">
             </div>
-            <div class="hero-spotlight">
-                <span>SPOTLIGHT ON</span>
-                <h2>GAJAH <br> SUMATRA</h2>
-                <p>contributing to a healthy forest ecosystem</p>
+
+            <div class="hero-title-bar">
+                <div class="hero-title-content">
+                    <p class="breadcrumb">Beranda > Volunteer</p>
+                    <h1>Volunteer</h1>
+                    <p class="hero-desc">
+                        Bergabunglah dengan komunitas penjaga alam. Dari menanam pohon hingga patroli hutan, setiap tetes keringatmu adalah napas baru bagi masa depan hutan Sumatera.
+                    </p>
+                </div>
             </div>
-        </header>
+        </div>
 
         <div class="container">
             <section class="intro">
@@ -62,7 +74,10 @@
                 <div class="card">
                     <div class="card-text">
                         <h3>Perlindungan Gajah Sumatra</h3>
-                        <p>Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan. Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.</p>
+                        <p>
+                            Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan.
+                            Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.
+                        </p>
                         <button class="btn-action">Take action</button>
                     </div>
                     <div class="card-image">
@@ -70,25 +85,31 @@
                     </div>
                 </div>
 
-                <div class="card reverse">
+                <div class="card">
                     <div class="card-text">
-                        <h3>Restorasi Hutan</h3>
-                        <p>Bantu kami menanam kembali pohon-pohon endemik Sumatra yang hilang. Program ini berfokus pada penghijauan kembali area gundul untuk mengembalikan fungsi hutan sebagai paru-paru dunia.</p>
+                        <h3>Perlindungan Gajah Sumatra</h3>
+                        <p>
+                            Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan.
+                            Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.
+                        </p>
                         <button class="btn-action">Take action</button>
                     </div>
                     <div class="card-image">
-                        <img src="../assets/image/hutan.jpg" alt="Hutan">
+                        <img src="../assets/image/volunteer.jpg" alt="Gajah">
                     </div>
                 </div>
 
-                <div class="card">
+                 <div class="card">
                     <div class="card-text">
-                        <h3>Edukasi Masyarakat</h3>
-                        <p>Menjadi jembatan antara konservasi dan masyarakat lokal. Edukasi tentang pentingnya menjaga satwa liar dan bagaimana hidup berdampingan dengan alam tanpa merusaknya.</p>
+                        <h3>Perlindungan Gajah Sumatra</h3>
+                        <p>
+                            Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan.
+                            Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.
+                        </p>
                         <button class="btn-action">Take action</button>
                     </div>
                     <div class="card-image">
-                        <img src="../assets/image/warga.jpg" alt="Warga">
+                        <img src="../assets/image/volunteer.jpg" alt="Gajah">
                     </div>
                 </div>
 
@@ -98,7 +119,7 @@
 
     <footer class="site-footer">
         <div class="footer-container">
-            <div class="footer-left">SUMATROPIC</div>
+            <div class="footer-left">Sumatropic</div>
             <div class="footer-center">
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>

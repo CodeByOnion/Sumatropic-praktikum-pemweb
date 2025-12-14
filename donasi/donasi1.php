@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumatropic - Donasi Badak Sumatra</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="../assets/css/styledonasi1.css">
-    <link rel="stylesheet" href="../assets/css/stylenavbar.css">
-</head>
+    <link rel="stylesheet" href="../assets/css/stylenavbar.css">    <link rel="stylesheet" href="../assets/css/styledonasi1.css">   <link rel="stylesheet" href="../assets/css/stylefooter.css">    </head>
 <body>
 
     <nav class="navbar">
@@ -20,16 +18,13 @@
                 <span class="logo-text">SUMATROPIC</span>
             </div>
             <div class="nav-links">
-                <a href="#">Beranda</a>
-                <a href="#">Berita</a>
-                <a href="#">Flora</a>
+                <a href="../index.php">Beranda</a>
+                <a href="../pages/berita.php">Berita</a> <a href="#">Flora</a>
                 <a href="#">Fauna</a>
             </div>
-            <div class="nav-right">
-                <div class="auth-buttons">
-                    <a href="#" class="btn-login">Masuk</a>
-                    <a href="#" class="btn-register">Daftar</a>
-                </div>
+            <div class="auth-buttons">
+                <a href="../login_register.php" class="btn-login">Masuk</a>
+                <a href="../login_register.php" class="btn-register">Daftar</a>
             </div>
         </div>
     </nav>
@@ -103,21 +98,15 @@
         
         <footer class="site-footer">
             <div class="footer-container">
-                <div class="footer-left">
-                    Sumatropic
-                </div>
-                
-                <div class="footer-center socials">
+                <div class="footer-left">SUMATROPIC</div>
+                <div class="footer-center">
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-brands fa-twitter"></i></a>
                     <a href="#"><i class="fa-brands fa-tiktok"></i></a>
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#"><i class="fa-brands fa-youtube"></i></a>
                 </div>
-                
-                <div class="footer-right">
-                    Sumatropic 2025. All right reserved
-                </div>
+                <div class="footer-right">Sumatropic 2025. All right reserved</div>
             </div>
         </footer>
     </div>
@@ -135,10 +124,8 @@
                     <div class="info-grid">
                         <div class="label">Nama</div>
                         <div class="value" id="disp-name">-</div>
-                        
                         <div class="label">Email</div>
                         <div class="value" id="disp-email">-</div>
-                        
                         <div class="label">Total Donasi</div>
                         <div class="value total-highlight" id="disp-amount">Rp 0</div>
                     </div>
@@ -205,21 +192,15 @@
             
             <footer class="site-footer">
                 <div class="footer-container">
-                    <div class="footer-left">
-                        Sumatropic
-                    </div>
-                    
-                    <div class="footer-center socials">
+                    <div class="footer-left">SUMATROPIC</div>
+                    <div class="footer-center">
                         <a href="#"><i class="fa-brands fa-instagram"></i></a>
                         <a href="#"><i class="fa-brands fa-twitter"></i></a>
                         <a href="#"><i class="fa-brands fa-tiktok"></i></a>
                         <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="#"><i class="fa-brands fa-youtube"></i></a>
                     </div>
-                    
-                    <div class="footer-right">
-                        Sumatropic 2025. All right reserved
-                    </div>
+                    <div class="footer-right">Sumatropic 2025. All right reserved</div>
                 </div>
             </footer>
         </div>
@@ -228,40 +209,29 @@
     <div id="section-success">
         <div class="success-page-container">
             <div class="container success-content">
-                
                 <h1 class="success-title">TERIMA KASIH BANYAK ATAS DUKUNGANMU!</h1>
-                
                 <div class="success-card">
                     <p class="success-msg">Kami telah mengirim email konfirmasi pembayaran.</p>
-                    
                     <p class="support-label">CARA LAIN MENDUKUNG KAMI</p>
-                    
                     <div class="action-buttons">
                         <button class="btn-action">Menjadi Volunteer Bersama Kami</button>
                         <button class="btn-action">Adopsi Untuk Mendukung Kami</button>
                     </div>
                 </div>
-
             </div>
         </div>
 
         <footer class="site-footer">
             <div class="footer-container">
-                <div class="footer-left">
-                    Sumatropic
-                </div>
-                
-                <div class="footer-center socials">
+                <div class="footer-left">SUMATROPIC</div>
+                <div class="footer-center">
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-brands fa-twitter"></i></a>
                     <a href="#"><i class="fa-brands fa-tiktok"></i></a>
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#"><i class="fa-brands fa-youtube"></i></a>
                 </div>
-                
-                <div class="footer-right">
-                    Sumatropic 2025. All right reserved
-                </div>
+                <div class="footer-right">Sumatropic 2025. All right reserved</div>
             </div>
         </footer>
     </div>
