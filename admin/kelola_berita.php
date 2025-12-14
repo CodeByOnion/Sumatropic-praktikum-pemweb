@@ -23,16 +23,8 @@ $result = mysqli_query($conn, $query);
 </head>
 
 <body>
-    <aside class="sidebar">
-        <h2>SUMATROPIC <br><small style="font-size: 12px;">Admin Panel</small></h2>
-        <a href="../admin/dashboard.php">Dashboard</a>
-        <a href="../admin/kelola_flora.php">Data Flora</a>
-        <a href="../admin/kelola_fauna.php">Data Fauna</a>
-        <a href="../admin/kelola_berita.php" style="background-color: #34495e;">Data Berita</a>
-        <a href="../admin/kelola_volunteer.php">Verifikasi Volunteer</a>
+    <?php require_once "../template/sidebar_admin.php"; ?>
 
-        <a href="../actions/logout.php" class="logout">Keluar</a>
-    </aside>
 
     <div class="container">
 

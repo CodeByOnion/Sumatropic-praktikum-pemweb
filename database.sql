@@ -57,6 +57,16 @@ CREATE TABLE volunteers (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+CREATE TABLE donate(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    jumlah_donasi DECIMAL(10, 2) NOT NULL,
+    metode_pembayaran VARCHAR(50) NOT NULL,
+    gambar VARCHAR(255),
+    tanggal_donasi TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- 5. Insert Akun Admin (Password: admin123)
 INSERT INTO users (username, email, password, role) 
-VALUES ('Admin', 'admin@sumatropic.com', 'admin123', 'admin');
+VALUES ('Admin', 'admin@sumatropic.com', 'admin 123', 'admin');

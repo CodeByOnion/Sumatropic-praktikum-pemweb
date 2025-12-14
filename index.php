@@ -30,36 +30,37 @@ $result_news = mysqli_query($conn, $query_news);
 </head>
 
 <body>
+    <div class="navbar">
+        <nav>
+            <div class="logo"><a href="index.php" style="text-decoration:none; color:inherit;">SUMATROPIC</a></div>
+            <ul>
+                <li><a href="index.php">Beranda</a></li>
+                <li><a href="pages/berita.php">Berita</a></li>
+                <li><a href="#">Flora</a></li>
+                <li><a href="#">Fauna</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <?php if (isset($_SESSION['status']) && $_SESSION['status'] == "login"): ?>
 
-    <nav>
-        <div class="logo"><a href="index.php" style="text-decoration:none; color:inherit;">SUMATROPIC</a></div>
-        <ul>
-            <li><a href="index.php">Beranda</a></li>
-            <li><a href="pages/berita.php">Berita</a></li>
-            <li><a href="#">Flora</a></li>
-            <li><a href="#">Fauna</a></li>
-        </ul>
-        <div class="auth-buttons">
-            <?php if (isset($_SESSION['status']) && $_SESSION['status'] == "login"): ?>
+                    <?php if ($_SESSION['role'] == 'admin'): ?>
+                        <!-- Tombol Admin Member -->
+                        <a href="admin/dashboard.php" class="btn btn-dark"
+                            style="margin-right:10px;">Dashboard</a>
+                    <?php endif; ?>
+                    <a href="actions/logout.php" class="btn btn-orange"
+                        style="text-decoration:none; display:inline-block; text-align:center;">Logout</a>
 
-                <?php if ($_SESSION['role'] == 'admin'): ?>
-                    <!-- Tombol Admin Member -->
-                    <a href="admin/dashboard.php" class="btn btn-dark"
-                        style="margin-right:10px;">Dashboard</a>
+                <?php else: ?>
+
+                    <a href="login_register.php" class="btn btn-outline"
+                        style="text-decoration:none; display:inline-block; text-align:center;">Masuk</a>
+                    <a href="login_register.php" class="btn btn-orange"
+                        style="text-decoration:none; display:inline-block; text-align:center;">Daftar</a>
+
                 <?php endif; ?>
-                <a href="actions/logout.php" class="btn btn-orange"
-                    style="text-decoration:none; display:inline-block; text-align:center;">Logout</a>
-
-            <?php else: ?>
-
-                <a href="login_register.php" class="btn btn-outline"
-                    style="text-decoration:none; display:inline-block; text-align:center;">Masuk</a>
-                <a href="login_register.php" class="btn btn-orange"
-                    style="text-decoration:none; display:inline-block; text-align:center;">Daftar</a>
-
-            <?php endif; ?>
-        </div>
-    </nav>
+            </div>
+        </nav>
+    </div>
 
     <section class="hero"
         style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(0,0,0,0.4)), url('assets/image/bg.jpeg');">

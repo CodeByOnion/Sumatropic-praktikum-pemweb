@@ -1,0 +1,74 @@
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background-color: #2F4F2F;
+    position: relative;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-image {
+    height: 42px;
+}
+
+.logo-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #ffffff;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-login {
+    border: 1px solid white;
+    padding: 8px 22px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 600;
+}
+
+.btn-register {
+    background-color: #E67E22;
+    padding: 8px 22px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 600;
+}

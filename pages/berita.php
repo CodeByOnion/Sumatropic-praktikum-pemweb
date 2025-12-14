@@ -38,30 +38,13 @@ $result = mysqli_query($conn, $query);
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../assets/css/styleberita.css">
+    <link rel="stylesheet" href="../assets/css/stylenavbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
 
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="../index.php" class="logo">SUMATROPIC</a>
-            <ul class="nav-links">
-                <li><a href="../index.php">Beranda</a></li>
-                <li><a href="berita.php" class="active">Berita</a></li>
-                <li><a href="flora.php">Flora</a></li>
-                <li><a href="fauna.php">Fauna</a></li>
-            </ul>
-            <div class="auth-buttons">
-                <?php if (isset($_SESSION['status']) && $_SESSION['status'] == "login"): ?>
-                    <a href="../admin/dashboard.php" class="btn btn-outline">Dashboard</a>
-                <?php else: ?>
-                    <a href="../login_register.php" class="btn btn-outline">Masuk</a>
-                    <a href="../login_register.php" class="btn btn-fill">Daftar</a>
-                <?php endif; ?>
-            </div>
-        </div>
-    </nav>
+    <?php require_once "../template/navbar.php"; ?>
 
     <header class="hero">
         <div class="hero-overlay"></div>

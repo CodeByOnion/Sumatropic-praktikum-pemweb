@@ -1,9 +1,13 @@
 /* RESET & VARIABLES */
 :root {
-    --primary-green: #324c28; /* Hijau tua header/footer */
-    --secondary-green: #3e5e32; /* Hijau sedikit lebih terang */
-    --accent-orange: #e87c0e; /* Warna tombol daftar */
-    --bg-cream: #fffded; /* Warna background utama */
+    --primary-green: #324c28;
+    /* Hijau tua header/footer */
+    --secondary-green: #3e5e32;
+    /* Hijau sedikit lebih terang */
+    --accent-orange: #e87c0e;
+    /* Warna tombol daftar */
+    --bg-cream: #fffded;
+    /* Warna background utama */
     --text-dark: #333333;
     --text-light: #ffffff;
     --font-serif: 'Playfair Display', serif;
@@ -37,75 +41,6 @@ ul {
     padding: 0 20px;
 }
 
-/* NAVBAR */
-.navbar {
-    background-color: var(--primary-green);
-    padding: 15px 0;
-    color: var(--text-light);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--text-light);
-    letter-spacing: 1px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    color: var(--text-light);
-    font-size: 1rem;
-    opacity: 0.9;
-    transition: 0.3s;
-}
-
-.nav-links a:hover, .nav-links a.active {
-    opacity: 1;
-    font-weight: 600;
-}
-
-.auth-buttons {
-    display: flex;
-    gap: 15px;
-}
-
-.btn {
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.btn-outline {
-    border: 1px solid var(--text-light);
-    color: var(--text-light);
-}
-
-.btn-outline:hover {
-    background-color: rgba(255,255,255,0.1);
-}
-
-.btn-fill {
-    background-color: var(--accent-orange);
-    color: var(--text-light);
-    border: 1px solid var(--accent-orange);
-}
-
-.btn-fill:hover {
-    background-color: #cf6d0a;
-}
 
 /* HERO SECTION */
 .hero {
@@ -124,7 +59,8 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Gelapkan gambar sedikit supaya teks terbaca */
+    background: rgba(0, 0, 0, 0.3);
+    /* Gelapkan gambar sedikit supaya teks terbaca */
 }
 
 .hero-content {
@@ -134,7 +70,8 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end; /* Teks di kanan */
+    align-items: flex-end;
+    /* Teks di kanan */
 }
 
 .hero-text {
@@ -156,7 +93,7 @@ ul {
     font-size: 4rem;
     line-height: 1;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-text .small-desc {
@@ -178,7 +115,8 @@ ul {
     background-color: var(--primary-green);
     color: var(--text-light);
     padding: 20px 0;
-    border-top: 3px solid #00aaff; /* Garis biru tipis seperti di gambar */
+    border-top: 3px solid #00aaff;
+    /* Garis biru tipis seperti di gambar */
 }
 
 .page-header-strip h2 {
@@ -220,7 +158,8 @@ ul {
     height: 2px;
     background-color: var(--primary-green);
     margin: 0 20px;
-    max-width: 200px; /* Batasi panjang garis */
+    max-width: 200px;
+    /* Batasi panjang garis */
 }
 
 /* Filters (Search & Sort) */
@@ -275,12 +214,14 @@ ul {
     height: 160px;
     object-fit: cover;
     border-radius: 10px;
-    filter: grayscale(100%); /* Membuat gambar hitam putih seperti contoh */
+    filter: grayscale(100%);
+    /* Membuat gambar hitam putih seperti contoh */
     transition: 0.3s;
 }
 
 .news-card:hover .news-image img {
-    filter: grayscale(0%); /* Warna muncul saat hover */
+    filter: grayscale(0%);
+    /* Warna muncul saat hover */
 }
 
 .news-details {
@@ -383,9 +324,10 @@ ul {
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .nav-links {
-        display: none; /* Sembunyikan menu di HP untuk simplifikasi */
+        display: none;
+        /* Sembunyikan menu di HP untuk simplifikasi */
     }
-    
+
     .hero {
         height: 300px;
     }

@@ -1,34 +1,41 @@
+<?php
+session_start();
+require '../config/connect.php';
+
+// --- LOGIC PENCARIAN & FILTER ---
+$where = "";
+$search_query = "";
+
+// Jika ada input pencarian
+if (isset($_GET['cari'])) {
+    $search_query = mysqli_real_escape_string($conn, $_GET['cari']);
+    // Mencari berdasarkan nama lokal atau nama ilmiah
+    $where = "WHERE nama_lokal LIKE '%$search_query%' OR nama_ilmiah LIKE '%$search_query%'";
+}
+
+// Logic Sortir (Default terbaru)
+$order = "ORDER BY created_at DESC";
+
+// Ambil data dari tabel FAUNA
+$query = "SELECT * FROM fauna $where $order";
+$result = mysqli_query($conn, $query);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumatropic - Fauna</title>
+    <link rel="stylesheet" href="../assets/css/stylenavbar.css">
     <link rel="stylesheet" href="../assets/css/stylefauna.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-group">
-                <img src="../assets/image/logosumatropic.jpg" alt="SUMATROPIC" class="logo-image">
-                <span class="logo-text">SUMATROPIC</span>
-            </div>
-            <div class="nav-links">
-                <a href="#">Beranda</a>
-                <a href="#">Berita</a>
-                <a href="#">Flora</a>
-                <a href="#" class="active">Fauna</a>
-            </div>
-            <div class="nav-right">
-                <div class="auth-buttons">
-                    <a href="#" class="btn-login">Masuk</a>
-                    <a href="#" class="btn-register">Daftar</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+<body>
+    <?php require_once "../template/navbar.php"; ?>
 
     <header class="hero-fauna" style="background-image: url('../assets/image/beo.jpg');">
         <div class="hero-overlay">
@@ -52,7 +59,7 @@
 
     <main class="main-content">
         <div class="container">
-            
+
             <div class="search-section">
                 <div class="search-header">
                     <span class="line"></span>
@@ -60,136 +67,70 @@
                     <span class="line"></span>
                 </div>
 
-                <div class="filter-bar">
-                    <input type="text" placeholder="Cari judul...." class="search-input">
+                <form action="" method="GET" class="filter-bar">
+                    <input type="text" name="cari" placeholder="Cari nama fauna...." class="search-input" value="<?= htmlspecialchars($search_query) ?>">
+
                     <div class="filter-row">
-                        <div class="select-wrapper">
-                            <select class="filter-select">
-                                <option>Status Konservasi</option>
-                                <option>Critically Endangered</option>
-                                <option>Vulnerable</option>
-                            </select>
-                        </div>
-                        <div class="select-wrapper">
-                            <select class="filter-select">
-                                <option>Wilayah</option>
-                                <option>Sumatra</option>
-                                <option>Kalimantan</option>
-                            </select>
-                        </div>
+                        <select class="filter-select">
+                            <option>Status Konservasi</option>
+                            <option>Dilindungi</option>
+                            <option>Punah</option>
+                        </select>
+                        <select class="filter-select">
+                            <option>Wilayah</option>
+                            <option>Sumatra Utara</option>
+                            <option>Sumatra Barat</option>
+                        </select>
                     </div>
-                </div>
+                </form>
             </div>
 
             <div class="fauna-list">
 
-                <article class="fauna-card">
-                    <div class="card-image-wrapper">
-                        <span class="status-badge critical">Critically Endangered</span>
-                        <img src="../assets/image/harimau.jpg" alt="Harimau Sumatra">
-                    </div>
-                    <div class="card-info">
-                        <div class="info-header">
-                            <h3 class="fauna-name">Harimau Sumatra</h3>
-                            <div class="meta-row">
-                                <span class="sci-name">Panthera tigris sumatrae</span>
-                                <span class="location"><i class="fas fa-map-marker-alt"></i> Sumatra</span>
-                            </div>
-                            <div class="underline"></div>
-                        </div>
-                        <div class="fauna-desc">
-                            <p>Satu-satunya anggota subspesies harimau sunda yang masih bertahan hidup hingga saat ini.</p>
-                            <ul>
-                                <li>Ditemukan di TN Bukit Barisan Selatan dan TN Gunung Leuser.</li>
-                                <li>Warna paling gelap dari seluruh harimau, mulai dari kuning kemerah-merahan hingga jingga tua.</li>
-                                <li>Ukurannya kecil, lebih banyak janggut serta surai.</li>
-                                <li>Terdapat selaput di sela-sela jarinya yang menjadikan mereka mampu berenang cepat.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
+                <?php
+                $counter = 1; // Untuk menghitung urutan ganjil/genap
 
-                <article class="fauna-card reverse">
-                    <div class="card-image-wrapper">
-                        <span class="status-badge critical">Critically Endangered</span>
-                        <img src="../assets/image/harimau.jpg" alt="Harimau Sumatra">
-                    </div>
-                    <div class="card-info">
-                        <div class="info-header">
-                            <h3 class="fauna-name">Harimau Sumatra</h3>
-                            <div class="meta-row">
-                                <span class="sci-name">Panthera tigris sumatrae</span>
-                                <span class="location"><i class="fas fa-map-marker-alt"></i> Sumatra</span>
-                            </div>
-                            <div class="underline"></div>
-                        </div>
-                        <div class="fauna-desc">
-                            <p>Satu-satunya anggota subspesies harimau sunda yang masih bertahan hidup hingga saat ini.</p>
-                            <ul>
-                                <li>Ditemukan di TN Bukit Barisan Selatan dan TN Gunung Leuser.</li>
-                                <li>Warna paling gelap dari seluruh harimau, mulai dari kuning kemerah-merahan hingga jingga tua.</li>
-                                <li>Ukurannya kecil, lebih banyak janggut serta surai.</li>
-                                <li>Terdapat selaput di sela-sela jarinya yang menjadikan mereka mampu berenang cepat.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
+                if (mysqli_num_rows($result) > 0):
+                    while ($row = mysqli_fetch_assoc($result)):
+                        // Logic Zig-Zag: Jika angka genap, tambah class "reverse"
+                        $reverse_class = ($counter % 2 == 0) ? 'reverse' : '';
 
-                <article class="fauna-card">
-                    <div class="card-image-wrapper">
-                        <span class="status-badge critical">Critically Endangered</span>
-                        <img src="../assets/image/harimau.jpg" alt="Harimau Sumatra">
-                    </div>
-                    <div class="card-info">
-                        <div class="info-header">
-                            <h3 class="fauna-name">Harimau Sumatra</h3>
-                            <div class="meta-row">
-                                <span class="sci-name">Panthera tigris sumatrae</span>
-                                <span class="location"><i class="fas fa-map-marker-alt"></i> Sumatra</span>
-                            </div>
-                            <div class="underline"></div>
-                        </div>
-                        <div class="fauna-desc">
-                            <p>Satu-satunya anggota subspesies harimau sunda yang masih bertahan hidup hingga saat ini.</p>
-                            <ul>
-                                <li>Ditemukan di TN Bukit Barisan Selatan dan TN Gunung Leuser.</li>
-                                <li>Warna paling gelap dari seluruh harimau, mulai dari kuning kemerah-merahan hingga jingga tua.</li>
-                                <li>Ukurannya kecil, lebih banyak janggut serta surai.</li>
-                                <li>Terdapat selaput di sela-sela jarinya yang menjadikan mereka mampu berenang cepat.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
+                        // Logic warna badge status (opsional)
+                        $status_class = ($row['status_konservasi'] == 'Punah' || $row['status_konservasi'] == 'Kritis') ? 'critical' : '';
+                ?>
 
-                <article class="fauna-card reverse">
-                    <div class="card-image-wrapper">
-                        <span class="status-badge critical">Critically Endangered</span>
-                        <img src="../assets/image/harimau.jpg" alt="Harimau Sumatra">
-                    </div>
-                    <div class="card-info">
-                        <div class="info-header">
-                            <h3 class="fauna-name">Harimau Sumatra</h3>
-                            <div class="meta-row">
-                                <span class="sci-name">Panthera tigris sumatrae</span>
-                                <span class="location"><i class="fas fa-map-marker-alt"></i> Sumatra</span>
+                        <article class="fauna-card <?= $reverse_class ?>">
+                            <div class="card-image-wrapper" style="flex: 0 0 45%; position: relative;">
+                                <span class="status-badge <?= $status_class ?>"><?= $row['status_konservasi'] ?></span>
+                                <img src="../uploads/fauna/<?= $row['gambar'] ?>" alt="<?= $row['nama_lokal'] ?>" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
                             </div>
-                            <div class="underline"></div>
-                        </div>
-                        <div class="fauna-desc">
-                            <p>Satu-satunya anggota subspesies harimau sunda yang masih bertahan hidup hingga saat ini.</p>
-                            <ul>
-                                <li>Ditemukan di TN Bukit Barisan Selatan dan TN Gunung Leuser.</li>
-                                <li>Warna paling gelap dari seluruh harimau, mulai dari kuning kemerah-merahan hingga jingga tua.</li>
-                                <li>Ukurannya kecil, lebih banyak janggut serta surai.</li>
-                                <li>Terdapat selaput di sela-sela jarinya yang menjadikan mereka mampu berenang cepat.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
 
+                            <div class="card-info">
+                                <div class="info-header">
+                                    <h3 class="fauna-name"><?= $row['nama_lokal'] ?></h3>
+
+                                    <div class="meta-row"> <span class="sci-name" style="font-style: italic; margin-right: 15px;"><?= $row['nama_ilmiah'] ?></span>
+                                        <span class="location"><i class="fas fa-map-marker-alt"></i> <?= $row['asal_provinsi'] ?></span>
+                                    </div>
+                                    <div class="underline"></div>
+                                </div>
+
+                                <div class="fauna-desc">
+                                    <p><?= nl2br(substr($row['deskripsi'], 0, 700)) ?>...</p>
+                                </div>
+                            </div>
+                        </article>
+
+                    <?php
+                        $counter++; // Tambah counter
+                    endwhile;
+                else:
+                    ?>
+                    <p style="text-align: center; padding: 50px;">Belum ada data fauna ditemukan.</p>
+                <?php endif; ?>
             </div>
         </div>
-    </main> 
+    </main>
 
     <footer>
         <div class="container footer-container">
@@ -206,4 +147,5 @@
     </footer>
 
 </body>
+
 </html>

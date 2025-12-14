@@ -154,16 +154,8 @@ if (isset($_POST['simpan'])) {
 </head>
 
 <body>
-    <aside class="sidebar">
-        <h2>SUMATROPIC <br><small style="font-size: 12px;">Admin Panel</small></h2>
-        <a href="../admin/dashboard.php">Dashboard</a>
-        <a href="../admin/kelola_flora.php">Data Flora</a>
-        <a href="../admin/kelola_fauna.php">Data Fauna</a>
-        <a href="../admin/kelola_berita.php" style="background-color: #34495e;">Data Berita</a>
-        <a href="../admin/kelola_volunteer.php">Verifikasi Volunteer</a>
+    <?php require_once "../template/sidebar_admin.php"; ?>
 
-        <a href="logout.php" class="logout">Keluar</a>
-    </aside>
 
     <div class="container">
         <a href="../admin/kelola_berita.php">← Kembali ke Daftar Berita</a>
@@ -193,7 +185,7 @@ if (isset($_POST['simpan'])) {
 
                 <input type="file" name="gambar" <?= $is_edit ? '' : 'required' ?>>
 
-                <button type="submit" name="simpan" class="btn-green" style="width: 100%; padding: 12px; border:none; cursor:pointer;">
+                <button type="submit" name="simpan" class="btn-green" style="width: 100%; padding: 12px; border:none; cursor:pointer; background-color:#27ae60; color:white; border-radius:4px;">
                     <?= $is_edit ? 'Update Data' : 'Simpan Data'; ?>
                 </button>
 
