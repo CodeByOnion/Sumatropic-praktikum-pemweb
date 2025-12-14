@@ -57,7 +57,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] === 'login') {
         <div class="form-container sign-up-container">
             <form action="actions/register_proses.php" method="POST">
                 <h1>Daftar</h1>
-                <p class="subtitle">Bergabung menjadi Sobat Suma sekarang</p>
+                <p class="subtitle">Bergabung menjadi Sobat Suma dan mulai jelajahi keindahan Flora dan Fauna Sumatra</p>
                 <input type="text" name="username" placeholder="Username" required />
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Password" required />
@@ -68,7 +68,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] === 'login') {
         <div class="form-container sign-in-container">
             <form action="actions/login_proses.php" method="POST">
                 <h1>Masuk</h1>
-                <p class="subtitle">Lanjutkan menjelajahi Hutan Sumatra</p>
+                <p class="subtitle">Masuk ke akunmu dan lanjutkan menjelajahi keindahan Hutan Sumatra</p>
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Password" required />
                 <button class="orange-btn">Masuk</button>
@@ -78,14 +78,14 @@ if (isset($_SESSION['status']) && $_SESSION['status'] === 'login') {
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
-                    <h1>Halo, Sobat!</h1>
-                    <p>Sudah punya akun? Login di sini.</p>
+                    <h1>Halo, Selamat Datang!</h1>
+                    <p>Jika sudah punya akun, klik tombol “Masuk” di bawah ini ya!</p>
                     <button class="ghost-btn" id="signIn">Masuk</button>
                 </div>
 
                 <div class="overlay-panel overlay-right">
                     <h1>Halo, Sobat Suma!</h1>
-                    <p>Belum punya akun? Daftar sekarang!</p>
+                    <p>Jika belum punya akun, klik tombol “Daftar” di bawah ini ya!</p>
                     <button class="ghost-btn" id="signUp">Daftar</button>
                 </div>
             </div>

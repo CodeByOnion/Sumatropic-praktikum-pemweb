@@ -38,6 +38,7 @@
 
     <main>
         
+<<<<<<< HEAD
         <div class="hero-wrapper">
             
             <div class="hero-image-area">
@@ -47,6 +48,14 @@
                     <p>contributing to a healthy forest ecosystem</p>
                 </div>
                 <img src="../assets/image/volunteer.jpg" alt="Gajah Sumatra">
+=======
+        <header class="hero" style="background-image: url('../assets/image/volunteer.jpg');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <p class="breadcrumb">Beranda > Volunteer</p>
+                <h1>Volunteer</h1>
+                <p class="hero-desc">Bergabunglah dengan komunitas penjaga alam. Dari menanam pohon hingga patroli hutan, setiap tetes keringatmu adalah napas baru bagi masa depan hutan Sumatera.</p>
+>>>>>>> 24b5464aedca3cf76dd1b7fed737af79042b374f
             </div>
 
             <div class="hero-title-bar">
@@ -65,7 +74,7 @@
                 <h2>Aksi kecil, dampak besar</h2>
                 <p class="subtitle">Small action is matter.</p>
                 <p class="description">
-                    Setiap tangan yang terulur membawa harapan untuk bumi yang lebih sehat dan masa depan yang tetap hijau. Pilih program <em>volunteer</em> yang sesuai dengan minatmu dan mulai berkontribusi untuk alam Sumatra.
+                 Setiap tangan yang terulur membawa harapan untuk bumi yang lebih sehat dan masa depan yang tetap hijau. Pilih program volunteer yang sesuai dengan minatmu dan mulai berkontribusi untuk alam SumatraSetiap tangan yang terulur membawa harapan untuk bumi yang lebih sehat dan masa depan yang tetap hijau. Pilih program <em>volunteer</em> yang sesuai dengan minatmu dan mulai berkontribusi untuk alam Sumatra.
                 </p>
             </section>
 
@@ -74,11 +83,16 @@
                 <div class="card">
                     <div class="card-text">
                         <h3>Perlindungan Gajah Sumatra</h3>
+<<<<<<< HEAD
                         <p>
                             Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan.
                             Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.
                         </p>
                         <button class="btn-action">Take action</button>
+=======
+                        <p>Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan. Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.</p>                        
+                        <button class="btn-action" a href="Bergabung Menjadi Relawan - Greenpeace Indonesia - Greenpeace Indonesia">Take action</button>
+>>>>>>> 24b5464aedca3cf76dd1b7fed737af79042b374f
                     </div>
                     <div class="card-image">
                         <img src="../assets/image/volunteer.jpg" alt="Gajah">
@@ -88,11 +102,16 @@
                 <div class="card">
                     <div class="card-text">
                         <h3>Perlindungan Gajah Sumatra</h3>
+<<<<<<< HEAD
                         <p>
                             Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan.
                             Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.
                         </p>
                         <button class="btn-action">Take action</button>
+=======
+                        <p>Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan. Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.</p>                        
+                        <button class="btn-action" a href="Bergabung Menjadi Relawan - Greenpeace Indonesia - Greenpeace Indonesia">Take action</button>
+>>>>>>> 24b5464aedca3cf76dd1b7fed737af79042b374f
                     </div>
                     <div class="card-image">
                         <img src="../assets/image/volunteer.jpg" alt="Gajah">
@@ -102,6 +121,7 @@
                  <div class="card">
                     <div class="card-text">
                         <h3>Perlindungan Gajah Sumatra</h3>
+<<<<<<< HEAD
                         <p>
                             Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan.
                             Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.
@@ -110,6 +130,24 @@
                     </div>
                     <div class="card-image">
                         <img src="../assets/image/volunteer.jpg" alt="Gajah">
+=======
+                        <p>Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan. Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.</p>                        
+                        <button class="btn-action" a href="Bergabung Menjadi Relawan - Greenpeace Indonesia - Greenpeace Indonesia">Take action</button>
+                    </div>
+                    <div class="card-image">
+                        <img src="../assets/image/volunteer.jpg" alt="Gajah">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-text">
+                        <h3>Perlindungan Gajah Sumatra</h3>
+                        <p>Gajah Sumatra terus kehilangan habitat karena perambahan dan konflik dengan manusia. Bergabunglah dalam aksi perlindungan, mulai dari pemantauan populasi, edukasi warga, hingga restorasi kawasan. Setiap relawan membantu membuka jalan bagi masa depan yang lebih aman bagi spesies ikonik ini.</p>                        
+                        <button class="btn-action" a href="Bergabung Menjadi Relawan - Greenpeace Indonesia - Greenpeace Indonesia">Take action</button>
+                    </div>
+                    <div class="card-image">
+                        <img src="../assets/image/volunteer.jpg" alt="Gajah">
+>>>>>>> 24b5464aedca3cf76dd1b7fed737af79042b374f
                     </div>
                 </div>
 

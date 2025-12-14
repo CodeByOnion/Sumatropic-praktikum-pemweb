@@ -79,10 +79,8 @@ $result_news = mysqli_query($conn, $query_news);
                 <img src="assets/image/sumatra.png" alt="Peta Sumatra">
             </div>
             <div class="intro-text">
-                <p>Hutan hujan tropis Sumatra adalah salah satu paru-paru dunia yang tersisa. Rumah bagi ribuan spesies flora dan fauna yang tidak dapat ditemukan di tempat lain di bumi.</p>
-                <br>
-                <p>Mari bersama menjaga kelestarian alam ini demi masa depan yang lebih hijau dan berkelanjutan.</p>
-            </div>
+            <p>Terbentang sepanjang 1.700 km, Sumatera adalah rumah bagi salah satu ekosistem paling kompleks dan kaya di dunia. Pulau ini menyajikan lanskap kontras yang memukau: deretan gunung berapi aktif, danau kaldera raksasa yang tenang, hingga hutan hujan tropis lebat yang menjadi paru-paru dunia.</p>                <br>
+            <p>Sumatera memegang predikat langka sebagai satu-satunya habitat di mana Harimau, Gajah, Orangutan, dan Badak hidup berdampingan secara liar. Menjelajahi Sumatera adalah sebuah perjalanan untuk menyaksikan, memahami, dan melindungi warisan alam yang tak tergantikan.</p>            </div>
         </div>
     </section>
 
@@ -109,15 +107,13 @@ $result_news = mysqli_query($conn, $query_news);
 
     <div class="section-separator">
         <h2>Ada apa aja di Hutan Tropis Sumatra?</h2>
-        <p>Dukungan Anda membantu kami melindungi spesies yang terancam punah.</p>
-    </div>
+        <p>Temukan keajaiban kehidupan yang tersembunyi di balik rimbunnya kanopi hutan hujan kita.</p>    </div>
 
     <section class="features">
         <div class="feature-item">
             <div class="feature-text">
                 <h3>Flora endemik</h3>
-                <p>Jelajahi berbagai keindahan flora di Hutan tropis Sumatra</p>
-                <button class="btn btn-dark">JELAJAHI FLORA</button>
+                <p>Dari bunga raksasa yang memikat hingga tanaman obat langka, hutan Sumatra menyimpan ribuan spesies botani yang tak tumbuh di tempat lain di bumi.</p>                <button class="btn btn-dark">JELAJAHI FLORA</button>
             </div>
             <div class="feature-img">
                 <img src="assets/image/rafflesia.jpg" alt="Rafflesia">
@@ -127,7 +123,7 @@ $result_news = mysqli_query($conn, $query_news);
         <div class="feature-item reverse">
             <div class="feature-text">
                 <h3>Fauna endemik</h3>
-                <p>Kenali berbagai keunikan fauna di Hutan tropis Sumatra</p>
+                <p>Kenali ragam satwa unik mulai dari raja hutan hingga burung-burung eksotis yang mewarnai langit Sumatera.</p>
                 <button class="btn btn-dark">KENALI FAUNA</button>
             </div>
             <div class="feature-img">
@@ -138,8 +134,7 @@ $result_news = mysqli_query($conn, $query_news);
 
     <section class="involvement">
         <h2>Nature Needs You</h2>
-        <p>Banyak cara untuk berkontribusi menjaga kelestarian alam.</p>
-
+        <p>Ada banyak cara untuk terlibat. Pilih langkah kebaikanmu hari ini dan jadilah bagian dari solusi untuk masa depan bumi dan manusia yang lebih baik.</p>
         <div class="involvement-grid">
             <div class="involve-card">
                 <img src="assets/image/monyet.jpg" alt="Volunteer">
