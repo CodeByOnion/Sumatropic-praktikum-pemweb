@@ -39,6 +39,7 @@ $result = mysqli_query($conn, $query);
 
     <link rel="stylesheet" href="../assets/css/styleberita.css">
     <link rel="stylesheet" href="../assets/css/stylenavbar.css">
+    <link rel="stylesheet" href="../assets/css/stylefooter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 

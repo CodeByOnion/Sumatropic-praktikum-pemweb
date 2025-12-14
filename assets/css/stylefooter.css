@@ -1,0 +1,76 @@
+/* ================= FOOTER TEMPLATE ================= */
+
+/* 1. Pengaturan agar footer menempel di bawah (Sticky Bottom) */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 2. Tampilan Utama Footer */
+.site-footer {
+    background-color: #15220e; /* Warna Hijau Sangat Gelap (Sesuai Gambar) */
+    color: #ffffff;            /* Teks Putih */
+    padding: 25px 0;           /* Jarak atas bawah */
+    width: 100%;
+    margin-top: auto;          /* PENTING: Mendorong footer ke paling bawah */
+    border-top: 1px solid rgba(255,255,255,0.05); /* Garis tipis halus di atas */
+}
+
+.footer-container {
+    max-width: 1200px;         /* Lebar maksimal konten */
+    margin: 0 auto;            /* Posisi tengah */
+    padding: 0 40px;           /* Jarak kiri kanan */
+    display: flex;             /* Mode baris */
+    justify-content: space-between; /* Bagi 3: Kiri - Tengah - Kanan */
+    align-items: center;       /* Rata tengah vertikal */
+}
+
+/* Bagian Kiri: Tulisan Sumatropic */
+.footer-left {
+    font-family: 'Playfair Display', serif; /* Font Serif Elegan */
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+/* Bagian Tengah: Icon Sosmed */
+.footer-center.socials {
+    display: flex;
+    gap: 20px; /* Jarak antar icon */
+}
+
+.footer-center.socials a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-center.socials a:hover {
+    color: #E67E22; /* Berubah oranye saat disentuh kursor */
+    transform: translateY(-3px); /* Efek naik sedikit */
+}
+
+/* Bagian Kanan: Copyright */
+.footer-right {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* Responsif untuk HP (Layar Kecil) */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Jadi susun ke bawah */
+        gap: 20px;
+        text-align: center;
+    }
+}

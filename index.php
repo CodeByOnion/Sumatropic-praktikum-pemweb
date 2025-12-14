@@ -27,6 +27,7 @@ $result_news = mysqli_query($conn, $query_news);
         rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/stylefooter.css">
 </head>
 
 <body>
