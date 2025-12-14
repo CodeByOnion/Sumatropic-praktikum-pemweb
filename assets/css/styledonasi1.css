@@ -1,294 +1,309 @@
-/* --- IMPORTS --- */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
-
-/* --- VARIABLES --- */
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
 :root {
-    --primary-green: #325118 ; /* Hijau Tua Utama */
-    --card-green: #334D25;    /* Hijau Box Donasi */
-    --bg-cream: #FDFCEF;      /* Cream Background */
-    --accent-orange: #E67E22; /* Tombol Orange */
+    --primary-green: #325118;       /* Hijau Utama */
+    --banner-green: #263c1e;        /* Hijau Strip Banner */
+    --card-green: #2b461c;          /* Hijau Gelap (Box Sukses) */
+    --dark-green: #1a2812;          /* Hijau Footer */
+    --accent-orange: #E67E22;       /* Oranye Tombol */
+    --accent-orange-hover: #d35400;
+    --bg-cream: #FDFCEF;            /* Cream Background */
     --text-dark: #333;
-    --font-serif: 'Merriweather', serif;
-    --font-sans: 'Open Sans', sans-serif;
+    --text-light: #fff;
+    
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html, body {
+    height: 100%;       /* Pastikan tinggi minimal 100% layar */
+    width: 100%;        /* Lebar penuh */
+    margin: 0;          /* Hilangkan margin bawaan browser (Penyebab garis putih) */
+    padding: 0;
+    background-color: var(--bg-cream); /* Warna background dipasang di body agar full */
+    overflow-x: hidden; /* Mencegah scroll ke samping */
+}
+
 body {
-    background-color: var(--bg-cream);
     font-family: var(--font-sans);
     color: var(--text-dark);
+    line-height: 1.6;
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding-top: 75px;
+    flex-direction: column; /* Menyusun konten dari atas ke bawah */
+    min-height: 100vh;      /* Minimal setinggi layar viewport */
 }
 
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+/* Logic SPA: Sembunyikan section 2 dan 3 di awal */
+#section-payment, #section-success { display: none; }
 
-/* --- NAVBAR --- */
-.navbar {
-    /* Ensure this page's navbar overrides any global nav rules */
-    background-color: var(--primary-green);
-    padding: 15px 0;
-    color: white;
-    position: fixed!important;
-    top: 0 !important;
-    left: 0!important;
-    width: 100%!important;
-    z-index: 1000;
-}
-.nav-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 40px;
+/* Wrapper Utility */
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+/* =========================================
+   3. SECTION 1: HERO & FORM
+   ========================================= */
+.hero {
+    /* Pastikan path gambar benar */
+    background-image: url('../assets/image/donasi.jpg'); 
+    background-size: cover;
+    background-position: center 25%;
+    height: 90vh;
+    width: 100%;
+    position: relative;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    padding-left: 8%;
 }
-.logo-group { display: flex; align-items: center; gap: 12px; }
-.logo-image { height: 45px; width: auto; object-fit: contain; }
-
-/* Strongly enforce logo dimensions to prevent oversized rendering */
-.nav-container > .logo-group .logo-image,
-.navbar .logo-image,
-.logo-image {
-    height: 45px !important;
-    max-height: 45px !important;
-    width: auto !important;
-    max-width: 200px !important;
-    object-fit: contain !important;
-    display: inline-block !important;
-}
-.logo-text { font-family: var(--font-serif); font-size: 1.4rem; letter-spacing: 2px; font-weight:700; color: white; }
-
-.nav-right { display: flex; align-items: center; gap: 30px; }
-/* Center the nav links between logo and auth buttons */
-.nav-links { display: flex; gap: 34px; flex: 1; justify-content: center; align-items: center; }
-.nav-links a {
-    color: rgba(255,255,255,0.9);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: 0.3s;
-}
-.nav-links a:hover, .nav-links a.active { color: white; }
-
-/* Tombol Auth */
-.auth-buttons { display: flex; gap: 10px; }
-.btn-login {
-    color: white; text-decoration: none;
-    border: 1px solid white; padding: 8px 25px;
-    border-radius: 20px; font-weight: 600; font-size: 0.9rem;
-}
-.btn-register {
-    background-color: var(--accent-orange); color: white; text-decoration: none;
-    padding: 8px 25px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;
-    border: 1px solid var(--accent-orange);
-}
-
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 100%);
+    z-index: 1;
 }
+.hero-content { position: relative; z-index: 2; color: white; margin-top: 60px; max-width: 600px; }
+.subtitle { letter-spacing: 4px; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; display: block; margin-bottom: 10px; opacity: 0.9; }
+.hero h1 { font-family: var(--font-serif); font-size: 5rem; line-height: 0.9; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; }
+.hero .description { font-size: 1.1rem; opacity: 0.9; }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 600px;
-}
-
-.hero-content .subtitle {
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    font-weight: 700;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.hero-content h1 {
-    font-family: var(--font-serif);
-    font-size: 5rem;
-    line-height: 1;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.hero-content .description {
-    font-size: 1.2rem;
-    font-weight: 300;
-}
-
-/* Ensures hero uses Donasi image and height like Donasi1 */
-.hero {
-    background-image: url('../assets/image/donasi.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 550px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding-left: 50px;
-}
-
-
-
-/* --- STRIP HIJAU (LENGKUNGAN) --- */
-/* Styles for the section under the hero (donasi title strip) */
-.title-strip {
-    background-color: var(--primary-green);
+/* Green Strip Banner */
+.green-strip-banner {
+    background-color: var(--banner-green);
+    padding: 50px 8%;
     color: white;
-    padding: 30px 0 50px;
-    margin-top: -40px; /* overlap the hero */
     position: relative;
     z-index: 10;
 }
-.breadcrumb { font-size: 0.8rem; opacity: 0.8; margin-bottom: 5px; }
-.title-strip h2 { font-family: var(--font-serif); font-size: 2.8rem; margin-bottom: 5px; }
-.strip-subtitle { font-size: 0.9rem; opacity: 0.9; max-width: 600px; }
+.green-strip-banner.small { padding: 30px 8%; } /* Untuk halaman pembayaran */
+.breadcrumb { font-size: 0.85rem; opacity: 0.7; margin-bottom: 10px; }
+.green-strip-banner h2 { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 10px; }
 
-/* Backwards-compatible selector used elsewhere */
-.fauna-intro-strip { display: none; }
-
-/* --- MAIN CONTENT --- */
-.main-content { padding: 50px 0; }
-
-/* Intro Text */
+/* Main Content & Form */
+.main-content { padding: 60px 0; }
 .intro-text { margin-bottom: 40px; }
-.intro-title {
-    font-family: var(--font-serif);
-    color: var(--primary-green);
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-.intro-text p {
-    margin-bottom: 15px;
-    line-height: 1.6;
-    font-size: 0.95rem;
-    color: #444;
-}
+.intro-title { font-family: var(--font-serif); color: var(--primary-green); font-size: 2rem; margin-bottom: 10px; }
 
-/* --- DONATION CARD (HIJAU KOTAK) --- */
 .donation-card {
-    background-color: var(--card-green);
-    color: white;
-    padding: 40px;
+    background-color: var(--primary-green);
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    padding: 40px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
+.card-title { font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px; }
+.mt-large { margin-top: 40px; }
 
-.card-title {
-    font-family: var(--font-serif);
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-}
-.mt-large { margin-top: 30px; }
-
-/* Tombol Nominal */
-.amount-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 20px;
-}
+/* Nominal Buttons */
+.amount-grid { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; }
 .amount-btn {
-    background: transparent;
-    border: 1px solid white;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-family: var(--font-sans);
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
-    font-size: 1rem;
+    background: transparent; border: 1px solid rgba(255,255,255,0.5); color: white;
+    padding: 12px 15px; flex: 1; min-width: 120px; border-radius: 6px;
+    font-weight: 600; cursor: pointer; transition: 0.3s;
 }
-.amount-btn:hover, .amount-btn.active {
-    background-color: rgba(255,255,255,0.2);
-}
+.amount-btn:hover { background: rgba(255,255,255,0.1); }
+.amount-btn.selected { background-color: var(--accent-orange); border-color: var(--accent-orange); transform: scale(1.05); }
 
-/* Input Manual */
-.custom-amount-wrapper { margin-bottom: 30px; max-width: 400px; }
-.custom-amount-input {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 6px;
-    border: none;
-    font-size: 1rem;
-    font-family: var(--font-sans);
-    color: #333;
-}
+.custom-amount-input { width: 100%; padding: 12px; border-radius: 6px; border: none; font-family: var(--font-sans); }
 
-/* Form Fields */
-.form-row {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-.form-group {
-    flex: 1; /* Membagi rata lebar kolom */
-}
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-.form-group input {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 6px;
-    border: none;
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    color: #333;
-}
+/* Inputs */
+.form-row { display: flex; gap: 20px; margin-bottom: 20px; }
+.form-group { flex: 1; }
+.form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; }
+.form-group input { width: 100%; padding: 12px; border-radius: 6px; border: none; font-family: var(--font-sans); color: #333; }
 
-/* Submit Button */
 .submit-btn {
-    background-color: var(--accent-orange);
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s;
+    background-color: var(--accent-orange); color: white; border: none;
+    padding: 15px; width: 100%; border-radius: 6px; font-weight: 700; font-size: 1.1rem;
+    cursor: pointer; transition: 0.3s; margin-top: 15px;
 }
-.submit-btn:hover { background-color: #d35400; }
+.submit-btn:hover { background-color: var(--accent-orange-hover); }
 
-/* --- FOOTER --- */
-footer {
-    background-color: #1a2e16;
-    color: white;
-    padding: 25px 0;
-    margin-top: auto;
+/* =========================================
+   4. SECTION 2: PAYMENT
+   ========================================= */
+.payment-page-container { padding: 40px 0; min-height: 60vh; }
+.payment-wrapper { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+.payment-info-box {
+    background: white; padding: 30px; border-radius: 10px; margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
-.footer-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
+.payment-info-box h3 { color: var(--primary-green); font-family: var(--font-serif); margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+.info-grid { display: grid; grid-template-columns: 150px 1fr; gap: 12px; margin-bottom: 20px; }
+.info-grid .label { font-weight: 600; color: #666; }
+.info-grid .value { color: #333; font-weight: 500; }
+.total-highlight { color: var(--primary-green) !important; font-weight: 800 !important; font-size: 1.1rem; }
+
+.text-link { background: none; border: none; color: #666; text-decoration: underline; cursor: pointer; font-size: 0.9rem; }
+
+/* Accordion */
+.payment-methods-box { background-color: var(--primary-green); border-radius: 15px; padding: 40px; color: white; }
+.method-title { font-family: var(--font-serif); text-align: center; font-size: 2rem; margin-bottom: 30px; }
+
+.method-item { background-color: white; border-radius: 8px; margin-bottom: 15px; overflow: hidden; color: #333; }
+.method-header { display: flex; align-items: center; padding: 15px 25px; cursor: pointer; background: white; transition: 0.2s; }
+.method-header:hover { background: #f9f9f9; }
+
+.bank-logo { width: 60px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-right: 20px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.8rem; }
+.bca { color: #0060af; } .bni { color: #f15a23; } .qris { color: #000; font-family: monospace; }
+.method-header span { font-weight: 700; flex-grow: 1; }
+.plus-icon { font-size: 1.5rem; transition: transform 0.3s; }
+
+.method-item.active .plus-icon { transform: rotate(45deg); color: var(--primary-green); }
+.method-content { display: none; background: #f4f4f4; padding: 25px; border-top: 1px solid #eee; }
+.method-item.active .method-content { display: block; animation: slideDown 0.3s ease-out; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+.detail-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #ddd; }
+.detail-row:last-child { border-bottom: none; }
+.qr-area { text-align: center; padding: 10px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+
+.btn-finish {
+    background-color: var(--accent-orange); color: white; border: none;
+    padding: 15px; width: 100%; border-radius: 8px; font-weight: bold; font-size: 1.1rem;
+    cursor: pointer; margin-top: 25px; transition: 0.3s;
+}
+.btn-finish:hover { background-color: var(--accent-orange-hover); }
+
+/* =========================================
+   5. SECTION 3: SUCCESS PAGE
+   ========================================= */
+#section-success {
+    /* Pastikan background cream mengisi penuh */
+    background-color: var(--bg-cream); 
+    
+    /* Gunakan min-height 100vh agar section ini minimal setinggi layar */
+    min-height: 100vh; 
+    
+    /* Flex column agar footer terdorong ke bawah */
+    display: none; /* Awalnya hidden (diatur JS) */
+    flex-direction: column; 
+    
+    /* Hilangkan margin agar menempel ke tepi layar */
+    margin: 0;
+    padding: 0;
+}
+
+.success-page-container {
+    flex: 1;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    margin-top: 60px; /* Space for navbar */
+}
+
+.success-content { width: 100%; max-width: 900px; }
+
+.success-title {
+    font-family: var(--font-serif);
+    color: #2c4a18;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.success-card {
+    background-color: var(--card-green);
+    border-radius: 12px;
+    padding: 60px 50px;
+    color: white;
+}
+
+.success-msg { font-size: 1.1rem; font-weight: 600; margin-bottom: 30px; opacity: 0.9; }
+.support-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; opacity: 0.8; }
+
+.action-buttons { display: flex; flex-direction: column; gap: 15px; max-width: 400px; }
+.btn-action {
+    background-color: var(--accent-orange); color: white; border: none;
+    padding: 15px 25px; border-radius: 6px; font-family: var(--font-sans);
+    font-weight: 600; font-size: 1rem; cursor: pointer; text-align: left; transition: 0.3s;
+}
+.btn-action:hover { background-color: var(--accent-orange-hover); }
+
+/* =========================================
+   FOOTER STYLE (Sesuai Gambar)
+   ========================================= */
+.site-footer {
+    background-color: #15220e; /* Warna Hijau Sangat Gelap */
+    color: #ffffff;
+    padding: 25px 0;
+    width: 100%;
+    margin-top: auto; /* PENTING: Agar footer turun ke bawah */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between; /* Membagi 3 kolom (Kiri-Tengah-Kanan) */
     align-items: center;
 }
-.footer-logo { font-family: var(--font-serif); font-weight: 700; font-size: 1.2rem; }
-.socials i { margin: 0 10px; cursor: pointer; opacity: 0.8; }
-.copyright { font-size: 0.9rem; font-family: var(--font-serif); }
 
-/* RESPONSIVE */
+/* Bagian Kiri: Logo Teks */
+.footer-left {
+    font-family: var(--font-serif); /* Font Serif untuk kesan elegan */
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+}
+
+/* Bagian Tengah: Ikon Sosmed */
+.footer-center.socials {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-center.socials a {
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.footer-center.socials a:hover {
+    color: var(--accent-orange); /* Berubah oranye saat di-hover */
+    transform: translateY(-3px);
+}
+
+.footer-center.socials i {
+    font-size: 1.1rem;
+}
+
+/* Bagian Kanan: Copyright */
+.footer-right {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* Responsive Mobile (HP) */
 @media (max-width: 768px) {
-    .form-row { flex-direction: column; gap: 15px; }
-    .amount-grid { justify-content: space-between; }
-    .amount-btn { flex: 1 1 45%; } /* Tombol jadi 2 kolom di HP */
+    .footer-container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .footer-center.socials {
+        gap: 25px; /* Jarak antar ikon lebih lebar di HP agar mudah dipencet */
+    }
+}
+
+/* General Footer (Page 1 & 2) */
+.footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #666; margin-top: auto; }
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .hero { height: 60vh; padding-left: 20px; }
+    .hero h1 { font-size: 3rem; }
+    .form-row { flex-direction: column; gap: 10px; }
     .footer-container { flex-direction: column; gap: 20px; text-align: center; }
-    .hero { height: 300px; }
+    .success-title { font-size: 2rem; }
+    .success-card { padding: 30px 20px; }
 }

@@ -8,7 +8,7 @@ $current = $_SERVER['REQUEST_URI'];
 
         <!-- LOGO -->
         <div class="logo-group">
-            <img src="<?= $base_url ?>/assets/image/logosumatropic.jpg"
+            <img src="<?= $base_url ?>/assets/image/Logo.png"
                 class="logo-image" alt="Sumatropic">
             <span class="logo-text">SUMATROPIC</span>
         </div>

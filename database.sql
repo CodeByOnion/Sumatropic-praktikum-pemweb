@@ -1,4 +1,4 @@
-usersusersCREATE DATABASE sumatropic_db;
+
 
 USE sumatropic_db;
 
