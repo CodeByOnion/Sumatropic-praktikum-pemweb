@@ -26,39 +26,23 @@ $result = mysqli_query($conn, $query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumatropic - Flora</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="stylesheet" href="../assets/css/stylenavbar.css"> <link rel="stylesheet" href="../assets/css/styleflora.css">   <link rel="stylesheet" href="../assets/css/stylefooter.css">  </head>
+    <link rel="stylesheet" href="../assets/css/stylenavbar.css">
+    <link rel="stylesheet" href="../assets/css/styleflora.css">
+    <link rel="stylesheet" href="../assets/css/stylefooter.css">
+</head>
 
 <body>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-group">
-                <img src="../assets/image/Logo.png" alt="SUMATROPIC" class="logo-image">
-                <span class="logo-text">SUMATROPIC</span>
-            </div>
-
-            <div class="nav-links">
-                <a href="../index.php">Beranda</a>
-                <a href="berita.php">Berita</a>
-                <a href="flora.php" class="active">Flora</a>
-                <a href="fauna.php">Fauna</a>
-            </div>
-
-            <div class="auth-buttons">
-                <a href="../login_register.php" class="btn-login" style="text-decoration:none;">Masuk</a>
-                <a href="../login_register.php" class="btn-register" style="text-decoration:none;">Daftar</a>
-            </div>
-        </div>
-    </nav>
+    <?php require_once "../template/navbar.php"; ?>
 
     <main>
-        
+
         <header class="hero-flora" style="background-image: url('../assets/image/rafflesia.jpg');">
             <div class="hero-overlay">
                 <div class="container hero-content">
@@ -81,7 +65,7 @@ $result = mysqli_query($conn, $query);
 
         <div class="container content-wrapper">
             <div class="search-section">
-                
+
                 <div class="search-header">
                     <span class="line"></span>
                     <h2 class="search-title">Jelajahi Flora</h2>
@@ -92,7 +76,7 @@ $result = mysqli_query($conn, $query);
                     <input type="text" name="cari" placeholder="Cari nama flora...." class="search-input" value="<?= htmlspecialchars($search_query) ?>">
 
                     <div class="filter-row">
-                         <select class="filter-select">
+                        <select class="filter-select">
                             <option><b>Status Konservasi</b></option>
                             <option>Critically Endangered</option>
                             <option>Endangered</option>
@@ -100,7 +84,7 @@ $result = mysqli_query($conn, $query);
                             <option>Near Threatened</option>
                             <option>Least Concern</option>
                         </select>
-                        <select class="filter-select"> 
+                        <select class="filter-select">
                             <option><b>Wilayah</b></option>
                             <option>Aceh</option>
                             <option>Sumatra Utara</option>
@@ -116,7 +100,7 @@ $result = mysqli_query($conn, $query);
 
                 <div class="flora-list">
                     <?php
-                    $counter = 1; 
+                    $counter = 1;
                     if (mysqli_num_rows($result) > 0):
                         while ($row = mysqli_fetch_assoc($result)):
                             // Logic Zig-Zag
@@ -140,14 +124,14 @@ $result = mysqli_query($conn, $query);
                                     <div class="flora-desc">
                                         <p><?= nl2br(substr($row['deskripsi'], 0, 300)); ?>...</p>
                                     </div>
-                                    
+
                                     <br>
                                     <a href="#" style="color: white; text-decoration: underline; font-size: 0.9rem;">Lihat Detail &rarr;</a>
                                 </div>
                             </article>
 
                         <?php
-                            $counter++; 
+                            $counter++;
                         endwhile;
                     else:
                         ?>
@@ -175,4 +159,5 @@ $result = mysqli_query($conn, $query);
     </footer>
 
 </body>
+
 </html>

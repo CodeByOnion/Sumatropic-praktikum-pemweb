@@ -23,39 +23,23 @@ $result = mysqli_query($conn, $query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumatropic - Fauna</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="stylesheet" href="../assets/css/stylenavbar.css"> <link rel="stylesheet" href="../assets/css/stylefauna.css">   <link rel="stylesheet" href="../assets/css/stylefooter.css">  </head>
+    <link rel="stylesheet" href="../assets/css/stylenavbar.css">
+    <link rel="stylesheet" href="../assets/css/stylefauna.css">
+    <link rel="stylesheet" href="../assets/css/stylefooter.css">
+</head>
 
 <body>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-group">
-                <img src="../assets/image/Logo.png" alt="SUMATROPIC" class="logo-image">
-                <span class="logo-text">SUMATROPIC</span>
-            </div>
-
-            <div class="nav-links">
-                <a href="../index.php">Beranda</a>
-                <a href="berita.php">Berita</a>
-                <a href="flora.php">Flora</a>
-                <a href="fauna.php" class="active">Fauna</a>
-            </div>
-
-            <div class="auth-buttons">
-                <a href="../login_register.php" class="btn-login" style="text-decoration:none;">Masuk</a>
-                <a href="../login_register.php" class="btn-register" style="text-decoration:none;">Daftar</a>
-            </div>
-        </div>
-    </nav>
+    <?php require_once "../template/navbar.php"; ?>
 
     <main>
-        
+
         <header class="hero-fauna" style="background-image: url('../assets/image/beo.jpg');">
             <div class="hero-overlay">
                 <div class="container hero-content">
@@ -115,12 +99,12 @@ $result = mysqli_query($conn, $query);
 
             <div class="fauna-list">
                 <?php
-                $counter = 1; 
+                $counter = 1;
                 if (mysqli_num_rows($result) > 0):
                     while ($row = mysqli_fetch_assoc($result)):
                         // Logic Zig-Zag
                         $reverse_class = ($counter % 2 == 0) ? 'reverse' : '';
-                        
+
                         // Logic Status Color (Merah jika Kritis/Punah)
                         $status_class = ($row['status_konservasi'] == 'Punah' || $row['status_konservasi'] == 'Kritis') ? 'critical' : '';
                 ?>
@@ -132,18 +116,17 @@ $result = mysqli_query($conn, $query);
                             </div>
 
                             <div class="card-info">
-                                <div class="info-header">
-                                    <h3 class="fauna-name"><?= $row['nama_lokal'] ?></h3>
+                                <h3 class="fauna-name"><?= $row['nama_lokal'] ?></h3>
 
-                                    <div class="meta-row"> 
-                                        <span class="sci-name" style="font-style: italic; margin-right: 15px;"><?= $row['nama_ilmiah'] ?></span>
-                                        <span class="location"><i class="fas fa-map-marker-alt"></i> <?= $row['asal_provinsi'] ?></span>
-                                    </div>
-                                    <div class="underline"></div>
+                                <div class="meta-row">
+                                    <span class="sci-name" style="font-style: italic; margin-right: 15px;"><?= $row['nama_ilmiah'] ?></span>
+                                    <span class="location"><i class="fas fa-map-marker-alt"></i> <?= $row['asal_provinsi'] ?></span>
                                 </div>
 
+
+
                                 <div class="fauna-desc">
-                                    <p><?= nl2br(substr($row['deskripsi'], 0, 600)) ?>...</p>
+                                    <p><?= nl2br(substr($row['deskripsi'], 0, 300)) ?>...</p>
                                 </div>
                                 <br>
                                 <a href="#" style="color: white; text-decoration: underline; font-size: 0.9rem;">Lihat Detail &rarr;</a>
@@ -151,7 +134,7 @@ $result = mysqli_query($conn, $query);
                         </article>
 
                     <?php
-                        $counter++; 
+                        $counter++;
                     endwhile;
                 else:
                     ?>
@@ -176,4 +159,5 @@ $result = mysqli_query($conn, $query);
     </footer>
 
 </body>
+
 </html>
