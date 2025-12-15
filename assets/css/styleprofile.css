@@ -46,14 +46,14 @@ body {
     font-size: 2.5rem;
     color: var(--primary-green);
     margin-bottom: 40px;
-    font-weight: 400; /* Serif Display biasanya sudah tebal */
+    font-weight: 400; 
 }
 
 /* --- PROFILE CARD --- */
 .profile-card {
     background-color: var(--card-green);
     border-radius: 20px;
-    padding: 60px 80px; /* Padding dalam lebih lega */
+    padding: 60px 80px; 
     display: flex;
     align-items: center;
     gap: 80px;
@@ -103,7 +103,7 @@ body {
     font-family: var(--font-sans);
     outline: none;
     height: 50px;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05); /* Sedikit kedalaman */
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05); 
 }
 
 .action-row {
@@ -129,8 +129,6 @@ body {
     background-color: #a00000;
     transform: translateY(-2px);
 }
-
-/* Footer sudah ditangani stylefooter.css, pastikan tidak ada kode footer disini */
 
 /* RESPONSIVE TABLET & HP */
 @media (max-width: 900px) {
