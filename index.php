@@ -25,7 +25,9 @@ $result_news = mysqli_query($conn, $query_news);
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Serif+Display&family=Inter:wght@300;400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="stylesheet" href="assets/css/stylenavbar.css"> <link rel="stylesheet" href="assets/css/style.css">       <link rel="stylesheet" href="assets/css/stylefooter.css"> </head>
+    <link rel="stylesheet" href="assets/css/stylenavbar.css">
+    <link rel="stylesheet" href="assets/css/style.css">       <link rel="stylesheet" href="assets/css/stylefooter.css">
+</head>
 
 <body>
 
@@ -39,35 +41,31 @@ $result_news = mysqli_query($conn, $query_news);
             <div class="nav-links">
                 <a href="index.php" class="active">Beranda</a>
                 <a href="pages/berita.php">Berita</a>
-                <a href="#">Flora</a>
-                <a href="#">Fauna</a>
+                <a href="pages/flora.php">Flora</a>
+                <a href="pages/fauna.php">Fauna</a>
             </div>
 
             <div class="auth-buttons">
                 <?php if (isset($_SESSION['status']) && $_SESSION['status'] == "login"): ?>
-                    
                     <a href="admin/dashboard.php" class="btn-login" style="text-decoration:none;">Dashboard</a>
                     <a href="actions/logout.php" class="btn-register" style="text-decoration:none;">Logout</a>
-
                 <?php else: ?>
-
                     <a href="login_register.php" class="btn-login" style="text-decoration:none;">Masuk</a>
                     <a href="login_register.php" class="btn-register" style="text-decoration:none;">Daftar</a>
-
                 <?php endif; ?>
             </div>
         </div>
     </nav>
 
     <main>
-        
+
         <section class="hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('assets/image/bg.jpeg');">
             <div class="hero-content">
                 <h1>SUMATROPIC</h1>
                 <p>Dari lembah berkabut hingga punggung harimau, setiap jengkal hutan ini menyimpan cerita.</p>
                 <div class="hero-buttons">
-                    <button class="btn btn-outline-white">JELAJAHI FLORA</button>
-                    <button class="btn btn-outline-white">KENALI FAUNA</button>
+                    <a href="pages/flora.php" class="btn btn-outline-white">JELAJAHI FLORA</a>
+                    <a href="pages/fauna.php" class="btn btn-outline-white">KENALI FAUNA</a>
                 </div>
             </div>
             <div class="hero-location">← Pulau Sumatra, Indonesia →</div>
@@ -82,8 +80,7 @@ $result_news = mysqli_query($conn, $query_news);
                     <img src="assets/image/sumatra.png" alt="Peta Sumatra">
                 </div>
                 <div class="intro-text">
-                    <p>Terbentang sepanjang 1.700 km, Sumatera adalah rumah bagi salah satu ekosistem paling kompleks dan kaya di dunia. Pulau ini menyajikan lanskap kontras yang memukau: deretan gunung berapi aktif, danau kaldera raksasa yang tenang, hingga hutan hujan tropis lebat yang menjadi paru-paru dunia.</p>
-                    <br>
+                    <p>Terbentang sepanjang 1.700 km, Sumatera adalah rumah bagi salah satu ekosistem paling kompleks dan kaya di dunia. Pulau ini menyajikan lanskap kontras yang memukau: deretan gunung berapi aktif, danau kaldera raksasa yang tenang, hingga hutan hujan tropis lebat yang menjadi paru-paru dunia.</p> <br>
                     <p>Sumatera memegang predikat langka sebagai satu-satunya habitat di mana Harimau, Gajah, Orangutan, dan Badak hidup berdampingan secara liar. Menjelajahi Sumatera adalah sebuah perjalanan untuk menyaksikan, memahami, dan melindungi warisan alam yang tak tergantikan.</p>
                 </div>
             </div>
@@ -91,21 +88,19 @@ $result_news = mysqli_query($conn, $query_news);
 
         <section class="did-you-know">
             <div class="dyk-header">Did You Know?</div>
+
             <div class="spotlight-container">
                 <div class="spotlight-card">
                     <h3>
                         <?= $spotlight ? $spotlight['nama_lokal'] : 'Data Kosong'; ?>
                     </h3>
-
                     <p>
                         <?= $spotlight ? substr($spotlight['deskripsi'], 0, 150) . '...' : 'Belum ada data.'; ?>
                     </p>
-
-                    <button class="btn btn-outline-white">Selengkapnya</button>
+                    <a href="pages/fauna.php" class="btn btn-outline-white">Selengkapnya</a>
                 </div>
-                <?php
-                $gambar_spotlight = $spotlight ? "uploads/fauna/" . $spotlight['gambar'] : "assets/image/funfact.jpeg";
-                ?>
+
+                <?php $gambar_spotlight = $spotlight ? "uploads/fauna/" . $spotlight['gambar'] : "assets/image/funfact.jpeg"; ?>
                 <img src="<?= $gambar_spotlight; ?>" class="spotlight-image" alt="Spotlight Image">
             </div>
         </section>
@@ -120,7 +115,7 @@ $result_news = mysqli_query($conn, $query_news);
                 <div class="feature-text">
                     <h3>Flora endemik</h3>
                     <p>Dari bunga raksasa yang memikat hingga tanaman obat langka, hutan Sumatra menyimpan ribuan spesies botani yang tak tumbuh di tempat lain di bumi.</p>
-                    <button class="btn btn-dark">JELAJAHI FLORA</button>
+                    <a href="pages/flora.php" class="btn btn-dark">JELAJAHI FLORA</a>
                 </div>
                 <div class="feature-img">
                     <img src="assets/image/rafflesia.jpg" alt="Rafflesia">
@@ -131,7 +126,7 @@ $result_news = mysqli_query($conn, $query_news);
                 <div class="feature-text">
                     <h3>Fauna endemik</h3>
                     <p>Kenali ragam satwa unik mulai dari raja hutan hingga burung-burung eksotis yang mewarnai langit Sumatera.</p>
-                    <button class="btn btn-dark">KENALI FAUNA</button>
+                    <a href="pages/fauna.php" class="btn btn-dark">KENALI FAUNA</a>
                 </div>
                 <div class="feature-img">
                     <img src="assets/image/beo.jpg" alt="Burung Sumatra">
@@ -143,18 +138,24 @@ $result_news = mysqli_query($conn, $query_news);
             <h2>Nature Needs You</h2>
             <p>Ada banyak cara untuk terlibat. Pilih langkah kebaikanmu hari ini dan jadilah bagian dari solusi untuk masa depan bumi dan manusia yang lebih baik.</p>
             <div class="involvement-grid">
-                <div class="involve-card">
-                    <img src="assets/image/monyet.jpg" alt="Volunteer">
-                    <h3>Volunteer</h3>
-                </div>
-                <div class="involve-card">
-                    <img src="assets/image/monyet.jpg" alt="Donasi">
-                    <h3>Donasi</h3>
-                </div>
-                <div class="involve-card">
-                    <img src="assets/image/monyet.jpg" alt="Adopsi">
-                    <h3>Adopsi</h3>
-                </div>
+                <a href="pages/volunteer.php">
+                    <div class="involve-card">
+                        <img src="assets/image/monyet.jpg" alt="Volunteer">
+                        <h3>Volunteer</h3>
+                    </div>
+                </a>
+                <a href="pages/donasi.php">
+                    <div class="involve-card">
+                        <img src="assets/image/monyet.jpg" alt="Donasi">
+                        <h3>Donasi</h3>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="involve-card">
+                        <img src="assets/image/monyet.jpg" alt="Adopsi">
+                        <h3>Adopsi</h3>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -183,7 +184,7 @@ $result_news = mysqli_query($conn, $query_news);
                         </div>
                     </a>
                 <?php endwhile; ?>
-                
+
                 <?php if (mysqli_num_rows($result_news) == 0): ?>
                     <p style="text-align: center; width: 100%;">Belum ada berita terbaru.</p>
                 <?php endif; ?>
