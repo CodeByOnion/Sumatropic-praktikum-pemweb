@@ -1,0 +1,106 @@
+/* Container Layout */
+.dashboard-container {
+    padding: 20px;
+}
+
+/* Header Title */
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-header h2 {
+    color: #2e4a1c;
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.page-header p {
+    color: #666;
+    margin-top: 5px;
+}
+
+/* GRID SYSTEM (Kotak-kotak) */
+.dashboard-grid {
+    display: grid;
+    /* Responsif: Otomatis menyesuaikan jumlah kolom */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* DESAIN KARTU (Tema Hijau Sumatropic) */
+.stat-card-theme {
+    background-color: #2e4a1c;
+    /* Hijau Gelap Tema */
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    /* Agar ikon background tidak keluar */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 140px;
+    /* Tinggi tetap agar rapi */
+}
+
+/* Efek Hover */
+.stat-card-theme:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(46, 74, 28, 0.4);
+    background-color: #355720;
+    /* Sedikit lebih terang saat hover */
+}
+
+/* Konten Teks */
+.card-content {
+    z-index: 2;
+    /* Agar di atas ikon */
+}
+
+.card-content h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #d4d8c6;
+    /* Hijau pucat (aksen) */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 5px 0;
+    color: white;
+    line-height: 1;
+}
+
+.card-desc {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Highlight Angka Uang (Hijau Lime) */
+.highlight-money {
+    color: #a3e635;
+    font-size: 1.8rem;
+    /* Sedikit lebih kecil agar muat */
+}
+
+/* Ikon Background Besar */
+.card-icon {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.1);
+    /* Transparan */
+    transform: rotate(-15deg);
+    z-index: 1;
+    pointer-events: none;
+}

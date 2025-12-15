@@ -45,8 +45,8 @@ if (isset($_SESSION['status']) && $_SESSION['status'] === 'login') {
             <div class="nav-links">
                 <a href="index.php">Beranda</a>
                 <a href="pages/berita.php">Berita</a>
-                <a href="#">Flora</a>
-                <a href="#">Fauna</a>
+                <a href="pages/flora.php">Flora</a>
+                <a href="pages/fauna.php">Fauna</a>
             </div>
 
             <div class="nav-right">
