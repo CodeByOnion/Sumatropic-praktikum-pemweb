@@ -18,8 +18,6 @@
 }
 
 body {
-    /* Pastikan gambar ada di folder assets/image/ */
-    /* Menggunakan ../ karena file css ada di dalam folder css */
     background: url('../image/bglogin.png') no-repeat center center fixed;
     background-size: cover;
     font-family: var(--font-sans);
@@ -27,8 +25,17 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding-top: 80px;
-    /* Jarak agar tidak ketutup navbar */
+    
+    /* PERUBAHAN DI SINI */
+    /* Navbar tingginya sekitar 80px, kita beri 120px biar ada napas */
+    padding-top: 120px; 
+    
+    /* Footer tingginya sekitar 50px, kita beri 80px biar tidak nabrak bawah */
+    padding-bottom: 80px; 
+    
+    /* Tambahkan padding samping sedikit untuk keamanan mode mobile */
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* Overlay Hitam Transparan di Background */
@@ -44,34 +51,6 @@ body::before {
 }
 
 /* --- NAVBAR (SESUAI GAMBAR TARGET) --- */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: var(--primary-green);
-    /* Hijau Gelap Solid */
-    z-index: 1000;
-    padding: 10px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* Penting: Logo Kiri, Menu Tengah, Tombol Kanan */
-    height: 60px;
-}
-
-/* LOGO GROUP */
-.logo-group {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
 
 .logo-image {
     height: 50px;
@@ -161,9 +140,11 @@ header {
     position: relative;
     overflow: hidden;
     width: 900px;
-    max-width: 95%;
+    max-width: 100%; /* Ubah 95% jadi 100% karena sudah ada padding di body */
     min-height: 550px;
-    margin-top: 20px;
+    
+    /* PERUBAHAN DI SINI */
+    margin-top: 0; /* Ubah jadi 0 agar benar-benar di tengah vertikal */
 }
 
 .form-container {
