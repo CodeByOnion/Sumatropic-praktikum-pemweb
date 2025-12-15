@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $query = "INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, 'user')";
+    $query = "INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, 'member')";
     $stmt  = $conn->prepare($query);
     $stmt->bind_param("sss", $username, $email, $password_hashed);
 
