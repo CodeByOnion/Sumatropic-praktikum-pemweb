@@ -7,130 +7,53 @@
 
 :root {
     --primary-green: #2d4f23;
-    /* Hijau Navbar */
     --orange: #E86D09;
-    /* Warna Tombol Daftar */
     --cream: #FDFBE4;
     --font-serif: 'Crimson Text', serif;
-    /* Font untuk Menu Navbar */
     --font-sans: 'Poppins', sans-serif;
-    /* Font untuk Input Form */
 }
 
+/* LAYOUT BODY BARU UNTUK STICKY FOOTER */
 body {
     background: url('../image/bglogin.png') no-repeat center center fixed;
     background-size: cover;
     font-family: var(--font-sans);
+    
+    /* Flexbox Vertikal */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between; /* Navbar atas, Form tengah, Footer bawah */
     min-height: 100vh;
     
-    /* PERUBAHAN DI SINI */
-    /* Navbar tingginya sekitar 80px, kita beri 120px biar ada napas */
-    padding-top: 120px; 
-    
-    /* Footer tingginya sekitar 50px, kita beri 80px biar tidak nabrak bawah */
-    padding-bottom: 80px; 
-    
-    /* Tambahkan padding samping sedikit untuk keamanan mode mobile */
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-top: 80px; /* Jarak Navbar */
+    /* Hapus padding bottom lama */
 }
 
-/* Overlay Hitam Transparan di Background */
+/* Overlay Hitam Transparan */
 body::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(0, 0, 0, 0.4);
     z-index: -1;
 }
 
-/* --- NAVBAR (SESUAI GAMBAR TARGET) --- */
-
-.logo-image {
-    height: 50px;
-    /* Ukuran Logo Pas */
-    width: auto;
-}
-
-.logo-text {
-    font-family: var(--font-serif);
-    font-size: 1.6rem;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 400;
-    /* Regular serif */
-}
-
-/* MENU TENGAH */
-.nav-links {
+/* WRAPPER AGAR FORM DI TENGAH */
+.login-wrapper {
+    flex: 1; /* Mengisi ruang kosong antara navbar dan footer */
     display: flex;
-    gap: 30px;
+    align-items: center; /* Vertikal Center */
+    justify-content: center; /* Horizontal Center */
+    padding: 40px 20px;
+    width: 100%;
 }
 
-.nav-links a {
-    font-family: var(--font-serif);
-    /* Pakai Serif agar elegan */
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #ddd;
-}
-
-/* TOMBOL KANAN */
-.header-btns {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.nav-btn {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
-    font-weight: 700;
-    padding: 6px 25px;
-    border-radius: 25px;
-    /* Membulat seperti pil */
+/* --- NAVBAR STYLING (Override Sedikit jika perlu) --- */
+/* (Biarkan stylenavbar.css yang menangani, kecuali tombol spesifik) */
+#nav-login, #nav-register {
+    /* Style khusus tombol di navbar login */
     cursor: pointer;
-    transition: all 0.3s;
-    text-decoration: none;
-    display: inline-block;
 }
-
-/* Tombol Masuk: Transparan + Border Putih */
-.nav-btn.ghost {
-    background: transparent;
-    color: #fff;
-    border: 2px solid #fff;
-}
-
-.nav-btn.ghost:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* Tombol Daftar: Background Oranye */
-.nav-btn.filled {
-    background: var(--orange);
-    color: #fff;
-    border: 2px solid var(--orange);
-}
-
-.nav-btn.filled:hover {
-    background: #d35400;
-    border-color: #d35400;
-}
-
 
 /* --- CONTAINER FORM --- */
 .container {
@@ -140,11 +63,9 @@ body::before {
     position: relative;
     overflow: hidden;
     width: 900px;
-    max-width: 100%; /* Ubah 95% jadi 100% karena sudah ada padding di body */
+    max-width: 100%;
     min-height: 550px;
-    
-    /* PERUBAHAN DI SINI */
-    margin-top: 0; /* Ubah jadi 0 agar benar-benar di tengah vertikal */
+    /* margin-top dihapus karena sudah diatur flexbox wrapper */
 }
 
 .form-container {
@@ -192,7 +113,7 @@ input {
     font-family: var(--font-sans);
 }
 
-/* Fix browser autofill background */
+/* Fix Autofill Color */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -202,9 +123,7 @@ input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
 
-input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
+input::placeholder { color: rgba(255, 255, 255, 0.6); }
 
 button.orange-btn {
     background: var(--orange);
@@ -219,25 +138,14 @@ button.orange-btn {
     font-family: var(--font-sans);
 }
 
-button.orange-btn:hover {
-    background: #d35400;
-}
+button.orange-btn:hover { background: #d35400; }
 
 /* Posisi Slider */
-.sign-in-container {
-    left: 0;
-    z-index: 2;
-}
-
-.sign-up-container {
-    left: 0;
-    opacity: 0;
-    z-index: 1;
-}
+.sign-in-container { left: 0; z-index: 2; }
+.sign-up-container { left: 0; opacity: 0; z-index: 1; }
 
 .container.right-panel-active .sign-in-container {
-    transform: translateX(100%);
-    opacity: 0;
+    transform: translateX(100%); opacity: 0;
 }
 
 .container.right-panel-active .sign-up-container {
@@ -248,50 +156,33 @@ button.orange-btn:hover {
 }
 
 @keyframes show {
-
-    0%,
-    49.99% {
-        opacity: 0;
-        z-index: 1;
-    }
-
-    50%,
-    100% {
-        opacity: 1;
-        z-index: 5;
-    }
+    0%, 49.99% { opacity: 0; z-index: 1; }
+    50%, 100% { opacity: 1; z-index: 5; }
 }
 
 /* Overlay Hijau */
 .overlay-container {
     position: absolute;
-    top: 0;
-    left: 50%;
-    width: 50%;
-    height: 100%;
+    top: 0; left: 50%;
+    width: 50%; height: 100%;
     overflow: hidden;
     transition: transform 0.6s ease-in-out;
     z-index: 100;
 }
 
-.container.right-panel-active .overlay-container {
-    transform: translateX(-100%);
-}
+.container.right-panel-active .overlay-container { transform: translateX(-100%); }
 
 .overlay {
     background: #2d4f23;
     color: #fff;
     position: relative;
     left: -100%;
-    height: 100%;
-    width: 200%;
+    height: 100%; width: 200%;
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
 }
 
-.container.right-panel-active .overlay {
-    transform: translateX(50%);
-}
+.container.right-panel-active .overlay { transform: translateX(50%); }
 
 .overlay-panel {
     position: absolute;
@@ -301,29 +192,15 @@ button.orange-btn:hover {
     flex-direction: column;
     padding: 0 40px;
     text-align: center;
-    top: 0;
-    height: 100%;
-    width: 50%;
+    top: 0; height: 100%; width: 50%;
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
 }
 
-.overlay-left {
-    transform: translateX(-20%);
-}
-
-.container.right-panel-active .overlay-left {
-    transform: translateX(0);
-}
-
-.overlay-right {
-    right: 0;
-    transform: translateX(0);
-}
-
-.container.right-panel-active .overlay-right {
-    transform: translateX(20%);
-}
+.overlay-left { transform: translateX(-20%); }
+.container.right-panel-active .overlay-left { transform: translateX(0); }
+.overlay-right { right: 0; transform: translateX(0); }
+.container.right-panel-active .overlay-right { transform: translateX(20%); }
 
 button.ghost-btn {
     background: #FDFBE4;
@@ -337,59 +214,15 @@ button.ghost-btn {
     font-family: var(--font-serif);
 }
 
-button.ghost-btn:hover {
-    background: #fff;
-}
-
-/* Footer */
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 15px 50px;
-    background: var(--primary-green);
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9rem;
-    z-index: 999;
-}
-
-.footer-social i {
-    margin-left: 15px;
-    cursor: pointer;
-}
+button.ghost-btn:hover { background: #fff; }
 
 /* Responsive Mobile */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .header-btns {
-        display: none;
-    }
-
     .container {
         width: 100%;
         min-height: 600px;
-        margin-top: 80px;
     }
-
-    .form-container {
-        width: 100%;
-    }
-
-    .overlay-container {
-        display: none;
-    }
-
-    .sign-in-container {
-        z-index: 5;
-    }
-
-    .footer {
-        flex-direction: column;
-    }
+    .form-container { width: 100%; }
+    .overlay-container { display: none; }
+    .sign-in-container { z-index: 5; }
 }

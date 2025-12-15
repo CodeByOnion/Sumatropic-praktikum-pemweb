@@ -1,3 +1,8 @@
+<?php
+session_start();
+// (Opsional) Cek login user
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -17,17 +22,17 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo-group">
-                <img src="../assets/image/Logo.png" alt="SUMATROPIC" class="logo-image">
+                <img src="assets/image/Logo.png" alt="SUMATROPIC" class="logo-image">
                 <span class="logo-text">SUMATROPIC</span>
             </div>
             <div class="nav-links">
-                <a href="../index.php">Beranda</a>
-                <a href="berita.php">Berita</a>
-                <a href="#">Flora</a>
-                <a href="#">Fauna</a>
+                <a href="index.php">Beranda</a>
+                <a href="pages/berita.php">Berita</a>
+                <a href="pages/flora.php">Flora</a>
+                <a href="pages/fauna.php">Fauna</a>
             </div>
             <div class="auth-buttons">
-               <a href="#" class="btn-register">Profile</a>
+                <a href="#" class="btn-register"><i class="fas fa-user"></i> Profile</a>
             </div>
         </div>
     </nav>
@@ -44,7 +49,7 @@
                 </div>
 
                 <div class="form-section">
-                    <form>
+                    <form action="actions/logout.php" method="POST">
                         <div class="form-group">
                             <label>Username</label>
                             <input type="text" value="Yergi Sinaga" readonly>
@@ -59,7 +64,7 @@
                         </div>
 
                         <div class="action-row">
-                            <button type="button" class="btn-logout">Keluar</button>
+                            <button type="submit" class="btn-logout">Keluar</button>
                         </div>
                     </form>
                 </div>

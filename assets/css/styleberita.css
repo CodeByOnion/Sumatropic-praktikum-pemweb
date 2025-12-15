@@ -102,7 +102,6 @@ ul { list-style: none; }
     background-color: var(--primary-green);
     color: white;
     padding: 30px 0;
-    border-top: 4px solid #00aaff; /* Garis biru aksen */
 }
 
 .breadcrumbs {

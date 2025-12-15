@@ -3,7 +3,6 @@ session_start();
 
 // Jika sudah login, langsung redirect
 if (isset($_SESSION['status']) && $_SESSION['status'] === 'login') {
-    // Redirect berdasarkan role
     if ($_SESSION['role'] === 'admin') {
         header("Location: admin/dashboard.php");
     } else {
@@ -24,10 +23,11 @@ if (isset($_SESSION['status']) && $_SESSION['status'] === 'login') {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="assets/css/stylenavbar.css"> <link rel="stylesheet" href="assets/css/stylelogin.css">  <link rel="stylesheet" href="../assets/css/stylefooter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+
+    <link rel="stylesheet" href="assets/css/stylenavbar.css"> 
+    <link rel="stylesheet" href="assets/css/stylelogin.css">  
+    <link rel="stylesheet" href="assets/css/stylefooter.css"> </head>
 
 <body>
 
@@ -52,72 +52,74 @@ if (isset($_SESSION['status']) && $_SESSION['status'] === 'login') {
         </div>
     </nav>
 
-    <div class="container" id="container">
+    <main class="login-wrapper">
+        <div class="container" id="container">
 
-        <div class="form-container sign-up-container">
-            <form action="actions/register_proses.php" method="POST">
-                <h1>Daftar</h1>
-                <p class="subtitle">Bergabung menjadi Sobat Suma dan mulai jelajahi keindahan Flora dan Fauna Sumatra</p>
-                <input type="text" name="username" placeholder="Username" required />
-                <input type="email" name="email" placeholder="Email" required />
-                <input type="password" name="password" placeholder="Password" required />
-                <button class="orange-btn">Daftar</button>
-            </form>
-        </div>
+            <div class="form-container sign-up-container">
+                <form action="actions/register_proses.php" method="POST">
+                    <h1>Daftar</h1>
+                    <p class="subtitle">Bergabung menjadi Sobat Suma dan mulai jelajahi keindahan Flora dan Fauna Sumatra</p>
+                    <input type="text" name="username" placeholder="Username" required />
+                    <input type="email" name="email" placeholder="Email" required />
+                    <input type="password" name="password" placeholder="Password" required />
+                    <button class="orange-btn">Daftar</button>
+                </form>
+            </div>
 
-        <div class="form-container sign-in-container">
-            <form action="actions/login_proses.php" method="POST">
-                <h1>Masuk</h1>
-                <p class="subtitle">Masuk ke akunmu dan lanjutkan menjelajahi keindahan Hutan Sumatra</p>
-                <input type="email" name="email" placeholder="Email" required />
-                <input type="password" name="password" placeholder="Password" required />
-                <button class="orange-btn">Masuk</button>
-            </form>
-        </div>
+            <div class="form-container sign-in-container">
+                <form action="actions/login_proses.php" method="POST">
+                    <h1>Masuk</h1>
+                    <p class="subtitle">Masuk ke akunmu dan lanjutkan menjelajahi keindahan Hutan Sumatra</p>
+                    <input type="email" name="email" placeholder="Email" required />
+                    <input type="password" name="password" placeholder="Password" required />
+                    <button class="orange-btn">Masuk</button>
+                </form>
+            </div>
 
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Halo, Selamat Datang!</h1>
-                    <p>Jika sudah punya akun, klik tombol “Masuk” di bawah ini ya!</p>
-                    <button class="ghost-btn" id="signIn">Masuk</button>
-                </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Halo, Selamat Datang!</h1>
+                        <p>Jika sudah punya akun, klik tombol “Masuk” di bawah ini ya!</p>
+                        <button class="ghost-btn" id="signIn">Masuk</button>
+                    </div>
 
-                <div class="overlay-panel overlay-right">
-                    <h1>Halo, Sobat Suma!</h1>
-                    <p>Jika belum punya akun, klik tombol “Daftar” di bawah ini ya!</p>
-                    <button class="ghost-btn" id="signUp">Daftar</button>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Halo, Sobat Suma!</h1>
+                        <p>Jika belum punya akun, klik tombol “Daftar” di bawah ini ya!</p>
+                        <button class="ghost-btn" id="signUp">Daftar</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <footer>
-        <div class="footer-left">Sumatropic</div>
-        <div class="footer-social">
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-youtube"></i>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">SUMATROPIC</div>
+            <div class="footer-center">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="footer-right">Sumatropic 2025. All right reserved</div>
         </div>
-        <div class="footer-right">Sumatropic 2025. All right reserved</div>
     </footer>
 
     <script>
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
-        
-        // Mengambil elemen tombol dari Navbar Baru
         const navRegister = document.getElementById('nav-register');
         const navLogin = document.getElementById('nav-login');
 
-        // Logic Slider (Tombol di dalam Overlay)
         if (signUpButton && signInButton && container) {
             signUpButton.addEventListener('click', () => container.classList.add("right-panel-active"));
             signInButton.addEventListener('click', () => container.classList.remove("right-panel-active"));
         }
 
-        // Logic Tombol Navbar (Agar tombol Navbar juga memicu animasi slider)
         if (navRegister && navLogin) {
             navRegister.addEventListener('click', () => container.classList.add("right-panel-active"));
             navLogin.addEventListener('click', () => container.classList.remove("right-panel-active"));
