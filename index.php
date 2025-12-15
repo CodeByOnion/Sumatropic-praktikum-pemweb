@@ -26,7 +26,31 @@ $result_news = mysqli_query($conn, $query_news);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="assets/css/stylenavbar.css">
-    <link rel="stylesheet" href="assets/css/style.css">       <link rel="stylesheet" href="assets/css/stylefooter.css">
+    <link rel="stylesheet" href="assets/css/style.css">       
+    <link rel="stylesheet" href="assets/css/stylefooter.css">
+    
+    <style>
+    /* 1. ANIMASI SAAT WEB PERTAMA DIBUKA (Slide Down) */
+    @keyframes slideInFromTop {
+        0% { opacity: 0; transform: translateY(-50px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    body { animation: slideInFromTop 1s ease-out forwards; }
+
+    /* 2. CLASS UNTUK SCROLL REVEAL */
+    .reveal-hidden { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+    .appear { opacity: 1; transform: translateY(0); }
+
+    /* Delay bertingkat untuk kartu berita */
+    .news-card.reveal-hidden:nth-child(1) { transition-delay: 0.1s; }
+    .news-card.reveal-hidden:nth-child(2) { transition-delay: 0.2s; }
+    .news-card.reveal-hidden:nth-child(3) { transition-delay: 0.3s; }
+    .news-card.reveal-hidden:nth-child(4) { transition-delay: 0.4s; }
+
+    /* Container untuk efek 3D mouse */
+    .spotlight-container { perspective: 1000px; }
+    </style>
 </head>
 
 <body>
@@ -91,12 +115,8 @@ $result_news = mysqli_query($conn, $query_news);
 
             <div class="spotlight-container">
                 <div class="spotlight-card">
-                    <h3>
-                        <?= $spotlight ? $spotlight['nama_lokal'] : 'Data Kosong'; ?>
-                    </h3>
-                    <p>
-                        <?= $spotlight ? substr($spotlight['deskripsi'], 0, 150) . '...' : 'Belum ada data.'; ?>
-                    </p>
+                    <h3><?= $spotlight ? $spotlight['nama_lokal'] : 'Data Kosong'; ?></h3>
+                    <p><?= $spotlight ? substr($spotlight['deskripsi'], 0, 150) . '...' : 'Belum ada data.'; ?></p>
                     <a href="pages/fauna.php" class="btn btn-outline-white">Selengkapnya</a>
                 </div>
 
@@ -140,20 +160,14 @@ $result_news = mysqli_query($conn, $query_news);
             <div class="involvement-grid">
                 <a href="pages/volunteer.php">
                     <div class="involve-card">
-                        <img src="assets/image/monyet.jpg" alt="Volunteer">
+                        <img src="assets/image/volunteer.jpg" alt="Volunteer">
                         <h3>Volunteer</h3>
                     </div>
                 </a>
                 <a href="pages/donasi.php">
                     <div class="involve-card">
-                        <img src="assets/image/monyet.jpg" alt="Donasi">
+                        <img src="assets/image/donasi.jpg" alt="Donasi">
                         <h3>Donasi</h3>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="involve-card">
-                        <img src="assets/image/monyet.jpg" alt="Adopsi">
-                        <h3>Adopsi</h3>
                     </div>
                 </a>
             </div>
@@ -171,15 +185,9 @@ $result_news = mysqli_query($conn, $query_news);
                         <div class="news-card">
                             <img src="uploads/berita/<?= $news['gambar']; ?>" alt="News Image">
                             <div class="news-content">
-                                <div class="news-date">
-                                    <?= date('d F Y', strtotime($news['tanggal_tayang'])); ?>
-                                </div>
-                                <div class="news-title">
-                                    <?= $news['judul']; ?>
-                                </div>
-                                <div class="news-desc">
-                                    <?= $news['deskripsi_singkat']; ?>
-                                </div>
+                                <div class="news-date"><?= date('d F Y', strtotime($news['tanggal_tayang'])); ?></div>
+                                <div class="news-title"><?= $news['judul']; ?></div>
+                                <div class="news-desc"><?= $news['deskripsi_singkat']; ?></div>
                             </div>
                         </div>
                     </a>
@@ -206,6 +214,55 @@ $result_news = mysqli_query($conn, $query_news);
             <div class="footer-right">Sumatropic 2025. All right reserved</div>
         </div>
     </footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // --- 1. SCROLL REVEAL ---
+        const revealElements = document.querySelectorAll('.intro-text, .map-img, .spotlight-card, .spotlight-image, .feature-item, .involve-card, .news-card, h2');
+
+        const revealOptions = {
+            threshold: 0.15, 
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, revealOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('appear');
+                    revealOnScroll.unobserve(entry.target); 
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            el.classList.add('reveal-hidden'); 
+            revealOnScroll.observe(el); 
+        });
+
+        // --- 2. 3D TILT EFFECT ---
+        const spotlightContainer = document.querySelector('.spotlight-container');
+        const spotlightCard = document.querySelector('.spotlight-card');
+        
+        if(spotlightContainer && spotlightCard) {
+            spotlightContainer.addEventListener('mousemove', (e) => {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 25; 
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                spotlightCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            });
+
+            spotlightContainer.addEventListener('mouseleave', () => {
+                spotlightCard.style.transform = `rotateY(0deg) rotateX(0deg)`;
+                spotlightCard.style.transition = "all 0.5s ease";
+            });
+            
+            spotlightContainer.addEventListener('mouseenter', () => {
+                spotlightCard.style.transition = "none";
+            });
+        }
+    });
+    </script>
 
 </body>
 </html>

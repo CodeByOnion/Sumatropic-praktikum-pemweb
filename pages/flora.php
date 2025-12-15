@@ -53,6 +53,21 @@ $result = mysqli_query($conn, $query);
     <link rel="stylesheet" href="../assets/css/stylenavbar.css">
     <link rel="stylesheet" href="../assets/css/styleflora.css">
     <link rel="stylesheet" href="../assets/css/stylefooter.css">
+
+    <style>
+        /* Awal: kartu transparan dan turun */
+        .flora-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        /* Akhir: kartu muncul */
+        .flora-card.muncul {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 
 <body>
@@ -178,6 +193,45 @@ $result = mysqli_query($conn, $query);
         </div>
     </footer>
 
-</body>
+    <script>
+        // 1. JS INTERAKTIF NAVBAR
+        const navbar = document.querySelector('.navbar');
+        if(navbar) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.style.backgroundColor = '#1a3c34'; 
+                    navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
+                    navbar.style.transition = 'all 0.3s ease';
+                    navbar.style.padding = '10px 0';
+                } else {
+                    navbar.style.backgroundColor = ''; // Reset CSS
+                    navbar.style.boxShadow = '';
+                    navbar.style.padding = '';
+                }
+            });
+        }
 
+        // 2. JS ANIMASI SCROLL REVEAL FLORA
+        document.addEventListener("DOMContentLoaded", function() {
+            // Target kartu flora
+            const cards = document.querySelectorAll('.flora-card');
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('muncul');
+                        }, 100); 
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+
+</body>
 </html>

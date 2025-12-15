@@ -38,7 +38,25 @@ $result = mysqli_query($conn, $query);
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="stylesheet" href="../assets/css/stylenavbar.css"> <link rel="stylesheet" href="../assets/css/styleberita.css">  <link rel="stylesheet" href="../assets/css/stylefooter.css">  </head>
+    <link rel="stylesheet" href="../assets/css/stylenavbar.css"> 
+    <link rel="stylesheet" href="../assets/css/styleberita.css">  
+    <link rel="stylesheet" href="../assets/css/stylefooter.css">
+    
+    <style>
+        /* Kondisi awal kartu berita: transparan dan agak turun sedikit */
+        .news-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out; /* Durasi animasi */
+        }
+        
+        /* Kondisi saat kartu muncul (ditrigger oleh JS) */
+        .news-card.muncul {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
 
 <body>
 
@@ -151,6 +169,38 @@ $result = mysqli_query($conn, $query);
             <div class="footer-right">Sumatropic 2025. All right reserved</div>
         </div>
     </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Pilih semua elemen kartu berita
+            const cards = document.querySelectorAll('.news-card');
 
+            // Opsi untuk IntersectionObserver (kapan animasi dimulai)
+            const options = {
+                threshold: 0.1 // Animasi mulai saat 10% kartu terlihat
+            };
+
+            // Membuat Observer
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Tambahkan delay sedikit bertahap agar munculnya gantian (efek cascading)
+                        setTimeout(() => {
+                            entry.target.classList.add('muncul');
+                        }, index * 100); // 100ms delay per kartu
+                        
+                        // Stop observe setelah muncul (agar tidak animasi ulang saat scroll naik)
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            // Pasang observer ke setiap kartu
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+    
 </body>
 </html>

@@ -15,7 +15,7 @@ if (isset($_POST['selesaikan'])) {
     // 1. Ambil & Bersihkan Data
     $nama = mysqli_real_escape_string($conn, $_POST['nama']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $nominal = $_POST['nominal']; // Angka (integer)
+    $nominal = $_POST['nominal'];
     $metode = $_POST['metode'];
 
     // 2. Logic Upload Gambar
@@ -28,22 +28,19 @@ if (isset($_POST['selesaikan'])) {
         $ukuran_file = $_FILES['bukti']['size'];
         $ext = pathinfo($nama_file, PATHINFO_EXTENSION);
 
-        // [SECURITY] Validasi Ekstensi File di Server
+        // [SECURITY] Validasi Ekstensi
         $allowed_ext = ['jpg', 'jpeg', 'png', 'heic'];
 
         if (in_array(strtolower($ext), $allowed_ext)) {
-            // [SECURITY] Cek Ukuran File (Backup Server Side Max 5MB)
+            // [SECURITY] Cek Ukuran File (Max 5MB)
             if ($ukuran_file <= 5000000) {
-                // Rename file agar unik (mencegah bentrok nama)
                 $nama_baru = uniqid() . "_bukti." . $ext;
                 $tujuan = "../uploads/bukti_donasi/" . $nama_baru;
 
-                // Buat folder otomatis jika belum ada
                 if (!is_dir("../uploads/bukti_donasi/")) {
                     mkdir("../uploads/bukti_donasi/", 0777, true);
                 }
 
-                // Pindahkan file
                 if (move_uploaded_file($tmp_file, $tujuan)) {
                     $gambar = $nama_baru;
                 }
@@ -55,7 +52,7 @@ if (isset($_POST['selesaikan'])) {
         }
     }
 
-    // 3. Insert ke Database (Hanya jika tidak ada error upload)
+    // 3. Insert ke Database
     if ($error_msg == "") {
         $query = "INSERT INTO donate (nama, email, jumlah_donasi, metode_pembayaran, gambar) 
                   VALUES ('$nama', '$email', '$nominal', '$metode', '$gambar')";
@@ -82,97 +79,79 @@ if (isset($_POST['selesaikan'])) {
 
     <link rel="stylesheet" href="../assets/css/styledonasi1.css">
     <link rel="stylesheet" href="../assets/css/stylenavbar.css">
+    <link rel="stylesheet" href="../assets/css/stylefooter.css">
 
     <style>
-        /* Sembunyikan form asli (Hidden Form) karena kita pakai JS Bridge */
-        #realForm {
-            display: none;
+        /* Sembunyikan form asli (Hidden Form) */
+        #realForm { display: none; }
+
+        /* --- ANIMASI HALUS --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in-anim {
+            animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
-        /* --- LOGIC TAMPILAN (State Management via PHP) --- */
+        /* --- LOGIC TAMPILAN PHP --- */
         <?php if ($success_msg): ?>
-
-        /* Jika Sukses: Sembunyikan Form, Munculkan Pesan Sukses */
-        #section-form,
-        #section-payment {
-            display: none !important;
-        }
-
-        #section-success {
-            display: flex !important;
-        }
-
+            #section-form, #section-payment { display: none !important; }
+            #section-success { display: flex !important; animation: fadeInUp 0.8s ease; }
         <?php else: ?>
-
-        /* Default: Tampilkan Form Awal */
-        #section-success {
-            display: none;
-        }
-
-        #section-payment {
-            display: none;
-        }
-
-        #section-form {
-            display: block;
-        }
-
+            #section-success { display: none; }
+            #section-payment { display: none; }
+            #section-form { display: block; }
         <?php endif; ?>
 
-        /* --- CSS UI UPLOAD --- */
-        .upload-area-wrapper {
-            margin: 25px 0;
-            text-align: center;
-        }
-
-        .upload-label {
-            display: block;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #2F4F28;
-            text-align: left;
-            font-size: 1.1rem;
-        }
-
+        /* --- UI UPLOAD --- */
+        .upload-area-wrapper { margin: 25px 0; text-align: center; }
+        .upload-label { display: block; font-weight: 700; margin-bottom: 12px; color: #2F4F28; text-align: left; font-size: 1.1rem; }
+        
         .upload-box-ui {
-            border: 2px dashed #ccc;
-            padding: 30px;
-            border-radius: 10px;
+            border: 2px dashed #ccc; padding: 30px; border-radius: 10px; cursor: pointer;
+            background: #fdfdfd; transition: all 0.3s ease; display: flex;
+            flex-direction: column; align-items: center; justify-content: center;
+            gap: 10px; color: #666;
+        }
+        
+        .upload-box-ui:hover { border-color: #27ae60; background: #eafaf1; color: #27ae60; }
+        .upload-box-ui i { font-size: 32px; margin-bottom: 5px; }
+        .file-name-display { font-size: 14px; color: #27ae60; font-weight: bold; margin-top: 5px; }
+
+        /* --- TOMBOL KEMBALI YANG BARU --- */
+        .btn-back-style {
+            background-color: transparent;
+            color: #555;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
             cursor: pointer;
-            background: #fdfdfd;
             transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: #666;
-        }
-
-        .upload-box-ui:hover {
-            border-color: #27ae60;
-            background: #eafaf1;
-            color: #27ae60;
-        }
-
-        .upload-box-ui i {
-            font-size: 32px;
-            margin-bottom: 5px;
-        }
-
-        .file-name-display {
+            margin-top: 15px;
+            display: inline-block;
             font-size: 14px;
-            color: #27ae60;
-            font-weight: bold;
-            margin-top: 5px;
         }
 
-        /* --- CSS BUTTON LOADING --- */
-        .btn-finish:disabled {
-            background-color: #999;
-            cursor: not-allowed;
-            opacity: 0.7;
+        .btn-back-style:hover {
+            background-color: #f0f0f0;
+            color: #333;
+            border-color: #aaa;
         }
+
+        /* --- ERROR INPUT VISUAL --- */
+        .input-error {
+            border: 1px solid #e74c3c !important;
+            background-color: #fceae9 !important;
+        }
+
+        /* --- BUTTON LOADING STATE --- */
+        .btn-finish:disabled { background-color: #999; cursor: not-allowed; opacity: 0.7; }
+        
+        /* --- ACTIVE STATE BUTTON --- */
+        .amount-btn:active { transform: scale(0.95); }
     </style>
 </head>
 
@@ -181,7 +160,7 @@ if (isset($_POST['selesaikan'])) {
     <?php require_once "../template/navbar.php"; ?>
 
     <?php if ($error_msg): ?>
-        <div style="background: #ffebee; color: #c62828; padding: 15px; text-align: center; font-weight: bold; margin-bottom: 20px; border-bottom: 1px solid #ef9a9a;">
+        <div class="fade-in-anim" style="background: #ffebee; color: #c62828; padding: 15px; text-align: center; font-weight: bold; margin-bottom: 20px; border-bottom: 1px solid #ef9a9a; margin-top: 80px;">
             <i class="fas fa-exclamation-circle"></i> <?= $error_msg; ?>
         </div>
     <?php endif; ?>
@@ -189,7 +168,7 @@ if (isset($_POST['selesaikan'])) {
     <div id="section-form">
         <header class="hero" style="background-image: url('../assets/image/donasi.jpg');">
             <div class="hero-overlay"></div>
-            <div class="hero-content">
+            <div class="hero-content fade-in-anim">
                 <span class="subtitle">SPOTLIGHT ON</span>
                 <h1>BADAK<br>SUMATRA</h1>
                 <p class="description">The smallest and hairiest species of rhino. Help us protect them before it's too late.</p>
@@ -210,7 +189,7 @@ if (isset($_POST['selesaikan'])) {
                     <p>Kami membutuhkan bantuanmu sekarang. Setiap Rupiah yang kamu donasikan akan langsung digunakan untuk aksi nyata.</p>
                 </div>
 
-                <div class="donation-card">
+                <div class="donation-card fade-in-anim">
                     <h3 class="card-title">Jumlah Donasi</h3>
 
                     <div class="amount-grid">
@@ -231,17 +210,17 @@ if (isset($_POST['selesaikan'])) {
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Nama Depan*</label>
-                                <input type="text" id="input-fname" placeholder="Nama Depan" required>
+                                <input type="text" id="input-fname" placeholder="Nama Depan">
                             </div>
                             <div class="form-group">
                                 <label>Nama Belakang*</label>
-                                <input type="text" id="input-lname" placeholder="Nama Belakang" required>
+                                <input type="text" id="input-lname" placeholder="Nama Belakang">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group" style="width: 100%;">
                                 <label>Email*</label>
-                                <input type="email" id="input-email" placeholder="email@contoh.com" required>
+                                <input type="text" id="input-email" placeholder="email@contoh.com">
                             </div>
                         </div>
                         <button type="submit" class="submit-btn">Lanjut Pembayaran</button>
@@ -252,7 +231,7 @@ if (isset($_POST['selesaikan'])) {
 
         <footer class="site-footer">
             <div class="footer-container">
-                <div class="footer-left">Sumatropic</div>
+                <div class="footer-left">SUMATROPIC</div>
                 <div class="footer-right">Sumatropic 2025. All right reserved</div>
             </div>
         </footer>
@@ -266,7 +245,6 @@ if (isset($_POST['selesaikan'])) {
 
         <div class="payment-page-container">
             <div class="payment-wrapper">
-
                 <div class="payment-info-box">
                     <h3>Ringkasan Donasi</h3>
                     <div class="info-grid">
@@ -277,12 +255,15 @@ if (isset($_POST['selesaikan'])) {
                         <div class="label">Total Donasi</div>
                         <div class="value total-highlight" id="disp-amount">Rp 0</div>
                     </div>
-                    <button id="btn-back" class="text-link">&larr; Kembali Edit Data</button>
+                    
+                    <button id="btn-back" class="btn-back-style">
+                        <i class="fas fa-arrow-left"></i> Kembali Edit Data
+                    </button>
                 </div>
 
                 <div class="payment-methods-box">
                     <h2 class="method-title">Cara Pembayaran</h2>
-
+                    
                     <div class="method-item active" data-method="BCA">
                         <div class="method-header">
                             <div class="bank-logo bca">BCA</div>
@@ -345,7 +326,7 @@ if (isset($_POST['selesaikan'])) {
         <div class="success-page-container">
             <div class="container success-content">
                 <h1 class="success-title">TERIMA KASIH BANYAK ATAS DUKUNGANMU!</h1>
-                <div class="success-card">
+                <div class="success-card fade-in-anim">
                     <p class="success-msg">Kami telah mencatat donasi Anda. Terima kasih telah menjadi pahlawan bagi alam Sumatra.</p>
                     <p class="support-label">CARA LAIN MENDUKUNG KAMI</p>
                     <div class="action-buttons">
@@ -371,12 +352,28 @@ if (isset($_POST['selesaikan'])) {
         <input type="hidden" name="nominal" id="hidden-nominal">
         <input type="hidden" name="metode" id="hidden-metode">
         <input type="hidden" name="selesaikan" value="1">
-
         <input type="file" name="bukti" id="hidden-file-input" accept="image/*" style="display: none;">
     </form>
 
     <script>
-        // --- VARIABLES ---
+        // 1. JS INTERAKTIF NAVBAR
+        const navbar = document.querySelector('.navbar');
+        if(navbar) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.style.backgroundColor = '#1a3c34'; 
+                    navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
+                    navbar.style.transition = 'all 0.3s ease';
+                    navbar.style.padding = '10px 0';
+                } else {
+                    navbar.style.backgroundColor = '';
+                    navbar.style.boxShadow = '';
+                    navbar.style.padding = '';
+                }
+            });
+        }
+
+        // 2. LOGIC DONASI & VALIDASI
         let selectedAmount = 0;
         let selectedMethod = "BCA";
 
@@ -390,13 +387,25 @@ if (isset($_POST['selesaikan'])) {
         const textUploadStatus = document.getElementById('text-upload-status');
         const btnFinish = document.getElementById('btn-finish-payment');
 
-        // --- 1. LOGIC PILIH NOMINAL ---
+        // Inputs
+        const inputFname = document.getElementById('input-fname');
+        const inputLname = document.getElementById('input-lname');
+        const inputEmail = document.getElementById('input-email');
+
+        // Helper: Hapus error saat diketik
+        [inputFname, inputLname, inputEmail].forEach(input => {
+            input.addEventListener('input', () => {
+                input.classList.remove('input-error');
+            });
+        });
+
+        // Pilihan Nominal
         amountBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 amountBtns.forEach(b => b.classList.remove('selected'));
                 btn.classList.add('selected');
                 selectedAmount = parseInt(btn.getAttribute('data-value'));
-                customInput.value = ""; // Reset custom input
+                customInput.value = ""; 
             });
         });
 
@@ -405,35 +414,60 @@ if (isset($_POST['selesaikan'])) {
             selectedAmount = parseInt(e.target.value) || 0;
         });
 
-        // --- 2. TRANSISI LANGKAH 1 -> 2 ---
+        // --- VALIDASI EMAIL & FORMAT ---
+        function isValidEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // --- TRANSISI KE PEMBAYARAN (VALIDASI STEP 1) ---
         document.getElementById('donationFormUI').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Validasi Minimal
+            let isValid = true;
+
+            // 1. Cek Nominal
             if (!selectedAmount || selectedAmount < 10000) {
-                alert("Mohon masukkan donasi minimal Rp 10.000");
-                return;
+                alert("Mohon masukkan donasi minimal Rp 10.000 ya!");
+                isValid = false;
             }
 
-            // Ambil Data dari Form UI
-            const fname = document.getElementById('input-fname').value;
-            const lname = document.getElementById('input-lname').value;
-            const email = document.getElementById('input-email').value;
+            // 2. Cek Input Kosong & Beri Warna Merah
+            if (inputFname.value.trim() === "") {
+                inputFname.classList.add('input-error');
+                isValid = false;
+            }
+            if (inputLname.value.trim() === "") {
+                inputLname.classList.add('input-error');
+                isValid = false;
+            }
+            
+            // 3. Cek Format Email
+            if (inputEmail.value.trim() === "") {
+                inputEmail.classList.add('input-error');
+                isValid = false;
+            } else if (!isValidEmail(inputEmail.value)) {
+                alert("Format email tampaknya salah. Harap gunakan format seperti: nama@email.com");
+                inputEmail.classList.add('input-error');
+                isValid = false;
+            }
 
-            // Format Rupiah
+            if (!isValid) return; // Stop jika ada yang salah
+
+            // JIKA SEMUA BENAR: Lanjut
+            const fullName = inputFname.value + " " + inputLname.value;
             const formattedMoney = "Rp " + selectedAmount.toLocaleString('id-ID');
 
-            // Isi Data ke Tampilan Langkah 2
-            document.getElementById('disp-name').textContent = `: ${fname} ${lname}`;
-            document.getElementById('disp-email').textContent = `: ${email}`;
+            document.getElementById('disp-name').textContent = `: ${fullName}`;
+            document.getElementById('disp-email').textContent = `: ${inputEmail.value}`;
             document.getElementById('disp-amount').textContent = `: ${formattedMoney}`;
-
-            // Update semua display tagihan
             document.querySelectorAll('.display-total-tagihan').forEach(el => el.textContent = formattedMoney);
 
-            // Ganti Halaman
+            // Ganti Section dengan Animasi
             sectionForm.style.display = 'none';
             sectionPayment.style.display = 'block';
+            sectionPayment.classList.add('fade-in-anim');
+            
             window.scrollTo(0, 0);
         });
 
@@ -441,9 +475,10 @@ if (isset($_POST['selesaikan'])) {
         document.getElementById('btn-back').addEventListener('click', () => {
             sectionPayment.style.display = 'none';
             sectionForm.style.display = 'block';
+            sectionForm.classList.add('fade-in-anim');
         });
 
-        // --- 3. PILIH METODE BAYAR ---
+        // Pilihan Metode
         const methodItems = document.querySelectorAll('.method-item');
         methodItems.forEach(item => {
             const header = item.querySelector('.method-header');
@@ -454,28 +489,29 @@ if (isset($_POST['selesaikan'])) {
             });
         });
 
-        // --- 4. LOGIC UPLOAD GAMBAR (DENGAN CEK 5MB) ---
+        // Upload Gambar
         triggerUploadBtn.addEventListener('click', () => hiddenFileInput.click());
 
         hiddenFileInput.addEventListener('change', function() {
             if (this.files && this.files[0]) {
                 const myFile = this.files[0];
-                const sizeInMB = myFile.size / 1024 / 1024; // Byte -> MB
+                const sizeInMB = myFile.size / 1024 / 1024; 
+                const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/heic'];
 
-                // CEK UKURAN: Maksimal 5MB
-                if (sizeInMB > 5) {
-                    alert("Maaf, ukuran file terlalu besar (Max 5MB). Silakan pilih foto lain atau kompres dulu.");
-                    this.value = ""; // Batalkan upload
-
-                    // Reset UI
-                    fileNameShow.textContent = "";
-                    textUploadStatus.style.display = 'block';
-                    triggerUploadBtn.style.borderColor = '#ccc';
-                    triggerUploadBtn.style.backgroundColor = '#fdfdfd';
+                // Validasi Tipe File
+                if (!validTypes.includes(myFile.type)) {
+                    alert("Format file tidak didukung! Harap upload gambar (JPG/PNG).");
+                    this.value = "";
                     return;
                 }
 
-                // JIKA VALID
+                // Validasi Ukuran
+                if (sizeInMB > 5) {
+                    alert("Maaf, ukuran file terlalu besar (Max 5MB).");
+                    this.value = ""; 
+                    return;
+                }
+
                 fileNameShow.textContent = "File terpilih: " + myFile.name + " (" + sizeInMB.toFixed(2) + " MB)";
                 textUploadStatus.style.display = 'none';
                 triggerUploadBtn.style.borderColor = '#27ae60';
@@ -487,34 +523,28 @@ if (isset($_POST['selesaikan'])) {
             }
         });
 
-        // --- 5. SUBMIT FINAL KE SERVER ---
+        // --- SUBMIT FINAL (VALIDASI STEP 2) ---
         btnFinish.addEventListener('click', () => {
-            // Validasi: Wajib Upload
+            // Cek apakah file sudah diupload
             if (hiddenFileInput.files.length === 0) {
-                alert("Mohon upload bukti pembayaran terlebih dahulu!");
+                alert("Mohon upload bukti pembayaran terlebih dahulu agar donasi dapat diverifikasi.");
+                triggerUploadBtn.style.borderColor = "#e74c3c"; // Merah
                 return;
             }
 
-            // UX: Kunci tombol (Loading State) agar tidak klik ganda
             btnFinish.textContent = "Sedang Memproses...";
             btnFinish.disabled = true;
             btnFinish.style.backgroundColor = "#999";
 
-            // Siapkan Data untuk Hidden Form
-            const fname = document.getElementById('input-fname').value;
-            const lname = document.getElementById('input-lname').value;
-            const fullName = fname + " " + lname;
-            const email = document.getElementById('input-email').value;
+            const fullName = inputFname.value + " " + inputLname.value;
 
             document.getElementById('hidden-nama').value = fullName;
-            document.getElementById('hidden-email').value = email;
+            document.getElementById('hidden-email').value = inputEmail.value;
             document.getElementById('hidden-nominal').value = selectedAmount;
             document.getElementById('hidden-metode').value = selectedMethod;
 
-            // KIRIM FORM ASLI!
             document.getElementById('realForm').submit();
         });
     </script>
 </body>
-
 </html>
