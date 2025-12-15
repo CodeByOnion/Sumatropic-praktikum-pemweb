@@ -2,20 +2,38 @@
 session_start();
 require '../config/connect.php';
 
-// --- LOGIC FILTERING ---
-$where = "";
-$search_query = "";
+// --- LOGIC PENCARIAN & FILTER MULTIPLE ---
+$where_clauses = [];
 
-if (isset($_GET['cari'])) {
+// 1. Cek Pencarian Teks
+if (isset($_GET['cari']) && !empty($_GET['cari'])) {
     $search_query = mysqli_real_escape_string($conn, $_GET['cari']);
-    $where = "WHERE nama_lokal LIKE '%$search_query%' OR nama_ilmiah LIKE '%$search_query%'";
+    $where_clauses[] = "(nama_lokal LIKE '%$search_query%' OR nama_ilmiah LIKE '%$search_query%')";
+} else {
+    $search_query = "";
 }
 
-// Logic Sortir
-$order = "ORDER BY created_at DESC";
+// 2. Cek Filter Status Konservasi
+if (isset($_GET['status']) && !empty($_GET['status'])) {
+    $status_filter = mysqli_real_escape_string($conn, $_GET['status']);
+    $where_clauses[] = "status_konservasi = '$status_filter'";
+}
 
-// Ambil data
-$query = "SELECT * FROM flora $where $order";
+// 3. Cek Filter Wilayah (Provinsi)
+if (isset($_GET['provinsi']) && !empty($_GET['provinsi'])) {
+    $provinsi_filter = mysqli_real_escape_string($conn, $_GET['provinsi']);
+    $where_clauses[] = "asal_provinsi = '$provinsi_filter'";
+}
+
+// Gabungkan semua kondisi dengan AND
+$where_sql = "";
+if (count($where_clauses) > 0) {
+    $where_sql = "WHERE " . implode(' AND ', $where_clauses);
+}
+
+// Order & Eksekusi
+$order = "ORDER BY created_at DESC";
+$query = "SELECT * FROM flora $where_sql $order";
 $result = mysqli_query($conn, $query);
 ?>
 
@@ -76,24 +94,26 @@ $result = mysqli_query($conn, $query);
                     <input type="text" name="cari" placeholder="Cari nama flora...." class="search-input" value="<?= htmlspecialchars($search_query) ?>">
 
                     <div class="filter-row">
-                        <select class="filter-select">
-                            <option><b>Status Konservasi</b></option>
-                            <option>Critically Endangered</option>
-                            <option>Endangered</option>
-                            <option>Vulnerable</option>
-                            <option>Near Threatened</option>
-                            <option>Least Concern</option>
+                        <select name="status" class="filter-select" onchange="this.form.submit()">
+                            <option value="">Status Konservasi</option>
+                            <?php
+                            $statuses = ['Tumbuhan dan Satwa Tidak Dilindungi', 'Tumbuhan dan Satwa Dilindungi', 'Tumbuhan dan Satwa Punah'];
+                            foreach ($statuses as $st) {
+                                $selected = (isset($_GET['status']) && $_GET['status'] == $st) ? 'selected' : '';
+                                echo "<option value='$st' $selected>$st</option>";
+                            }
+                            ?>
                         </select>
-                        <select class="filter-select">
-                            <option><b>Wilayah</b></option>
-                            <option>Aceh</option>
-                            <option>Sumatra Utara</option>
-                            <option>Sumatra Barat</option>
-                            <option>Riau</option>
-                            <option>Jambi</option>
-                            <option>Sumatra Selatan</option>
-                            <option>Bengkulu</option>
-                            <option>Lampung</option>
+
+                        <select name="provinsi" class="filter-select" onchange="this.form.submit()">
+                            <option value="">Wilayah</option>
+                            <?php
+                            $provinsis = ['Aceh', 'Sumatra Utara', 'Sumatra Barat', 'Riau', 'Jambi', 'Sumatra Selatan', 'Bengkulu', 'Lampung'];
+                            foreach ($provinsis as $pv) {
+                                $selected = (isset($_GET['provinsi']) && $_GET['provinsi'] == $pv) ? 'selected' : '';
+                                echo "<option value='$pv' $selected>$pv</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                 </form>

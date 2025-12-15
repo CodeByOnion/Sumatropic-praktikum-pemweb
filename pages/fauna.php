@@ -2,17 +2,38 @@
 session_start();
 require '../config/connect.php';
 
-// --- LOGIC PENCARIAN & FILTER ---
-$where = "";
-$search_query = "";
+// --- LOGIC PENCARIAN & FILTER MULTIPLE ---
+$where_clauses = [];
 
-if (isset($_GET['cari'])) {
+// 1. Cek Pencarian Teks
+if (isset($_GET['cari']) && !empty($_GET['cari'])) {
     $search_query = mysqli_real_escape_string($conn, $_GET['cari']);
-    $where = "WHERE nama_lokal LIKE '%$search_query%' OR nama_ilmiah LIKE '%$search_query%'";
+    $where_clauses[] = "(nama_lokal LIKE '%$search_query%' OR nama_ilmiah LIKE '%$search_query%')";
+} else {
+    $search_query = "";
 }
 
+// 2. Cek Filter Status Konservasi
+if (isset($_GET['status']) && !empty($_GET['status'])) {
+    $status_filter = mysqli_real_escape_string($conn, $_GET['status']);
+    $where_clauses[] = "status_konservasi = '$status_filter'";
+}
+
+// 3. Cek Filter Wilayah (Provinsi)
+if (isset($_GET['provinsi']) && !empty($_GET['provinsi'])) {
+    $provinsi_filter = mysqli_real_escape_string($conn, $_GET['provinsi']);
+    $where_clauses[] = "asal_provinsi = '$provinsi_filter'";
+}
+
+// Gabungkan semua kondisi dengan AND
+$where_sql = "";
+if (count($where_clauses) > 0) {
+    $where_sql = "WHERE " . implode(' AND ', $where_clauses);
+}
+
+// Order & Eksekusi
 $order = "ORDER BY created_at DESC";
-$query = "SELECT * FROM fauna $where $order";
+$query = "SELECT * FROM fauna $where_sql $order";
 $result = mysqli_query($conn, $query);
 ?>
 
@@ -73,25 +94,26 @@ $result = mysqli_query($conn, $query);
                     <input type="text" name="cari" placeholder="Cari nama fauna...." class="search-input" value="<?= htmlspecialchars($search_query) ?>">
 
                     <div class="filter-row">
-                        <select class="filter-select">
-                            <option><b>Status Konservasi</b></option>
-                            <option>Extinct</option>
-                            <option>Critically Endangered</option>
-                            <option>Endangered</option>
-                            <option>Vulnerable</option>
-                            <option>Near Threatened</option>
-                            <option>Least Concern</option>
+                        <select name="status" class="filter-select" onchange="this.form.submit()">
+                            <option value="">Status Konservasi</option>
+                            <?php
+                            $statuses = ['Tumbuhan dan Satwa Tidak Dilindungi', 'Tumbuhan dan Satwa Dilindungi', 'Tumbuhan dan Satwa Punah'];
+                            foreach ($statuses as $st) {
+                                $selected = (isset($_GET['status']) && $_GET['status'] == $st) ? 'selected' : '';
+                                echo "<option value='$st' $selected>$st</option>";
+                            }
+                            ?>
                         </select>
-                        <select class="filter-select">
-                            <option><b>Wilayah</b></option>
-                            <option>Aceh</option>
-                            <option>Sumatra Utara</option>
-                            <option>Sumatra Barat</option>
-                            <option>Riau</option>
-                            <option>Jambi</option>
-                            <option>Sumatra Selatan</option>
-                            <option>Bengkulu</option>
-                            <option>Lampung</option>
+
+                        <select name="provinsi" class="filter-select" onchange="this.form.submit()">
+                            <option value="">Wilayah</option>
+                            <?php
+                            $provinsis = ['Aceh', 'Sumatra Utara', 'Sumatra Barat', 'Riau', 'Jambi', 'Sumatra Selatan', 'Bengkulu', 'Lampung'];
+                            foreach ($provinsis as $pv) {
+                                $selected = (isset($_GET['provinsi']) && $_GET['provinsi'] == $pv) ? 'selected' : '';
+                                echo "<option value='$pv' $selected>$pv</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                 </form>
@@ -106,7 +128,7 @@ $result = mysqli_query($conn, $query);
                         $reverse_class = ($counter % 2 == 0) ? 'reverse' : '';
 
                         // Logic Status Color (Merah jika Kritis/Punah)
-                        $status_class = ($row['status_konservasi'] == 'Punah' || $row['status_konservasi'] == 'Kritis') ? 'critical' : '';
+                        $status_class = ($row['status_konservasi'] == 'Punah' || $row['status_konservasi'] == 'Critically Endangered') ? 'critical' : '';
                 ?>
 
                         <article class="fauna-card <?= $reverse_class ?>">
@@ -122,8 +144,6 @@ $result = mysqli_query($conn, $query);
                                     <span class="sci-name" style="font-style: italic; margin-right: 15px;"><?= $row['nama_ilmiah'] ?></span>
                                     <span class="location"><i class="fas fa-map-marker-alt"></i> <?= $row['asal_provinsi'] ?></span>
                                 </div>
-
-
 
                                 <div class="fauna-desc">
                                     <p><?= nl2br(substr($row['deskripsi'], 0, 300)) ?>...</p>
