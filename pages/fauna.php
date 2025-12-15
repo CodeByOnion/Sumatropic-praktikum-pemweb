@@ -71,7 +71,7 @@ $result = mysqli_query($conn, $query);
                     <input type="text" name="cari" placeholder="Cari nama fauna...." class="search-input" value="<?= htmlspecialchars($search_query) ?>">
 
                     <div class="filter-row">
-                         <select class="filter-select">
+                        <select class="filter-select">
                             <option><b>Status Konservasi</b></option>
                             <option>Extinct</option>
                             <option>Extinct in the Wild</option>
@@ -82,7 +82,7 @@ $result = mysqli_query($conn, $query);
                             <option>Data Deficient</option>
                             <option>Not Evaluated</option>
                         </select>
-                        <select class="filter-select"> 
+                        <select class="filter-select">
                             <option><b>Wilayah</b></option>
                             <option>Aceh</option>
                             <option>Sumatra Utara</option>

@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['status']) || $_SESSION['status'] !== 'login') {
+    header("Location: ../login_register.php");
+    exit;
+}
 require '../config/connect.php';
 
 // --- LOGIC PHP: PROSES DONASI ---

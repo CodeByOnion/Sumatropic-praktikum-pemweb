@@ -89,10 +89,6 @@ img {
     text-transform: uppercase;
 }
 
-.auth-buttons {
-    display: flex;
-    gap: 15px;
-}
 
 /* --- HERO SECTION --- */
 .hero {
@@ -108,7 +104,7 @@ img {
 }
 
 .hero-content {
-    max-width: 600px;
+    max-width: 900px;
 }
 
 .hero h1 {
