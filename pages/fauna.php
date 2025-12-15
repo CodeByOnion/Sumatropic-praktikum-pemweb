@@ -6,17 +6,12 @@ require '../config/connect.php';
 $where = "";
 $search_query = "";
 
-// Jika ada input pencarian
 if (isset($_GET['cari'])) {
     $search_query = mysqli_real_escape_string($conn, $_GET['cari']);
-    // Mencari berdasarkan nama lokal atau nama ilmiah
     $where = "WHERE nama_lokal LIKE '%$search_query%' OR nama_ilmiah LIKE '%$search_query%'";
 }
 
-// Logic Sortir (Default terbaru)
 $order = "ORDER BY created_at DESC";
-
-// Ambil data dari tabel FAUNA
 $query = "SELECT * FROM fauna $where $order";
 $result = mysqli_query($conn, $query);
 ?>
@@ -28,37 +23,60 @@ $result = mysqli_query($conn, $query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumatropic - Fauna</title>
-    <link rel="stylesheet" href="../assets/css/stylenavbar.css">
-    <link rel="stylesheet" href="../assets/css/stylefauna.css">
-    <link rel="stylesheet" href="../assets/css/stylefooter.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
+
+    <link rel="stylesheet" href="../assets/css/stylenavbar.css"> <link rel="stylesheet" href="../assets/css/stylefauna.css">   <link rel="stylesheet" href="../assets/css/stylefooter.css">  </head>
 
 <body>
-    <?php require_once "../template/navbar.php"; ?>
 
-    <header class="hero-fauna" style="background-image: url('../assets/image/beo.jpg');">
-        <div class="hero-overlay">
-            <div class="container hero-content">
-                <span class="spotlight-text">SPOTLIGHT ON</span>
-                <h1 class="hero-title">BEO NIAS</h1>
-                <p class="hero-subtitle">known for its striking appearance<br>and vocal abilities</p>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-group">
+                <img src="../assets/image/Logo.png" alt="SUMATROPIC" class="logo-image">
+                <span class="logo-text">SUMATROPIC</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="../index.php">Beranda</a>
+                <a href="berita.php">Berita</a>
+                <a href="flora.php">Flora</a>
+                <a href="fauna.php" class="active">Fauna</a>
+            </div>
+
+            <div class="auth-buttons">
+                <a href="../login_register.php" class="btn-login" style="text-decoration:none;">Masuk</a>
+                <a href="../login_register.php" class="btn-register" style="text-decoration:none;">Daftar</a>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <section class="fauna-intro-strip">
-        <div class="container">
-            <div class="breadcrumb">Beranda > Fauna</div>
-            <h2>Fauna</h2>
-            <p class="intro-desc">
-                Kenali ragam satwa unik mulai dari raja hutan hingga burung-burung eksotis yang mewarnai langit Sumatra.
-            </p>
-        </div>
-    </section>
+    <main>
+        
+        <header class="hero-fauna" style="background-image: url('../assets/image/beo.jpg');">
+            <div class="hero-overlay">
+                <div class="container hero-content">
+                    <span class="spotlight-text">SPOTLIGHT ON</span>
+                    <h1 class="hero-title">BEO NIAS</h1>
+                    <p class="hero-subtitle">known for its striking appearance<br>and vocal abilities</p>
+                </div>
+            </div>
+        </header>
 
-    <main class="main-content">
-        <div class="container">
+        <section class="fauna-intro-strip">
+            <div class="container">
+                <div class="breadcrumb">Beranda > Fauna</div>
+                <h2>Fauna</h2>
+                <p class="intro-desc" style="font-size: 1rem; opacity: 0.9;">
+                    Kenali ragam satwa unik mulai dari raja hutan hingga burung-burung eksotis yang mewarnai langit Sumatra.
+                </p>
+            </div>
+        </section>
+
+        <div class="container main-content">
 
             <div class="search-section">
                 <div class="search-header">
@@ -74,13 +92,11 @@ $result = mysqli_query($conn, $query);
                          <select class="filter-select">
                             <option><b>Status Konservasi</b></option>
                             <option>Extinct</option>
-                            <option>Extinct in the Wild</option>
                             <option>Critically Endangered</option>
+                            <option>Endangered</option>
                             <option>Vulnerable</option>
                             <option>Near Threatened</option>
                             <option>Least Concern</option>
-                            <option>Data Deficient</option>
-                            <option>Not Evaluated</option>
                         </select>
                         <select class="filter-select"> 
                             <option><b>Wilayah</b></option>
@@ -92,51 +108,50 @@ $result = mysqli_query($conn, $query);
                             <option>Sumatra Selatan</option>
                             <option>Bengkulu</option>
                             <option>Lampung</option>
-                            <option>Kepulauan Riau</option>
-                            <option>Bangka Belitung</option>
                         </select>
                     </div>
                 </form>
             </div>
 
             <div class="fauna-list">
-
                 <?php
-                $counter = 1; // Untuk menghitung urutan ganjil/genap
-
+                $counter = 1; 
                 if (mysqli_num_rows($result) > 0):
                     while ($row = mysqli_fetch_assoc($result)):
-                        // Logic Zig-Zag: Jika angka genap, tambah class "reverse"
+                        // Logic Zig-Zag
                         $reverse_class = ($counter % 2 == 0) ? 'reverse' : '';
-
-                        // Logic warna badge status (opsional)
+                        
+                        // Logic Status Color (Merah jika Kritis/Punah)
                         $status_class = ($row['status_konservasi'] == 'Punah' || $row['status_konservasi'] == 'Kritis') ? 'critical' : '';
                 ?>
 
                         <article class="fauna-card <?= $reverse_class ?>">
-                            <div class="card-image-wrapper" style="flex: 0 0 45%; position: relative;">
+                            <div class="card-image-wrapper">
                                 <span class="status-badge <?= $status_class ?>"><?= $row['status_konservasi'] ?></span>
-                                <img src="../uploads/fauna/<?= $row['gambar'] ?>" alt="<?= $row['nama_lokal'] ?>" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                                <img src="../uploads/fauna/<?= $row['gambar'] ?>" alt="<?= $row['nama_lokal'] ?>">
                             </div>
 
                             <div class="card-info">
                                 <div class="info-header">
                                     <h3 class="fauna-name"><?= $row['nama_lokal'] ?></h3>
 
-                                    <div class="meta-row"> <span class="sci-name" style="font-style: italic; margin-right: 15px;"><?= $row['nama_ilmiah'] ?></span>
+                                    <div class="meta-row"> 
+                                        <span class="sci-name" style="font-style: italic; margin-right: 15px;"><?= $row['nama_ilmiah'] ?></span>
                                         <span class="location"><i class="fas fa-map-marker-alt"></i> <?= $row['asal_provinsi'] ?></span>
                                     </div>
                                     <div class="underline"></div>
                                 </div>
 
                                 <div class="fauna-desc">
-                                    <p><?= nl2br(substr($row['deskripsi'], 0, 700)) ?>...</p>
+                                    <p><?= nl2br(substr($row['deskripsi'], 0, 600)) ?>...</p>
                                 </div>
+                                <br>
+                                <a href="#" style="color: white; text-decoration: underline; font-size: 0.9rem;">Lihat Detail &rarr;</a>
                             </div>
                         </article>
 
                     <?php
-                        $counter++; // Tambah counter
+                        $counter++; 
                     endwhile;
                 else:
                     ?>
@@ -146,20 +161,19 @@ $result = mysqli_query($conn, $query);
         </div>
     </main>
 
-    <footer>
-        <div class="container footer-container">
-            <div class="footer-logo">Sumatropic</div>
-            <div class="socials">
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-tiktok"></i>
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-youtube"></i>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">SUMATROPIC</div>
+            <div class="footer-center">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
-            <div class="copyright">Sumatropic 2025. All right reserved</div>
+            <div class="footer-right">Sumatropic 2025. All right reserved</div>
         </div>
     </footer>
 
 </body>
-
 </html>
