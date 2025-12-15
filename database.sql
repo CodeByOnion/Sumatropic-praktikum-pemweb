@@ -69,4 +69,4 @@ CREATE TABLE donate(
 
 -- 6. Insert Akun Admin (Password: admin123)
 INSERT INTO users (username, email, password, role) 
-VALUES ('Admin', 'admin@sumatropic.com', 'admin 123', 'admin');
+VALUES ('Admin', 'admin@sumatropic.com', '$2y$10$jh3SNdlVuJhs90OOm9R.9OnARj422Vwlmi1asNFYLQX/SE38OMsWq', 'admin');

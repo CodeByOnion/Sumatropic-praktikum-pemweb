@@ -105,6 +105,39 @@ if (isset($_POST['simpan'])) {
     <meta charset="UTF-8">
     <title><?= $is_edit ? 'Edit Volunteer' : 'Tambah Volunteer'; ?></title>
     <link rel="stylesheet" href="../assets/css/styledashboard.css">
+    <style>
+        .form-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .preview {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            padding: 5px;
+            width: 100px;
+        }
+    </style>
 </head>
 
 <body>
